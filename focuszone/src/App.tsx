@@ -7,7 +7,6 @@ import ProfilePage from "@/page/profile/page.tsx";
 import CafeList from "@/page/cafelist/page.tsx";
 
 function App() {
-
   return (
     <>
         <Routes>

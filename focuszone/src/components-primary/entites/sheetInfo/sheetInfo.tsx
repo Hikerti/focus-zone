@@ -1,64 +1,70 @@
 import {SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet.tsx";
 import AvatarComponent from "@/components-primary/shared/ui/avatar.tsx";
 import ContactInfo from "@/components-primary/entites/contactInfo/ContactInfo.tsx";
-import { useReadFetcher } from "@/helpers/hooks/useGetFetcher";
+import { useGetUser } from "@/helpers/store/storeUser";
 import { FindError } from "@/helpers/functions/findError";
 import { FindLoading } from "@/helpers/functions/findLoading";
-import { UserFullData } from "@/helpers/interface/interface";
+import { useEffect } from "react";
 
 const SheetInfo = () => {
 
-    const {data, isError, isPending} = useReadFetcher<UserFullData>({
-        url: 'http://localhost:4000/user/get_user/f95a4700-1adc-422a-8ebe-d8533ba75fa6',
-        method: 'get',
-        queryKey: 'get_user'
-    })
+    const {users, isError, isPending, getUser} = useGetUser()
 
+    useEffect(() => {
+        getUser()
+    }, [getUser])
+        
     FindError(isError)
     FindLoading(isPending)
 
+    if (isPending || isError || users.length === 0) {
+        return null;
+      }
+    
+      const user = users[0];
+
     return (
         <>
-            <SheetTrigger asChild>
-                <div className="flex h-full justify-center items-center cursor-pointer gap-4">
-                    <AvatarComponent></AvatarComponent>
-                    <div className='flex flex-col '>
-                        <p className='text-white !text-[12px]'>{data?.name + " " + data?.surname}</p>
-                        <p className='text-white !text-[12px]'>@{data?.login}</p>
-                    </div>
-                </div>
-            </SheetTrigger>
-            <SheetContent>
-                <SheetHeader>
-                    <SheetTitle>
-                        <div className="flex h-full flex-col justify-center gap-2">
-                            <AvatarComponent size={'w-[100px] h-[100px]'}></AvatarComponent>
-                            <div className="w-full flex justify-between">
-                                <div className="flex flex-col">
-                                    <h4 className='text-zinc-900'>{data?.name + " " + data?.surname}</h4>
-                                    <h4 className='text-zinc-900'>@{data?.login}</h4>
-                                    <ContactInfo
-                                        email={data?.email}
-                                        adress={data?.adress}
-                                        phone={data?.phone}
-                                    >
-                                    </ContactInfo>
-                                </div>
-                            </div> 
+                <SheetTrigger asChild>
+                    <div className="flex h-full justify-center items-center cursor-pointer gap-4">
+                        <AvatarComponent></AvatarComponent>
+                        <div className='flex flex-col '>
+                            <p className='text-white !text-[12px]'>{user.name + " " + user.surname}</p>
+                            <p className='text-white !text-[12px]'>@{user.login}</p>
                         </div>
-                    </SheetTitle>
-                    <div>
-                        <h2 className='text-4xl mt-4'>О себе</h2>
-                        <p>
-                            {data?.description}
-                        </p>
                     </div>
-                </SheetHeader>
-                <SheetFooter>
-                    <SheetClose asChild>
-                    </SheetClose>
-                </SheetFooter>
-            </SheetContent>
+                </SheetTrigger>
+                <SheetContent>
+                    <SheetHeader>
+                        <SheetTitle>
+                            <div className="flex h-full flex-col justify-center gap-2">
+                                <AvatarComponent size={'w-[100px] h-[100px]'}></AvatarComponent>
+                                <div className="w-full flex justify-between">
+                                    <div className="flex flex-col">
+                                        <h4 className='text-zinc-900'>{user.name + " " + user.surname}</h4>
+                                        <h4 className='text-zinc-900'>@{user.login}</h4>
+                                        <ContactInfo
+                                            email={user.email}
+                                            adress={user.adress}
+                                            phone={user.phone}
+                                        >
+                                        </ContactInfo>
+                                    </div>
+                                </div> 
+                            </div>
+                        </SheetTitle>
+                        <div>
+                            <h2 className='text-4xl mt-4'>О себе</h2>
+                            <p>
+                                {users[0].description}
+                            </p>
+                        </div>
+                    </SheetHeader>
+                    <SheetFooter>
+                        <SheetClose asChild>
+                        </SheetClose>
+                    </SheetFooter>
+                </SheetContent>
         </>
     );
 };
