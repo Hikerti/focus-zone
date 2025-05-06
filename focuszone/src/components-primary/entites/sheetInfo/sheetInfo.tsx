@@ -1,16 +1,30 @@
 import {SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet.tsx";
 import AvatarComponent from "@/components-primary/shared/ui/avatar.tsx";
 import ContactInfo from "@/components-primary/entites/contactInfo/ContactInfo.tsx";
+import { useReadFetcher } from "@/helpers/hooks/useGetFetcher";
+import { FindError } from "@/helpers/functions/findError";
+import { FindLoading } from "@/helpers/functions/findLoading";
+import { UserFullData } from "@/helpers/interface/interface";
 
 const SheetInfo = () => {
+
+    const {data, isError, isPending} = useReadFetcher<UserFullData>({
+        url: 'http://localhost:4000/user/get_user/f95a4700-1adc-422a-8ebe-d8533ba75fa6',
+        method: 'get',
+        queryKey: 'get_user'
+    })
+
+    FindError(isError)
+    FindLoading(isPending)
+
     return (
         <>
             <SheetTrigger asChild>
                 <div className="flex h-full justify-center items-center cursor-pointer gap-4">
                     <AvatarComponent></AvatarComponent>
                     <div className='flex flex-col '>
-                        <p className='text-white !text-[12px]'>Роман Аникаев</p>
-                        <p className='text-white !text-[12px]'>@Hikerti</p>
+                        <p className='text-white !text-[12px]'>{data?.name + " " + data?.surname}</p>
+                        <p className='text-white !text-[12px]'>@{data?.login}</p>
                     </div>
                 </div>
             </SheetTrigger>
@@ -21,17 +35,22 @@ const SheetInfo = () => {
                             <AvatarComponent size={'w-[100px] h-[100px]'}></AvatarComponent>
                             <div className="w-full flex justify-between">
                                 <div className="flex flex-col">
-                                    <h4 className='text-zinc-900'>Роман Аникаев</h4>
-                                    <h4 className='text-zinc-900'>@Hikerti</h4>
-                                    <ContactInfo></ContactInfo>
+                                    <h4 className='text-zinc-900'>{data?.name + " " + data?.surname}</h4>
+                                    <h4 className='text-zinc-900'>@{data?.login}</h4>
+                                    <ContactInfo
+                                        email={data?.email}
+                                        adress={data?.adress}
+                                        phone={data?.phone}
+                                    >
+                                    </ContactInfo>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                     </SheetTitle>
                     <div>
                         <h2 className='text-4xl mt-4'>О себе</h2>
                         <p>
-                            Я создатель блаблабла
+                            {data?.description}
                         </p>
                     </div>
                 </SheetHeader>

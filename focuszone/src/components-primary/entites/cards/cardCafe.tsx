@@ -5,11 +5,19 @@ import LinkToMap from "@/components-primary/shared/ui/linkToMap.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import { toast } from "sonner"
 import {Heart} from "lucide-react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import { CardCafeProps } from "./interface";
+import { useUpdateFavourite } from "./hooks/useUpdateFavourite";
 
-const CardCafe = () => {
+const CardCafe = ({id, style, title, adress, imageUrl, description, favourites, createdAt}: CardCafeProps) => {
     const navigate = useNavigate();
-    const [like, setLike] = useState<boolean>(false);
+    const [like, setLike] = useState<boolean>(favourites);
+
+    const { mutate } = useUpdateFavourite();
+
+    useEffect(() => {
+        mutate({ id: id.toString(), favourites: like });
+    }, [like])
 
     const ChangeLike = () => {
         if (!like) (
@@ -25,7 +33,7 @@ const CardCafe = () => {
     }
 
     return (
-        <div className="flex flex-col items-center w-9/10">
+        <div className={`${style} flex flex-col items-center`}>
             <Card className="w-full">
                 <CardHeader>
                     <CardTitle className='flex items-center gap-2'>
@@ -36,21 +44,22 @@ const CardCafe = () => {
                             </Avatar>
                         </Link>
                         <div className='flex flex-col justify-between'>
-                            <Link to='/profile' className='text-zinc-900'>Ход дог бульдог</Link>
-                            <LinkToMap theme={'dark'} content={'г. Москва, Ленина 38'}></LinkToMap>
+                            <Link to='/profile' className='text-zinc-900'>{title}</Link>
+                            <LinkToMap theme={'dark'} content={adress}></LinkToMap>
+                            <p className="text-zinc-900">{createdAt}</p>
                         </div>
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="w-full h-full flex flex-col gap-4">
-                    <div className='w-full h-[500px] flex items-center justify-center bg-zinc-800 rounded-lg'>
-                        <p className='text-white'>Фото кофе</p>
+                    <div className='w-full h-[600px] flex items-center justify-center rounded-lg'>
+                        <img className="w-full h-full rounded-xl" src={imageUrl} alt="img" />
                     </div>
                     <div className='flex gap-2'>
                         <Button
                             className='cursor-pointer'
                             onClick={() =>
                                 toast("Success", {
-                                    description: "Это место добавлено в список меток на карте",
+                                    description: `${description}`,
                                     action: {
                                         label: "Карта",
                                         onClick: () => navigate("/map"),

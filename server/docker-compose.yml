@@ -36,8 +36,10 @@ services:
       DATABASE_USER: postgres
       DATABASE_PASSWORD: Roman13_D14AR
       DATABASE_NAME: cafe_db
+      DATABASE_URL: postgresql://Roman13_D14AR:postgres@db:5432/cafe_db
       REDIS_HOST: redis
-      REDIS_PORT: 6379    
+      REDIS_PORT: 6379  
+    command: sh -c "npx prisma migrate dev --name init && npm run start:dev"  
   
 volumes:
   pgdata:
