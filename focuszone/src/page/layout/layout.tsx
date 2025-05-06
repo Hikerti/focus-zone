@@ -8,7 +8,7 @@ const Layout = () => {
     return (
         <>
             <Header></Header>
-            <main className='w-[100%] relative z-20 flex flex-col'>
+            <main className='w-[100%] relative z-20 flex flex-col items-center'>
                 <Outlet />
             </main>
             <Toaster />

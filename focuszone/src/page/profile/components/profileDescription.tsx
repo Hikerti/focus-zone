@@ -7,11 +7,13 @@ export default function ProfileDescription({email, adress, description, phone}: 
     return (
       <>
         <div className="h-full flex flex-col justify-between">
-            <LinkToEmail theme={'dark'} content={email}></LinkToEmail>
-            <LinkToMap theme={'dark'} content={adress}></LinkToMap>
-            <LinkToTel theme={'dark'} content={phone}></LinkToTel>
+            <h4>Контактная информация</h4>
+            <LinkToEmail size={28} theme={'dark'} content={email}></LinkToEmail>
+            <LinkToMap size={28} theme={'dark'} content={adress}></LinkToMap>
+            <LinkToTel size={28} theme={'dark'} content={phone}></LinkToTel>
         </div>
-        <div>
+        <div className="flex flex-col gap-4">
+            <h3>Информация обо мне</h3>
             {description}
         </div>
       </>

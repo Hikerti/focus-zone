@@ -25,46 +25,48 @@ const SheetInfo = () => {
 
     return (
         <>
-                <SheetTrigger asChild>
-                    <div className="flex h-full justify-center items-center cursor-pointer gap-4">
-                        <AvatarComponent></AvatarComponent>
-                        <div className='flex flex-col '>
-                            <p className='text-white !text-[12px]'>{user.name + " " + user.surname}</p>
-                            <p className='text-white !text-[12px]'>@{user.login}</p>
-                        </div>
+            <SheetTrigger asChild>
+                <div className="flex h-full justify-center items-center cursor-pointer gap-4">
+                    <AvatarComponent></AvatarComponent>
+                    <div className='flex flex-col '>
+                        <p className='text-white !text-[12px]'>{user.name + " " + user.surname}</p>
+                        <p className='text-white !text-[12px]'>@{user.login}</p>
                     </div>
-                </SheetTrigger>
-                <SheetContent>
-                    <SheetHeader>
-                        <SheetTitle>
-                            <div className="flex h-full flex-col justify-center gap-2">
+                </div>
+            </SheetTrigger>
+            <SheetContent>
+                <SheetHeader>
+                    <SheetTitle>
+                        <div className="flex h-full flex-col justify-center gap-2">
+                            <div className="flex gap-4">
                                 <AvatarComponent size={'w-[100px] h-[100px]'}></AvatarComponent>
-                                <div className="w-full flex justify-between">
-                                    <div className="flex flex-col">
-                                        <h4 className='text-zinc-900'>{user.name + " " + user.surname}</h4>
-                                        <h4 className='text-zinc-900'>@{user.login}</h4>
-                                        <ContactInfo
-                                            email={user.email}
-                                            adress={user.adress}
-                                            phone={user.phone}
-                                        >
-                                        </ContactInfo>
-                                    </div>
-                                </div> 
+                                <div>
+                                    <h4 className='text-zinc-900'>{user.name + " " + user.surname}</h4>
+                                    <h4 className='text-zinc-900'>@{user.login}</h4>
+                                </div>
                             </div>
-                        </SheetTitle>
-                        <div>
-                            <h2 className='text-4xl mt-4'>О себе</h2>
-                            <p>
-                                {users[0].description}
-                            </p>
+                            <div className="flex flex-col">
+                                <ContactInfo
+                                    email={user.email}
+                                    adress={user.adress}
+                                    phone={user.phone}
+                                >
+                                </ContactInfo>
+                            </div>
                         </div>
-                    </SheetHeader>
-                    <SheetFooter>
-                        <SheetClose asChild>
-                        </SheetClose>
-                    </SheetFooter>
-                </SheetContent>
+                    </SheetTitle>
+                    <div>
+                        <h2 className='text-4xl mt-4'>О себе</h2>
+                        <p>
+                            {user.description}
+                        </p>
+                    </div>
+                </SheetHeader>
+                <SheetFooter>
+                    <SheetClose asChild>
+                    </SheetClose>
+                </SheetFooter>
+            </SheetContent>
         </>
     );
 };

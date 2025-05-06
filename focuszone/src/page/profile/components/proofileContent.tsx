@@ -27,7 +27,7 @@ export default function ProfileContent() {
         {!isPending && !isError &&
             (
                 <>
-                    <div className="w-8/10 flex flex-col justify-center">
+                    <section className="w-9/10 flex flex-col justify-center mt-20 gap-8">
                         <ProfileHeader
                             name={user.name}
                             surname={user.surname}
@@ -41,7 +41,7 @@ export default function ProfileContent() {
                             description={user.description}
                         >
                         </ProfileDescription>
-                    </div>
+                    </section>
                 </>
             )
         }

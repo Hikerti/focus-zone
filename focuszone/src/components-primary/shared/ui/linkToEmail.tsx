@@ -1,17 +1,17 @@
 import {Mail} from "lucide-react";
-import {LinkToEmailProps} from "@/components-primary/shared/ui/interface/interface.ts";
+import { Link } from "./interface/interface";
 
-const LinkToEmail = ({theme, content}: LinkToEmailProps) => {
+const LinkToEmail = ({theme, content, size}: Link) => {
     return (
         <a
             href={`mailto:` + content}
             className='flex items-center gap-2'
             target='_blank'
         >
-            <Mail size={16} className={`${theme == 'dark' ? "text-zinc-900" : "text-white "} mt-1`}/>
+            <Mail size={size} className={`${theme == 'dark' ? "text-zinc-900" : "text-white "} mt-1`}/>
             <span
 
-                className={`${theme == 'dark' ? "text-zinc-900" : "text-white "} text-[16px]`}
+                className={`${theme == 'dark' ? "text-zinc-900" : "text-white "} text-[${size}px]`}
             >
                 {content}
             </span>

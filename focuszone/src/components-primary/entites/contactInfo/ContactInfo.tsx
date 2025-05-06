@@ -7,9 +7,9 @@ const ContactInfo = ({email, adress, phone}: ContactInfoProps) => {
     return (
         <div className='flex flex-col gap-2 mt-4'>
             <h3>Контактная информация</h3>
-            <LinkToEmail theme={'dark'} content={email}></LinkToEmail>
-            <LinkToMap theme={'dark'} content={adress}></LinkToMap>
-            <LinkToTel theme={'dark'} content={phone}></LinkToTel>
+            <LinkToEmail size={16} theme={'dark'} content={email}></LinkToEmail>
+            <LinkToMap size={16} theme={'dark'} content={adress}></LinkToMap>
+            <LinkToTel size={16} theme={'dark'} content={phone}></LinkToTel>
         </div>
     );
 };

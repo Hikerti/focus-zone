@@ -3,7 +3,7 @@ import {Button} from "@/components/ui/button.tsx";
 export default function SectionHello() {
     return (
       <>
-        <section>
+        <section className="w-full">
             <div className="flex flex-col items-center justify-center h-[92vh] gap-8">
                 <div className='flex flex-col items-center justify-center gap-2'>
                     <h2>

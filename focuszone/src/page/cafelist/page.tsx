@@ -1,10 +1,12 @@
 import CafeListContent from "@/page/cafelist/components/cafeListContent.tsx";
+import { FilterCards } from "./components/filterCards";
 
 const CafeList = () => {
     return (
-        <div>
+        <section className="flex flex-col mt-4">
+            <FilterCards></FilterCards>
             <CafeListContent></CafeListContent>
-        </div>
+        </section>
     );
 };
 
