@@ -79,7 +79,7 @@ export class AuthService {
                         new InternalServerErrorException('Не удалось сохранить сессию')
                     )
                 }
-                res({user})
+                res({...user})
                 res({accessToken})
             })
         })

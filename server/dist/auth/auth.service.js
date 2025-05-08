@@ -70,7 +70,7 @@ let AuthService = class AuthService {
                 if (err) {
                     return reject(new common_1.InternalServerErrorException('Не удалось сохранить сессию'));
                 }
-                res({ user });
+                res({ ...user });
                 res({ accessToken });
             });
         });

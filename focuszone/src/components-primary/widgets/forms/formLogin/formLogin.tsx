@@ -67,6 +67,7 @@ const FormLogin = () => {
                                     <FormLabel className='text-white'>Email</FormLabel>
                                     <FormControl>
                                         <Input
+                                            className='text-white'
                                             type='email'
                                             {...field}
                                             placeholder='xxx@mail.ru'
@@ -87,6 +88,7 @@ const FormLogin = () => {
                                     <FormLabel className='text-white'>Пароль</FormLabel>
                                     <FormControl>
                                         <Input
+                                            className='text-white'
                                             type='password'
                                             {...field}
                                             placeholder='1234567'

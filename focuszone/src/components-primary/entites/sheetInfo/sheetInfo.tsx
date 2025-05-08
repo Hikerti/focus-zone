@@ -26,8 +26,8 @@ const SheetInfo = () => {
             </div>
         );
     }
+    const user = users[0]
 
-    const user = users[0]?.user;
 
     return (
         <>
