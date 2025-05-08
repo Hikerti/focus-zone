@@ -1,17 +1,12 @@
 import { useGetUser } from "@/helpers/store/storeUser";
 import ProfileDescription from "./profileDescription";
 import ProfileHeader from "./profileHeader";
-import { useEffect } from "react";
 import { FindError } from "@/helpers/functions/findError";
 import { FindLoading } from "@/helpers/functions/findLoading";
 
 export default function ProfileContent() {
 
-    const {users, isError, isPending, getUser} = useGetUser()
-
-    useEffect(() => {
-        getUser()
-    }, [])
+    const {users, isError, isPending} = useGetUser()
 
     FindError(isError)
     FindLoading(isPending)
@@ -24,27 +19,20 @@ export default function ProfileContent() {
 
     return (
       <>
-        {!isPending && !isError &&
-            (
-                <>
-                    <section className="w-9/10 flex flex-col justify-center mt-20 gap-8">
-                        <ProfileHeader
-                            name={user.name}
-                            surname={user.surname}
-                            login={user.login}
-                        > 
-                        </ProfileHeader> 
-                        <ProfileDescription
-                            email={user.email}
-                            adress={user.adress}
-                            phone={user.phone}
-                            description={user.description}
-                        >
-                        </ProfileDescription>
-                    </section>
-                </>
-            )
-        }
+          <section className="w-9/10 flex flex-col justify-center mt-10 gap-8 bg-zinc-300 rounded-xl p-4">
+              <ProfileHeader
+                  name={user.name}
+                  surname={user.surname}
+                  login={user.login}>
+              </ProfileHeader>
+              <ProfileDescription
+                  email={user.email}
+                  adress={user.adress}
+                  phone={user.phone}
+                  description={user.description}
+              >
+              </ProfileDescription>
+          </section>
       </>
     );
   }

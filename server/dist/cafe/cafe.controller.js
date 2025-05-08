@@ -25,6 +25,9 @@ let CafeController = class CafeController {
     getCafe() {
         return this.cafeService.getCardCafe();
     }
+    filter_card(filter) {
+        return this.cafeService.filterCards(filter);
+    }
     createCafe(dto) {
         return this.cafeService.createCardCafe(dto);
     }
@@ -42,6 +45,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], CafeController.prototype, "getCafe", null);
+__decorate([
+    (0, common_1.Get)('card_filter/:filter'),
+    __param(0, (0, common_1.Param)('filter')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], CafeController.prototype, "filter_card", null);
 __decorate([
     (0, common_1.Post)('create'),
     __param(0, (0, common_1.Body)()),

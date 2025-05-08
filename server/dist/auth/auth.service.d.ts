@@ -12,19 +12,7 @@ export declare class AuthService {
     private config;
     constructor(userService: UserService, prisma: PrismaService, jwt: JwtService, config: ConfigService);
     register(req: Request, dto: UserCreateDto): Promise<unknown>;
-    login(req: Request, dto: LoginDto): Promise<{
-        description: string | null;
-        id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        name: string;
-        email: string;
-        password: string;
-        adress: string | null;
-        phone: string | null;
-        surname: string;
-        login: string;
-    }>;
+    login(req: Request, dto: LoginDto): Promise<unknown>;
     logout(req: Request, res: Response): Promise<void>;
     private saveSeccion;
 }

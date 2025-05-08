@@ -49,7 +49,9 @@ export class AuthService {
             throw new NotFoundException('Неверный пароль')
         }
 
-        return user
+        const payload = { sub: user.id, email: user.email }
+        const accessToken = this.jwt.sign(payload);
+        return this.saveSeccion(req, accessToken, user)
     }
 
     public async logout(req: Request, res: Response): Promise<void> {
@@ -57,14 +59,13 @@ export class AuthService {
           req.session.destroy((err) => {
             if (err) {
               return reject(
-                new InternalServerErrorException('Не удалось завершить сессию'),
+                new InternalServerErrorException('Не удалось завершить сессию')
               );
             }
+            console.log('Session destroyed:', req.sessionID);
 
-            res.clearCookie(this.config.getOrThrow<string>('SESSION_NAME'));
-            res.clearCookie('jwt');
-            res.clearCookie('connect.sid')
-            resolve()
+            res.clearCookie(this.config.getOrThrow<string>('SESSION_NAME'), { path: '/' });
+            res.status(200).json({ message: 'Сессия завершена'});
           });
         });
       }
@@ -72,14 +73,12 @@ export class AuthService {
         return new Promise((res, reject) => {
             req.session.userId = user.id
             req.session.jwt = accessToken
-
             req.session.save(err => {
                 if(err) {
                     return reject(
                         new InternalServerErrorException('Не удалось сохранить сессию')
                     )
                 }
-
                 res({user})
                 res({accessToken})
             })

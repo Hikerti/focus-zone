@@ -23,12 +23,12 @@ export default function CaruselCafe() {
 
     return (
       <>
-        <section className="flex flex-col items-center justify-center px-20 gap-4">
+        <section className="flex w-full flex-col items-center justify-center px-20 gap-4">
             <div className="flex w-full items-start">
                 <h2 className="text-zinc-900">Топ лучших мест</h2>
             </div>
             <Carousel className="w-full">
-            <CarouselContent>
+            <CarouselContent className="w-1/2">
             {
                 data?.map(elem => (
                     <CarouselItem key={elem.id}>

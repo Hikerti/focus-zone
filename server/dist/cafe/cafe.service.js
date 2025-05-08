@@ -43,6 +43,25 @@ let CafeService = class CafeService {
             where: { id }
         });
     }
+    async filterCards(filter) {
+        if (filter == "favorites") {
+            return await this.prisma.cardsCafe.findMany({
+                where: {
+                    favourites: true
+                },
+            });
+        }
+        if (filter == "date") {
+            return await this.prisma.cardsCafe.findMany({
+                orderBy: {
+                    createdAt: 'desc'
+                }
+            });
+        }
+        if (filter == "none") {
+            return this.getCardCafe();
+        }
+    }
 };
 exports.CafeService = CafeService;
 exports.CafeService = CafeService = __decorate([

@@ -38,4 +38,26 @@ export class CafeService {
         }
         )
     }
+
+    async filterCards(filter: string) {
+        if (filter == "favorites") {
+            return await this.prisma.cardsCafe.findMany({
+                where: {
+                    favourites: true
+                }, 
+            })
+        } 
+
+        if (filter == "date") {
+            return await this.prisma.cardsCafe.findMany({
+                orderBy: {
+                    createdAt: 'desc'
+                }
+            })
+        }
+
+        if (filter == "none") {
+            return this.getCardCafe()
+        }
+    }
 }

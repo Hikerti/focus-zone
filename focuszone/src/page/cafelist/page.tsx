@@ -3,7 +3,7 @@ import { FilterCards } from "./components/filterCards";
 
 const CafeList = () => {
     return (
-        <section className="flex flex-col mt-4">
+        <section className="flex w-9/10 flex-col mt-10">
             <FilterCards></FilterCards>
             <CafeListContent></CafeListContent>
         </section>

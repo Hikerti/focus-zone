@@ -12,6 +12,11 @@ export class CafeController {
     return this.cafeService.getCardCafe()
   }
 
+  @Get('card_filter/:filter') 
+  filter_card(@Param('filter') filter: string) {
+    return this.cafeService.filterCards(filter)
+  }
+
   @Post('create')
   createCafe(@Body() dto: CreateCartDto) {
     return this.cafeService.createCardCafe(dto)

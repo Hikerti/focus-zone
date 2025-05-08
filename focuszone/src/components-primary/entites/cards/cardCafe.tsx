@@ -46,7 +46,7 @@ const CardCafe = ({id, style, title, adress, imageUrl, description, favourites, 
                         <div className='flex flex-col justify-between'>
                             <Link to='/profile' className='text-zinc-900'>{title}</Link>
                             <LinkToMap theme={'dark'} content={adress}></LinkToMap>
-                            <p className="text-zinc-900">{createdAt}</p>
+                            <p className="text-zinc-900">Дата: {createdAt?.slice(2, 10)}</p>
                         </div>
                     </CardTitle>
                 </CardHeader>

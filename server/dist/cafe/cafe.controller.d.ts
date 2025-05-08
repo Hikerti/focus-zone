@@ -14,6 +14,16 @@ export declare class CafeController {
         createdAt: Date;
         updatedAt: Date;
     }[]>;
+    filter_card(filter: string): Promise<{
+        title: string;
+        description: string | null;
+        address: string;
+        imageUrl: string | null;
+        favourites: boolean;
+        id: number;
+        createdAt: Date;
+        updatedAt: Date;
+    }[] | undefined>;
     createCafe(dto: CreateCartDto): Promise<{
         title: string;
         description: string | null;
