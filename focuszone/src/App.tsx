@@ -5,6 +5,7 @@ import Layout from "@/page/layout/layout.tsx";
 import MapPage from "@/page/map/page.tsx";
 import ProfilePage from "@/page/profile/page.tsx";
 import CafeList from "@/page/cafelist/page.tsx";
+import CafeSinglePage from "@/page/cafeSinglePage/cafeSinglePage.tsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                 <Route path="map" element={<MapPage />} />
                 <Route path="profile" element={<ProfilePage />} />
                 <Route path="cafelist" element={<CafeList />} />
+                <Route path="cafelist/:id" element={<CafeSinglePage/>}/>
             </Route>
         </Routes>
     </>

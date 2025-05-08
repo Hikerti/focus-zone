@@ -8,7 +8,7 @@ import {
   } from "@/components/ui/carousel"
 import { FindError } from "@/helpers/functions/findError";
 import { FindLoading } from "@/helpers/functions/findLoading";
-import { useReadFetcher } from "@/helpers/hooks/useGetFetcher";
+import { useReadFetcher } from "@/helpers/hooks/useReadFetcher.ts";
 import { Card } from "@/page/cafelist/interface/interface";
 export default function CaruselCafe() {
 

@@ -14,6 +14,16 @@ export declare class CafeService {
         createdAt: Date;
         updatedAt: Date;
     }[]>;
+    getCardCafeById(id: number): Promise<{
+        title: string;
+        description: string | null;
+        address: string;
+        imageUrl: string | null;
+        favourites: boolean;
+        id: number;
+        createdAt: Date;
+        updatedAt: Date;
+    } | null>;
     createCardCafe(dto: CreateCartDto): Promise<{
         title: string;
         description: string | null;

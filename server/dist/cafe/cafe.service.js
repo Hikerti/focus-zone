@@ -20,6 +20,13 @@ let CafeService = class CafeService {
     async getCardCafe() {
         return await this.prisma.cardsCafe.findMany();
     }
+    async getCardCafeById(id) {
+        return await this.prisma.cardsCafe.findUnique({
+            where: {
+                id
+            }
+        });
+    }
     async createCardCafe(dto) {
         return await this.prisma.cardsCafe.create({
             data: {

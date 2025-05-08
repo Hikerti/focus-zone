@@ -12,6 +12,11 @@ export class CafeController {
     return this.cafeService.getCardCafe()
   }
 
+    @Get('get_by_id/:id')
+    getCafeById(@Param('id') id: string) {
+        return this.cafeService.getCardCafeById(Number(id))
+    }
+
   @Get('card_filter/:filter') 
   filter_card(@Param('filter') filter: string) {
     return this.cafeService.filterCards(filter)

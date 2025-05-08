@@ -11,6 +11,14 @@ export class CafeService {
         return await this.prisma.cardsCafe.findMany()
     }
 
+    async getCardCafeById(id: number) {
+        return await this.prisma.cardsCafe.findUnique({
+            where: {
+                id
+            }
+        })
+    }
+
     async createCardCafe(dto: CreateCartDto) {
         return await this.prisma.cardsCafe.create({
             data: {
