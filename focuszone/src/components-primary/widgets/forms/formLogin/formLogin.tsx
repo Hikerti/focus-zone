@@ -10,13 +10,19 @@ import {
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import {Input} from "@/components/ui/input.tsx";
 import {Button} from "@/components/ui/button.tsx";
+
 import {useMutation} from "@tanstack/react-query";
+
 import {UserLogin} from "@/components-primary/widgets/forms/interface/interface.ts";
 import {LoginUser} from "@/components-primary/widgets/forms/function/loginUser.ts";
+
 import {useGetUser} from "@/helpers/store/storeUser.ts";
 import {UserFullData} from "@/helpers/interface/interface.ts";
+import { useState } from "react";
+import { Eye, EyeClosed } from "lucide-react";
 
 const formSchema = z.object({
     password: z.string().min(8, "Пароль должен состоять из минимум 8 символов"),
@@ -24,6 +30,8 @@ const formSchema = z.object({
 })
 
 const FormLogin = () => {
+    const [passwortVisible, setPasswordVisible] = useState<boolean>(false)
+
     const setUser = useGetUser(state => state.setUser);
 
     const form = useForm<UserLogin>({
@@ -84,18 +92,25 @@ const FormLogin = () => {
                             control={form.control}
                             name="password"
                             render={({ field }) => (
-                                <FormItem>
+                                <FormItem className="relative">
                                     <FormLabel className='text-white'>Пароль</FormLabel>
                                     <FormControl>
                                         <Input
                                             className='text-white'
-                                            type='password'
+                                            type={!passwortVisible ? 'password' : 'text'}
                                             {...field}
                                             placeholder='1234567'
                                         >
-
                                         </Input>
                                     </FormControl>
+                                    <span className='absolute bottom-[6px] right-2'>
+                                            {passwortVisible 
+                                            ?
+                                            <Eye className="text-white" onClick={() => setPasswordVisible(!passwortVisible)} />
+                                            :
+                                            <EyeClosed className="text-white" onClick={() => setPasswordVisible(!passwortVisible)} />
+                                            }
+                                    </span>
                                     <FormMessage></FormMessage>
                                 </FormItem>
                             )}

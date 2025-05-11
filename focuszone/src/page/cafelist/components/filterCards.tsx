@@ -16,11 +16,13 @@ export const FilterCards = () => {
 
     const [filter, setFilter] = useState<string>('none')
     const setCards = useCafeGet((state) => state.setCards)
+    const limit = useCafeGet(state => state.limit)
+    const page = useCafeGet(state => state.page)
 
     const { data, isPending, isError } = useReadFetcher<Card[]>({
-        url: `http://localhost:4000/cafe/card_filter/${filter}`,
+        url: `http://localhost:4000/cafe/card_filter/${filter}/${page}/${limit}`,
         method: "get",
-        queryKey: `cafe_card_${filter}`,
+        queryKey: `cafe_card_${filter}_${page}_${limit}`,
     });
 
     useEffect(() => {
@@ -31,8 +33,6 @@ export const FilterCards = () => {
             setCards(data)
         }
     }, [data, isPending, isError, setCards])
-
-    
 
     return (
         <div className="flex w-full">

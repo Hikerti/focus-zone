@@ -10,6 +10,7 @@ export declare class CafeController {
         address: string;
         imageUrl: string | null;
         favourites: boolean;
+        rating: string;
         id: number;
         createdAt: Date;
         updatedAt: Date;
@@ -20,26 +21,41 @@ export declare class CafeController {
         address: string;
         imageUrl: string | null;
         favourites: boolean;
+        rating: string;
         id: number;
         createdAt: Date;
         updatedAt: Date;
     } | null>;
-    filter_card(filter: string): Promise<{
+    filter_card(filter: string, page: string, limit: string): Promise<{
         title: string;
         description: string | null;
         address: string;
         imageUrl: string | null;
         favourites: boolean;
+        rating: string;
         id: number;
         createdAt: Date;
         updatedAt: Date;
     }[] | undefined>;
+    getCafePage(limit: number, page: number): Promise<{
+        title: string;
+        description: string | null;
+        address: string;
+        imageUrl: string | null;
+        favourites: boolean;
+        rating: string;
+        id: number;
+        createdAt: Date;
+        updatedAt: Date;
+    }[]>;
+    getCafeLength(): Promise<number>;
     createCafe(dto: CreateCartDto): Promise<{
         title: string;
         description: string | null;
         address: string;
         imageUrl: string | null;
         favourites: boolean;
+        rating: string;
         id: number;
         createdAt: Date;
         updatedAt: Date;
@@ -50,6 +66,7 @@ export declare class CafeController {
         address: string;
         imageUrl: string | null;
         favourites: boolean;
+        rating: string;
         id: number;
         createdAt: Date;
         updatedAt: Date;
@@ -60,6 +77,7 @@ export declare class CafeController {
         address: string;
         imageUrl: string | null;
         favourites: boolean;
+        rating: string;
         id: number;
         createdAt: Date;
         updatedAt: Date;

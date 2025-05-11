@@ -18,6 +18,8 @@ import {RegistrationUser} from "@/components-primary/widgets/forms/function/regi
 import {UserRegistration} from "@/components-primary/widgets/forms/interface/interface.ts";
 import {useGetUser} from "@/helpers/store/storeUser.ts";
 import {UserFullData} from "@/helpers/interface/interface.ts";
+import { useState } from "react";
+import { Eye, EyeClosed } from "lucide-react";
 
 const phoneRegex = /^(\+7|8)\s?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/;
 
@@ -34,6 +36,7 @@ const formSchema = z.object({
 
 const FormRegistration = () => {
     const setUser = useGetUser(state => state.setUser)
+    const [passwortVisible, setPasswordVisible] = useState<boolean>(false)
 
     const form = useForm<UserRegistration>({
         resolver: zodResolver(formSchema),
@@ -71,7 +74,7 @@ const FormRegistration = () => {
              <Form {...form}>
                  <form
                      onSubmit={form.handleSubmit(onSubmit)}
-                     className='w-full bg-zinc-900 flex flex-col gap-4 px-4 py-5 rounded-xl'
+                     className='w-full bg-zinc-900 flex flex-col gap-4 px-4 py-4 rounded-xl'
                  >
                      <h3 className='text-white'>Введите свои данные</h3>
                      <FormField
@@ -160,20 +163,27 @@ const FormRegistration = () => {
                          control={form.control}
                          name="password"
                          render={({ field }) => (
-                             <FormItem>
-                                 <FormLabel className='text-white'>Пароль</FormLabel>
-                                 <FormControl>
-                                     <Input
-                                         className='text-white'
-                                         type='password'
-                                         {...field}
-                                         placeholder='1234567'
-                                     >
-
-                                     </Input>
-                                 </FormControl>
-                                 <FormMessage></FormMessage>
-                             </FormItem>
+                            <FormItem className="relative">
+                            <FormLabel className='text-white'>Пароль</FormLabel>
+                            <FormControl>
+                                <Input
+                                    className='text-white'
+                                    type={!passwortVisible ? 'password' : 'text'}
+                                    {...field}
+                                    placeholder='1234567'
+                                >
+                                </Input>
+                            </FormControl>
+                            <span className='absolute bottom-[6px] right-2'>
+                                    {passwortVisible 
+                                    ?
+                                    <Eye className="text-white" onClick={() => setPasswordVisible(!passwortVisible)} />
+                                    :
+                                    <EyeClosed className="text-white" onClick={() => setPasswordVisible(!passwortVisible)} />
+                                    }
+                            </span>
+                            <FormMessage></FormMessage>
+                        </FormItem>
                          )}
                      />
 

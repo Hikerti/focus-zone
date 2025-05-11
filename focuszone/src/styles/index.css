@@ -167,3 +167,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+li {
+    content: none;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}

@@ -19,4 +19,8 @@ export class CreateCartDto {
     @IsString({message: "Поле favourites должно быть строкой"})
     @IsOptional()
     favourites?: boolean
+
+    @IsString({message: "Поле rating должно быть строкой"})
+    @IsOptional()
+    rating?: string
 }

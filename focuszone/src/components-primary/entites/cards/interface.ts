@@ -6,5 +6,6 @@ export interface CardCafeProps {
     imageUrl: string
     description?: string
     favourites: boolean
+    rating: string
     createdAt?: string
 }

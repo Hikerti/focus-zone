@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { FileTypeValidator, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateCartDto } from './dto/CreateCart.dto';
 import { UpdateCartDto } from './dto/UpdateCart.dto';
@@ -21,12 +21,7 @@ export class CafeService {
 
     async createCardCafe(dto: CreateCartDto) {
         return await this.prisma.cardsCafe.create({
-            data: {
-                title: dto.title,
-                description: dto.description,
-                address: dto.address,
-                imageUrl: dto.imageUrl
-            }
+            data: dto
         })
     }
 
@@ -47,25 +42,60 @@ export class CafeService {
         )
     }
 
-    async filterCards(filter: string) {
+    async filterCards(filter: string, limit: number, page: number) {
+        const fullLimit = (limit * page) + 1
+        const FirstLimit = ((page - 1) * limit)
+
+        const whereClause = page === 1
+            ? {id: {lt: fullLimit}}
+            : {id: {gt: FirstLimit, lt: fullLimit}}
+
         if (filter == "favorites") {
             return await this.prisma.cardsCafe.findMany({
-                where: {
+                where:
+                {
+                    ...whereClause,
                     favourites: true
-                }, 
+                },
+                orderBy: {
+                    id: 'asc'
+                }
             })
         } 
 
         if (filter == "date") {
             return await this.prisma.cardsCafe.findMany({
+                where: whereClause,
                 orderBy: {
-                    createdAt: 'desc'
+                    createdAt: 'desc',
                 }
             })
         }
 
         if (filter == "none") {
-            return this.getCardCafe()
+            return this.getCafePage(limit, page)
         }
+    }
+
+    async getCafePage(limit: number, page: number) {
+        const fullLimit = (limit * page) + 1
+        const FirstLimit = ((page - 1) * limit)
+
+        const whereClause = page === 1
+        ? {id: {lt: fullLimit}}
+        : {id: {gt: FirstLimit, lt: fullLimit}}
+
+        return await this.prisma.cardsCafe.findMany({
+            where: whereClause,
+            orderBy: {
+                id: 'asc'
+            }
+        })
+    }
+
+    async getCardCafeLenght() {
+        const data = await this.prisma.cardsCafe.findMany()
+
+        return data.length
     }
 }

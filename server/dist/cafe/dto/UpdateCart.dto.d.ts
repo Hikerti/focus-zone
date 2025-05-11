@@ -4,4 +4,5 @@ export declare class UpdateCartDto {
     address?: string;
     imageUrl?: string;
     favourites?: boolean;
+    rating?: string;
 }

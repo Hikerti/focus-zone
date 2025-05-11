@@ -20,4 +20,8 @@ export class UpdateCartDto {
     @IsBoolean({message: "Поле favourites должно быть boolean"})
     @IsOptional()
     favourites?: boolean
+
+    @IsString({message: "Поле rating должно быть строкой"})
+    @IsOptional()
+    rating?: string
 }

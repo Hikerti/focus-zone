@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { CafeService } from './cafe.service';
 import { CreateCartDto } from './dto/CreateCart.dto';
 import { UpdateCartDto } from './dto/UpdateCart.dto';
@@ -12,14 +12,31 @@ export class CafeController {
     return this.cafeService.getCardCafe()
   }
 
-    @Get('get_by_id/:id')
-    getCafeById(@Param('id') id: string) {
-        return this.cafeService.getCardCafeById(Number(id))
-    }
+  @Get('get_by_id/:id')
+  getCafeById(@Param('id') id: string) {
+      return this.cafeService.getCardCafeById(Number(id))
+  }
 
-  @Get('card_filter/:filter') 
-  filter_card(@Param('filter') filter: string) {
-    return this.cafeService.filterCards(filter)
+  @Get('card_filter/:filter/:page/:limit')
+  filter_card(
+      @Param('filter') filter: string,
+      @Param('page') page: string,
+      @Param('limit') limit: string,
+  ) {
+    return this.cafeService.filterCards(filter, Number(limit), Number(page));
+  }
+
+  @Get('card_pagination/:page/:limit')
+  getCafePage(
+    @Param('limit', ParseIntPipe) limit: number, 
+    @Param('page', ParseIntPipe) page: number
+  ) {
+    return this.cafeService.getCafePage(limit, page)
+  }
+
+  @Get('cards_length')
+  getCafeLength() {
+      return this.cafeService.getCardCafeLenght()
   }
 
   @Post('create')

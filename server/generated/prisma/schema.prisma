@@ -20,8 +20,8 @@ model CardsCafe {
   description String?
   address     String
   imageUrl    String?
-
-  favourites Boolean @default(false)
+  rating      String  @default("Нет")
+  favourites  Boolean @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -44,4 +44,16 @@ model User {
   updatedAt DateTime @updatedAt
 
   @@map("user")
+}
+
+model Message {
+  id      Int    @id @default(autoincrement())
+  userId  String
+  cafeId  Int
+  content String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("message")
 }

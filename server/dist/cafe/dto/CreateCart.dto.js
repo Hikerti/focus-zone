@@ -17,6 +17,7 @@ class CreateCartDto {
     address;
     imageUrl;
     favourites;
+    rating;
 }
 exports.CreateCartDto = CreateCartDto;
 __decorate([
@@ -42,4 +43,9 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Boolean)
 ], CreateCartDto.prototype, "favourites", void 0);
+__decorate([
+    (0, class_validator_1.IsString)({ message: "Поле rating должно быть строкой" }),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", String)
+], CreateCartDto.prototype, "rating", void 0);
 //# sourceMappingURL=CreateCart.dto.js.map

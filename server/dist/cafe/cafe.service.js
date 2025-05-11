@@ -29,12 +29,7 @@ let CafeService = class CafeService {
     }
     async createCardCafe(dto) {
         return await this.prisma.cardsCafe.create({
-            data: {
-                title: dto.title,
-                description: dto.description,
-                address: dto.address,
-                imageUrl: dto.imageUrl
-            }
+            data: dto
         });
     }
     async updateField(id, dto) {
@@ -50,24 +45,51 @@ let CafeService = class CafeService {
             where: { id }
         });
     }
-    async filterCards(filter) {
+    async filterCards(filter, limit, page) {
+        const fullLimit = (limit * page) + 1;
+        const FirstLimit = ((page - 1) * limit);
+        const whereClause = page === 1
+            ? { id: { lt: fullLimit } }
+            : { id: { gt: FirstLimit, lt: fullLimit } };
         if (filter == "favorites") {
             return await this.prisma.cardsCafe.findMany({
                 where: {
+                    ...whereClause,
                     favourites: true
                 },
+                orderBy: {
+                    id: 'asc'
+                }
             });
         }
         if (filter == "date") {
             return await this.prisma.cardsCafe.findMany({
+                where: whereClause,
                 orderBy: {
-                    createdAt: 'desc'
+                    createdAt: 'desc',
                 }
             });
         }
         if (filter == "none") {
-            return this.getCardCafe();
+            return this.getCafePage(limit, page);
         }
+    }
+    async getCafePage(limit, page) {
+        const fullLimit = (limit * page) + 1;
+        const FirstLimit = ((page - 1) * limit);
+        const whereClause = page === 1
+            ? { id: { lt: fullLimit } }
+            : { id: { gt: FirstLimit, lt: fullLimit } };
+        return await this.prisma.cardsCafe.findMany({
+            where: whereClause,
+            orderBy: {
+                id: 'asc'
+            }
+        });
+    }
+    async getCardCafeLenght() {
+        const data = await this.prisma.cardsCafe.findMany();
+        return data.length;
     }
 };
 exports.CafeService = CafeService;

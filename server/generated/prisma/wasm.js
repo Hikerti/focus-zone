@@ -126,6 +126,7 @@ exports.Prisma.CardsCafeScalarFieldEnum = {
   description: 'description',
   address: 'address',
   imageUrl: 'imageUrl',
+  rating: 'rating',
   favourites: 'favourites',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -141,6 +142,15 @@ exports.Prisma.UserScalarFieldEnum = {
   surname: 'surname',
   login: 'login',
   description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MessageScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  cafeId: 'cafeId',
+  content: 'content',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -163,7 +173,8 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   CardsCafe: 'CardsCafe',
-  User: 'User'
+  User: 'User',
+  Message: 'Message'
 };
 
 /**

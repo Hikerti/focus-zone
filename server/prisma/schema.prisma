@@ -15,33 +15,45 @@ datasource db {
 }
 
 model CardsCafe {
-  id          Int      @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   title       String
   description String?
   address     String
   imageUrl    String?
+  rating      String  @default("Нет")
+  favourites  Boolean @default(false)
 
-  favourites Boolean @default(false)
-
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("card_cafe")
 }
 
 model User {
-  id String @id @default(uuid())
-  email String
-  password String
-  adress String? @default("")
-  phone String? @default("")
-  name String @default("") 
-  surname String @default("")
-  login String @default("")
+  id          String  @id @default(uuid())
+  email       String
+  password    String
+  adress      String? @default("")
+  phone       String? @default("")
+  name        String  @default("")
+  surname     String  @default("")
+  login       String  @default("")
   description String? @default("")
 
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("user")
+}
+
+model Message {
+  id      Int    @id @default(autoincrement())
+  userId  String
+  cafeId  Int
+  content String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("message")
 }

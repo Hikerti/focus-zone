@@ -1,8 +1,30 @@
 import CardCafe from "@/components-primary/entites/cards/cardCafe.tsx";
-import { useCafeGet } from "../store/storeCafe";
+import {
+    Pagination,
+    PaginationContent,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
+} from "@/components/ui/pagination";
+
+import {useEffect} from "react";
+import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
+
 const CafeListContent = () => {
 
-    const cards = useCafeGet((state) => state.cards)
+    const page = useCafeGet(state => state.page);
+    const setPage = useCafeGet(state => state.setPage);
+    const calcPaginationPage = useCafeGet(state => state.calcPaginationPage)
+    const totalPage = useCafeGet(state => state.totalPage)
+    const limit = useCafeGet(state => state.limit)
+    const cards = useCafeGet(state => state.cards)
+
+    useEffect(() => {
+        calcPaginationPage()
+    }, [limit]);
+
+    console.log(page)
 
     return (
         <>
@@ -19,12 +41,38 @@ const CafeListContent = () => {
                             description={elem.description}
                             favourites={elem.favourites}
                             createdAt={elem.createdAt}
+                            rating={elem.rating}
                         >
                         </CardCafe>
                     )
                 })}
-                
+                <Pagination>
+                    <PaginationContent>
+                        <PaginationItem
+                            onClick={() => page > 1 && setPage(page - 1)}
+                            className={page === 1 ? 'pointer-events-none opacity-50' : ''}
+                        >
+                            <PaginationPrevious href="#" />
+                        </PaginationItem>
+                        {
+                            Array.from({length: totalPage}, (_, i) => (
+                                <PaginationItem key={i + 1} onClick={() => setPage(i + 1)}>
+                                    <PaginationLink href="#">
+                                        {i + 1}
+                                    </PaginationLink>
+                                </PaginationItem>
+                            ))
+                        }
+                        <PaginationItem
+                            onClick={() => page < totalPage && setPage(page + 1)}
+                            className={page === totalPage ? 'pointer-events-none opacity-50' : ''}
+                        >
+                            <PaginationNext href="#" />
+                        </PaginationItem>
+                    </PaginationContent>
+                </Pagination>
             </section>
+
         </>
     );
 };

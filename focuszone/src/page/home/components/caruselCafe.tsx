@@ -10,10 +10,11 @@ import { FindError } from "@/helpers/functions/findError";
 import { FindLoading } from "@/helpers/functions/findLoading";
 import { useReadFetcher } from "@/helpers/hooks/useReadFetcher.ts";
 import { Card } from "@/page/cafelist/interface/interface";
+
 export default function CaruselCafe() {
 
     const {data, isPending, isError} = useReadFetcher<Card[]>({
-        url: 'http://localhost:4000/cafe/get',
+        url: 'http://localhost:4000/cafe/card_filter/none',
         method: 'get',
         queryKey: 'cafe_card',
     })

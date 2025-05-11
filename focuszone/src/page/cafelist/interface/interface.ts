@@ -6,6 +6,7 @@ export interface Card {
     imageUrl: string
     description: string
     favourites: boolean
+    rating: string
     createdAt: string
 }
 
@@ -15,6 +16,7 @@ export interface CardPut {
     title?: string
     address?: string
     imageUrl?: string
+    rating?: string
     description?: string
     favourites?: boolean
     createdAt?: string

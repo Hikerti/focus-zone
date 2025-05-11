@@ -28,8 +28,14 @@ let CafeController = class CafeController {
     getCafeById(id) {
         return this.cafeService.getCardCafeById(Number(id));
     }
-    filter_card(filter) {
-        return this.cafeService.filterCards(filter);
+    filter_card(filter, page, limit) {
+        return this.cafeService.filterCards(filter, Number(limit), Number(page));
+    }
+    getCafePage(limit, page) {
+        return this.cafeService.getCafePage(limit, page);
+    }
+    getCafeLength() {
+        return this.cafeService.getCardCafeLenght();
     }
     createCafe(dto) {
         return this.cafeService.createCardCafe(dto);
@@ -56,12 +62,28 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CafeController.prototype, "getCafeById", null);
 __decorate([
-    (0, common_1.Get)('card_filter/:filter'),
+    (0, common_1.Get)('card_filter/:filter/:page/:limit'),
     __param(0, (0, common_1.Param)('filter')),
+    __param(1, (0, common_1.Param)('page')),
+    __param(2, (0, common_1.Param)('limit')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, String, String]),
     __metadata("design:returntype", void 0)
 ], CafeController.prototype, "filter_card", null);
+__decorate([
+    (0, common_1.Get)('card_pagination/:page/:limit'),
+    __param(0, (0, common_1.Param)('limit', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Param)('page', common_1.ParseIntPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:returntype", void 0)
+], CafeController.prototype, "getCafePage", null);
+__decorate([
+    (0, common_1.Get)('cards_length'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], CafeController.prototype, "getCafeLength", null);
 __decorate([
     (0, common_1.Post)('create'),
     __param(0, (0, common_1.Body)()),
