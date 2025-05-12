@@ -6,50 +6,50 @@ export declare class MessageService {
     constructor(prisma: PrismaService);
     getUserMessage(userId: string): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         userId: string;
         cafeId: number;
         content: string;
-        createdAt: Date;
-        updatedAt: Date;
     }[]>;
     getCafeMessage(cafeId: number): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         userId: string;
         cafeId: number;
         content: string;
-        createdAt: Date;
-        updatedAt: Date;
     }[]>;
     getIdMessage(id: number): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         userId: string;
         cafeId: number;
         content: string;
-        createdAt: Date;
-        updatedAt: Date;
     }[]>;
     createMessage(dto: CreateMessageDto): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         userId: string;
         cafeId: number;
         content: string;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     updateMessage(id: number, dto: UpdateMessageDto): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         userId: string;
         cafeId: number;
         content: string;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     deleteMessage(id: number): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         userId: string;
         cafeId: number;
         content: string;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
 }

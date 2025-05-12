@@ -46,15 +46,12 @@ let CafeService = class CafeService {
         });
     }
     async filterCards(filter, limit, page) {
-        const fullLimit = (limit * page) + 1;
-        const FirstLimit = ((page - 1) * limit);
-        const whereClause = page === 1
-            ? { id: { lt: fullLimit } }
-            : { id: { gt: FirstLimit, lt: fullLimit } };
+        const skip = (page - 1) * limit;
         if (filter == "favorites") {
             return await this.prisma.cardsCafe.findMany({
+                skip: skip,
+                take: limit,
                 where: {
-                    ...whereClause,
                     favourites: true
                 },
                 orderBy: {
@@ -64,7 +61,8 @@ let CafeService = class CafeService {
         }
         if (filter == "date") {
             return await this.prisma.cardsCafe.findMany({
-                where: whereClause,
+                skip: skip,
+                take: limit,
                 orderBy: {
                     createdAt: 'desc',
                 }
@@ -75,13 +73,10 @@ let CafeService = class CafeService {
         }
     }
     async getCafePage(limit, page) {
-        const fullLimit = (limit * page) + 1;
-        const FirstLimit = ((page - 1) * limit);
-        const whereClause = page === 1
-            ? { id: { lt: fullLimit } }
-            : { id: { gt: FirstLimit, lt: fullLimit } };
+        const skip = (page - 1) * limit;
         return await this.prisma.cardsCafe.findMany({
-            where: whereClause,
+            skip: skip,
+            take: limit,
             orderBy: {
                 id: 'asc'
             }

@@ -7,8 +7,11 @@ import {
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import {Textarea} from "@/components/ui/textarea.tsx";
+// import {useState} from "react";
 
 const MessageDialog = () => {
+    // const [message, setMessage] = useState();
+
     return (
         <>
             <AlertDialogContent className='flex flex-col justify-center'>

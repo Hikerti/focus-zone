@@ -1,4 +1,4 @@
-import {SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet.tsx";
+import {SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTrigger} from "@/components/ui/sheet.tsx";
 
 import AvatarComponent from "@/components-primary/shared/ui/avatar.tsx";
 import ContactInfo from "@/components-primary/entites/contactInfo/ContactInfo.tsx";
@@ -45,25 +45,23 @@ const SheetInfo = () => {
                     </SheetTrigger>
                     <SheetContent>
                         <SheetHeader>
-                            <SheetTitle>
-                                <div className="flex h-full flex-col justify-center gap-2">
-                                    <div className="flex gap-4">
-                                        <AvatarComponent size={'w-[100px] h-[100px]'}></AvatarComponent>
-                                        <div>
-                                            <h4 className='text-zinc-900'>{user.name + " " + user.surname}</h4>
-                                            <h4 className='text-zinc-900'>@{user.login}</h4>
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <ContactInfo
-                                            email={user.email}
-                                            adress={user.adress}
-                                            phone={user.phone}
-                                        >
-                                        </ContactInfo>
+                            <div className="flex h-full flex-col justify-center gap-2">
+                                <div className="flex gap-4">
+                                    <AvatarComponent size={'w-[100px] h-[100px]'}></AvatarComponent>
+                                    <div>
+                                        <h4 className='text-zinc-900'>{user.name + " " + user.surname}</h4>
+                                        <h4 className='text-zinc-900'>@{user.login}</h4>
                                     </div>
                                 </div>
-                            </SheetTitle>
+                                <div className="flex flex-col">
+                                    <ContactInfo
+                                        email={user.email}
+                                        adress={user.adress}
+                                        phone={user.phone}
+                                    >
+                                    </ContactInfo>
+                                </div>
+                            </div>
                             <div>
                                 <h2 className='text-4xl mt-4'>О себе</h2>
                                 <p>

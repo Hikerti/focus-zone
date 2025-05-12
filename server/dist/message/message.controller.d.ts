@@ -6,50 +6,50 @@ export declare class MessageController {
     constructor(messageService: MessageService);
     getUserMessage(userId: string): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         userId: string;
         cafeId: number;
         content: string;
-        createdAt: Date;
-        updatedAt: Date;
     }[]>;
     getCafeMessage(cafeId: string): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         userId: string;
         cafeId: number;
         content: string;
-        createdAt: Date;
-        updatedAt: Date;
     }[]>;
     getIdMessage(id: string): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         userId: string;
         cafeId: number;
         content: string;
-        createdAt: Date;
-        updatedAt: Date;
     }[]>;
     createMessage(dto: CreateMessageDto): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         userId: string;
         cafeId: number;
         content: string;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     updateMessage(id: string, dto: UpdateMessageDto): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         userId: string;
         cafeId: number;
         content: string;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     deleteMessage(id: string): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         userId: string;
         cafeId: number;
         content: string;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
 }

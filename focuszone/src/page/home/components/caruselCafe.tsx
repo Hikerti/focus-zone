@@ -14,7 +14,7 @@ import { Card } from "@/page/cafelist/interface/interface";
 export default function CaruselCafe() {
 
     const {data, isPending, isError} = useReadFetcher<Card[]>({
-        url: 'http://localhost:4000/cafe/card_filter/none',
+        url: 'http://localhost:4000/cafe/card_filter/none/1/5',
         method: 'get',
         queryKey: 'cafe_card',
     })
@@ -43,6 +43,7 @@ export default function CaruselCafe() {
                                 description={elem.description}
                                 favourites={elem.favourites}
                                 createdAt={elem.createdAt}
+                                rating={elem.rating}
                             >
                         </CardCafe>
                     </CarouselItem>
