@@ -30,37 +30,37 @@ __decorate([
 ], RegisterDto.prototype, "email", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: 'Поле является обязательным' }),
-    (0, class_validator_1.IsString)({ message: "Пароль должн быть в формате строки" }),
+    (0, class_validator_1.IsString)({ message: "Пароль должно быть в формате строки" }),
     (0, class_validator_1.MinLength)(8, { message: "Пароль должен содержать минимум 8 симвалов" }),
     __metadata("design:type", String)
 ], RegisterDto.prototype, "password", void 0);
 __decorate([
-    (0, class_validator_1.IsString)({ message: "Пароль должн быть в формате строки" }),
+    (0, class_validator_1.IsString)({ message: "Пароль должно быть в формате строки" }),
     __metadata("design:type", String)
 ], RegisterDto.prototype, "adress", void 0);
 __decorate([
     (0, class_validator_1.Matches)(/^\+?\d{10,15}$/),
-    (0, class_validator_1.IsString)({ message: "Пароль должн быть в формате строки" }),
+    (0, class_validator_1.IsString)({ message: "Пароль должно быть в формате строки" }),
     __metadata("design:type", String)
 ], RegisterDto.prototype, "phone", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: 'Поле является обязательным' }),
-    (0, class_validator_1.IsString)({ message: "Пароль должн быть в формате строки" }),
+    (0, class_validator_1.IsString)({ message: "Пароль должно быть в формате строки" }),
     __metadata("design:type", String)
 ], RegisterDto.prototype, "name", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: 'Поле является обязательным' }),
-    (0, class_validator_1.IsString)({ message: "Пароль должн быть в формате строки" }),
+    (0, class_validator_1.IsString)({ message: "Пароль должно быть в формате строки" }),
     __metadata("design:type", String)
 ], RegisterDto.prototype, "surname", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: 'Поле является обязательным' }),
-    (0, class_validator_1.IsString)({ message: "Пароль должн быть в формате строки" }),
+    (0, class_validator_1.IsString)({ message: "Пароль должно быть в формате строки" }),
     __metadata("design:type", String)
 ], RegisterDto.prototype, "login", void 0);
 __decorate([
     (0, class_validator_1.MaxLength)(200, { message: 'Описание не может быть длиннее 200 симвалов' }),
-    (0, class_validator_1.IsString)({ message: "Пароль должн быть в формате строки" }),
+    (0, class_validator_1.IsString)({ message: "Пароль должно быть в формате строки" }),
     __metadata("design:type", String)
 ], RegisterDto.prototype, "description", void 0);
 //# sourceMappingURL=register.dto.js.map

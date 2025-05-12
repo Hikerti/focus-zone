@@ -12,22 +12,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
-const prisma_service_1 = require("../prisma/prisma.service");
 const user_service_1 = require("../user/user.service");
 const bcrypt = require("bcrypt");
 const config_1 = require("@nestjs/config");
 let AuthService = class AuthService {
     userService;
-    prisma;
     jwt;
     config;
-    constructor(userService, prisma, jwt, config) {
+    constructor(userService, jwt, config) {
         this.userService = userService;
-        this.prisma = prisma;
         this.jwt = jwt;
         this.config = config;
     }
-    async register(req, dto) {
+    async register(res, req, dto) {
         const isExist = await this.userService.getUserByEmail(dto.email);
         if (isExist) {
             throw new common_1.ConflictException("Введите другой email, этот email уже зареги");
@@ -35,9 +32,9 @@ let AuthService = class AuthService {
         const user = await this.userService.create(dto);
         const payload = { sub: user.id, email: user.email };
         const accessToken = this.jwt.sign(payload);
-        return this.saveSeccion(req, accessToken, user);
+        return this.saveSession(res, req, accessToken, user);
     }
-    async login(req, dto) {
+    async login(res, req, dto) {
         const user = await this.userService.getUserByEmail(dto.email);
         if (!user || !user.password) {
             throw new common_1.NotFoundException('Пользователь не найден');
@@ -48,7 +45,7 @@ let AuthService = class AuthService {
         }
         const payload = { sub: user.id, email: user.email };
         const accessToken = this.jwt.sign(payload);
-        return this.saveSeccion(req, accessToken, user);
+        return this.saveSession(res, req, accessToken, user);
     }
     async logout(req, res) {
         return new Promise((resolve, reject) => {
@@ -59,28 +56,42 @@ let AuthService = class AuthService {
                 console.log('Session destroyed:', req.sessionID);
                 res.clearCookie(this.config.getOrThrow('SESSION_NAME'), { path: '/' });
                 res.status(200).json({ message: 'Сессия завершена' });
+                return resolve();
             });
         });
     }
-    saveSeccion(req, accessToken, user) {
-        return new Promise((res, reject) => {
-            req.session.userId = user.id;
-            req.session.jwt = accessToken;
-            req.session.save(err => {
-                if (err) {
-                    return reject(new common_1.InternalServerErrorException('Не удалось сохранить сессию'));
-                }
-                res({ ...user });
-                res({ accessToken });
+    async saveSession(res, req, accessToken, user) {
+        try {
+            const cookieOptions = {
+                httpOnly: true,
+                secure: this.config.getOrThrow('USER_SECURE') === 'true',
+                sameSite: 'none',
+                maxAge: 24 * 60 * 60 * 1000,
+                path: '/',
+            };
+            return new Promise((resolve, reject) => {
+                res.cookie('jwt', accessToken, cookieOptions);
+                res.cookie('userId', user.id.toString(), { ...cookieOptions, httpOnly: false });
+                req.session.userId = user.id;
+                req.session.jwt = accessToken;
+                req.session.save((err) => {
+                    if (err) {
+                        return reject(new common_1.InternalServerErrorException('Не удалось сохранить сессию'));
+                    }
+                    resolve({ user, accessToken });
+                });
             });
-        });
+        }
+        catch (error) {
+            res.status(400).json({ error: 'Ошибка при сохранении сессии' });
+            throw error;
+        }
     }
 };
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [user_service_1.UserService,
-        prisma_service_1.PrismaService,
         jwt_1.JwtService,
         config_1.ConfigService])
 ], AuthService);

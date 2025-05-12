@@ -16,11 +16,10 @@ import {Button} from "@/components/ui/button.tsx";
 
 import {useMutation} from "@tanstack/react-query";
 
-import {UserLogin} from "@/components-primary/widgets/forms/interface/interface.ts";
+import {UserData, UserLogin} from "@/components-primary/widgets/forms/interface/interface.ts";
 import {LoginUser} from "@/components-primary/widgets/forms/function/loginUser.ts";
 
-import {useGetUser} from "@/helpers/store/storeUser.ts";
-import {UserFullData} from "@/helpers/interface/interface.ts";
+import {useGetUser} from "@/helpers/store/storeUser.ts"
 import { useState } from "react";
 import { Eye, EyeClosed } from "lucide-react";
 
@@ -44,10 +43,10 @@ const FormLogin = () => {
 
     const mutation = useMutation({
         mutationFn: (data: UserLogin) => LoginUser(data),
-        onSuccess: (res: UserFullData) => {
-            console.log("Успешно отправлено:", res);
+        onSuccess: (res: UserData) => {
+            console.log("Успешно отправлено:", res.user);
             form.reset()
-            setUser(res)
+            setUser(res.user)
         },
         onError: (error) => {
             console.error("Ошибка при отправке:", error);
