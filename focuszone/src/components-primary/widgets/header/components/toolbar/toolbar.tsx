@@ -1,6 +1,6 @@
-import { Input } from "@/components/ui/input"
+import { Input } from "@/components/ui/input.tsx"
 import { Search } from "lucide-react";
-import SheetHeaderComponents from "@/components-primary/widgets/sheetHeader/sheetHeader";
+import SheetHeaderComponents from "@/components-primary/widgets/sheetHeader/sheetHeader.tsx";
 
 export default function ToolBar() {
   return (

@@ -1,5 +1,5 @@
-import NavBar from "../../entites/navbar/havbar";
-import ToolBar from "../../entites/toolbar/toolbar";
+import NavBar from "@/components-primary/widgets/header/components/navbar/havbar";
+import ToolBar from "@/components-primary/widgets/header/components/toolbar/toolbar";
 export default function Header() {
     return (
       <>
