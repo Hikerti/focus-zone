@@ -7,15 +7,20 @@ import {
     SelectValue,
   } from "@/components/ui/select"
 import { useEffect, useState } from "react"
-import { Card } from "../interface/interface"
+import {Card} from "../interface/interface"
 import { useReadFetcher } from "@/helpers/hooks/useReadFetcher.ts"
 import { FindLoading } from "@/helpers/functions/findLoading"
 import { FindError } from "@/helpers/functions/findError"
 import { useCafeGet } from "../store/storeCafe"
-export const FilterCards = () => {
+type FilterProps = {
+    filterProps: 'none' | "favorites" | "date" | "estimation"
+}
 
-    const [filter, setFilter] = useState<string>('none')
+export const FilterCards = ({filterProps} : {filterProps: FilterProps | string}) => {
+
+    const [filter, setFilter] = useState<FilterProps | string>(filterProps)
     const setCards = useCafeGet((state) => state.setCards)
+    const calcPaginationPage = useCafeGet((state) => state.calcPaginationPage)
     const limit = useCafeGet(state => state.limit)
     const page = useCafeGet(state => state.page)
 
@@ -31,8 +36,14 @@ export const FilterCards = () => {
 
         if (data) {
             setCards(data)
+            if (filter == 'none' || filter == 'date') {
+                calcPaginationPage({})
+            }
+            if (filter == 'favorites') {
+                calcPaginationPage({favourites: true})
+            }
         }
-    }, [data, isPending, isError, setCards])
+    }, [data, isPending, isError, setCards, filter])
 
     return (
         <div className="flex w-full">

@@ -34,9 +34,9 @@ export class CafeController {
     return this.cafeService.getCafePage(limit, page)
   }
 
-  @Get('cards_length')
-  getCafeLength() {
-      return this.cafeService.getCardCafeLenght()
+  @Post('cards_length')
+  getCafeLength(@Body() dto: UpdateCartDto) {
+      return this.cafeService.getCardCafeLength(dto)
   }
 
   @Post('create')

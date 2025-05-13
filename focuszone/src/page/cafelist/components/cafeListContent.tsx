@@ -1,4 +1,4 @@
-import CardCafe from "@/components-primary/entites/cards/cardCafe.tsx";
+import CardCafe from "@/components-primary/entites/cards/cardCafe/cardCafe.tsx";
 import {
     Pagination,
     PaginationContent,
@@ -8,23 +8,13 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination";
 
-import {useEffect} from "react";
 import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
 
 const CafeListContent = () => {
-
     const page = useCafeGet(state => state.page);
     const setPage = useCafeGet(state => state.setPage);
-    const calcPaginationPage = useCafeGet(state => state.calcPaginationPage)
     const totalPage = useCafeGet(state => state.totalPage)
-    const limit = useCafeGet(state => state.limit)
     const cards = useCafeGet(state => state.cards)
-
-    useEffect(() => {
-        calcPaginationPage()
-    }, [limit]);
-
-    console.log(page)
 
     return (
         <>

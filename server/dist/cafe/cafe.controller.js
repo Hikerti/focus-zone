@@ -34,8 +34,8 @@ let CafeController = class CafeController {
     getCafePage(limit, page) {
         return this.cafeService.getCafePage(limit, page);
     }
-    getCafeLength() {
-        return this.cafeService.getCardCafeLenght();
+    getCafeLength(dto) {
+        return this.cafeService.getCardCafeLength(dto);
     }
     createCafe(dto) {
         return this.cafeService.createCardCafe(dto);
@@ -79,9 +79,10 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CafeController.prototype, "getCafePage", null);
 __decorate([
-    (0, common_1.Get)('cards_length'),
+    (0, common_1.Post)('cards_length'),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [UpdateCart_dto_1.UpdateCartDto]),
     __metadata("design:returntype", void 0)
 ], CafeController.prototype, "getCafeLength", null);
 __decorate([

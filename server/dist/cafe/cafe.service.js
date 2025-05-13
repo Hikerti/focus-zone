@@ -82,9 +82,16 @@ let CafeService = class CafeService {
             }
         });
     }
-    async getCardCafeLenght() {
-        const data = await this.prisma.cardsCafe.findMany();
-        return data.length;
+    async getCardCafeLength(dto) {
+        try {
+            const data = await this.prisma.cardsCafe.findMany({
+                where: dto || {}
+            });
+            return data.length;
+        }
+        catch (error) {
+            throw Error(error.message);
+        }
     }
 };
 exports.CafeService = CafeService;

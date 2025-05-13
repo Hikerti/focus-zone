@@ -5,6 +5,7 @@ import {FindLoading} from "@/helpers/functions/findLoading.tsx";
 import {Heart} from "lucide-react";
 import {useUpdateFavourite} from "@/components-primary/entites/cards/hooks/useUpdateFavourite.ts";
 import {useState, useEffect} from "react";
+import {Message} from "@/components-primary/entites/dialogs/messageDiaog/interface/interafce.ts";
 
 interface GetCard {
     id: number;
@@ -27,14 +28,30 @@ const CafeSinglePage = () => {
         queryKey: `cafe_card_${id}`,
     })
 
-    const [like, setLike] = useState<boolean>(data?.favourites);
+    const messages = useReadFetcher<Message[]>({
+        url: `http://localhost:4000/message/get_cafe_messages/${id}`,
+        method: "get",
+        queryKey: `message_singleCafe ${id}`,
+    })
+
+    console.log(messages.data)
+
+    const [like, setLike] = useState<boolean>(false);
 
     useEffect(() => {
-        mutate({ id: data?.id.toString(), favourites: !like });
+        if (data) {
+            setLike(data.favourites);
+        }
+    }, [data]);
+
+    useEffect(() => {
+        mutate({ id: data?.id.toString(), favourites: like });
     }, [like])
 
     FindError(isError)
     FindLoading(isPending)
+
+
 
     return (
         <section className="w-9/10 flex flex-col mt-10">

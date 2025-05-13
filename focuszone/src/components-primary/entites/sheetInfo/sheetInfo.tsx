@@ -9,6 +9,8 @@ import { FindLoading } from "@/helpers/functions/findLoading";
 
 import DialogRegistration from "@/components-primary/entites/dialogs/dialogRegistration/dialogRegistration.tsx";
 import DialogLogin from "@/components-primary/entites/dialogs/dialogLogin/dialogLogin.tsx";
+import {Button} from "@/components/ui/button.tsx";
+import {logoutUser} from "@/components-primary/entites/sheetInfo/function/functions.ts";
 
 
 const SheetInfo = () => {
@@ -72,6 +74,10 @@ const SheetInfo = () => {
                         <SheetFooter>
                             <SheetClose asChild>
                             </SheetClose>
+                            <Button
+                                onClick={() => logoutUser()}
+                            >
+                                Выйти из аккаунта</Button>
                         </SheetFooter>
                     </SheetContent>
                 </>

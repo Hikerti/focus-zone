@@ -7,10 +7,37 @@ import {
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import {Textarea} from "@/components/ui/textarea.tsx";
-// import {useState} from "react";
+import {useState} from "react";
+import {useMutation} from "@tanstack/react-query";
+import axios from "axios";
+import {useGetUser} from "@/helpers/store/storeUser.ts";
 
-const MessageDialog = () => {
-    // const [message, setMessage] = useState();
+const MessageDialog = ({cafeId}: {cafeId: number} ) => {
+    const [message, setMessage] = useState<string>();
+    const users = useGetUser(state => state.users);
+
+    const {mutate} = useMutation({
+        mutationFn: async () => {
+            if (!users || !users.length) {
+                throw new Error('User must have a user object');
+            }
+            return await axios.post('http://localhost:4000/message/create_messages', {
+                userId: users[0].id,
+                cafeId: cafeId,
+                content: message
+            });
+        },
+        onSuccess: () => {
+            console.log('Message sent!');
+        },
+        onError: (error) => {
+            console.error('Error sending message:', error);
+        }
+    })
+
+    const handleSendMessage = () => {
+        mutate()
+    }
 
     return (
         <>
@@ -20,11 +47,14 @@ const MessageDialog = () => {
                     <Textarea
                         className='max-w-full'
                         maxLength={300}
+                        onChange={e => setMessage(e.target.value)}
                     ></Textarea>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                     <AlertDialogCancel>Выйти</AlertDialogCancel>
-                    <AlertDialogAction>Отправить</AlertDialogAction>
+                    <AlertDialogAction
+                        onClick={handleSendMessage}
+                    >Отправить</AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </>

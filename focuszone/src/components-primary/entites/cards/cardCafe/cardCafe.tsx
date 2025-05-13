@@ -1,7 +1,7 @@
 import {
     AlertDialog,
     AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog.tsx"
 
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import {Link, useNavigate} from "react-router-dom";
@@ -9,11 +9,15 @@ import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 import LinkToMap from "@/components-primary/shared/ui/linkToMap.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import { toast } from "sonner"
-import {ChevronDown, Heart, Mail, Star} from "lucide-react";
+import {ChevronDown, Heart, Star} from "lucide-react";
 import {useEffect, useState} from "react";
-import { CardCafeProps } from "./interface";
-import { useUpdateFavourite } from "./hooks/useUpdateFavourite";
+import { CardCafeProps } from "../interface.ts";
+import { useUpdateFavourite } from "../hooks/useUpdateFavourite.ts";
 import MessageDialog from "@/components-primary/entites/dialogs/messageDiaog/messageDialog.tsx";
+import {useReadFetcher} from "@/helpers/hooks/useReadFetcher.ts";
+import {Message} from "@/components-primary/entites/dialogs/messageDiaog/interface/interafce.ts";
+import MessagesList from "@/components-primary/entites/messageList/messagesList.tsx";
+import MessageButton from "@/components-primary/shared/buttons/messageButton.tsx";
 
 const CardCafe = (
     {
@@ -39,13 +43,19 @@ const CardCafe = (
         mutate({ id: id.toString(), favourites: like });
     }, [like])
 
+    const messages = useReadFetcher<Message[]>({
+        url: `http://localhost:4000/message/get_cafe_messages/${id}`,
+        method: "get",
+        queryKey: `message ${id}`,
+    })
+
     const ChangeLike = () => {
         if (!like) (
             toast("Like", {
                 description: "Вы добавили место в избранные",
                 action: {
                     label: "Избранные",
-                    onClick: () => navigate("/map"),
+                    onClick: () => navigate("/cafelist"),
                 },
             })
         )
@@ -107,17 +117,16 @@ const CardCafe = (
                             </Button>
                             <AlertDialog>
                                 <AlertDialogTrigger asChild>
-                                    <Button
-                                        size='icon'
-                                        className='border-zinc-900 bg-transparent border-2 hover:bg-white cursor-pointer  group'
+                                    <MessageButton
                                         onClick={() => setMessage(!message)}
                                     >
-                                        <Mail
-                                            className='text-zinc-900 transition bg-white'
-                                        />
-                                    </Button>
+
+                                    </MessageButton>
                                 </AlertDialogTrigger>
-                                <MessageDialog></MessageDialog>
+                                <MessageDialog
+                                    cafeId={id}
+                                >
+                                </MessageDialog>
                             </AlertDialog>
                         </div>
                         <ChevronDown
@@ -125,11 +134,11 @@ const CardCafe = (
                             className={`cursor-pointer transition-transform ${rotute ? 'rotate-0' : 'rotate-180'}`}
                         />
                     </div>
-                    <div
-                        className={`flex flex-col items-center transition-all ${rotute ? 'h-auto' : 'h-0 hidden'}`}
+                    <MessagesList
+                        messages={messages?.data}
+                        rotute={rotute}
                     >
-                        <h2>-9jfsefj-jf-</h2>
-                    </div>
+                    </MessagesList>
                 </CardContent>
             </Card>
         </div>

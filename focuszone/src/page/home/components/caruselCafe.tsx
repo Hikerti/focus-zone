@@ -1,4 +1,4 @@
-import CardCafe from "@/components-primary/entites/cards/cardCafe";
+import CardCafe from "@/components-primary/entites/cards/cardCafe/cardCafe.tsx";
 import {
     Carousel,
     CarouselContent,
