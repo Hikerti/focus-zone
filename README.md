@@ -47,6 +47,12 @@
    npm run dev
 
    # Запуск бэкенда
+   # Запуск docker
+   docker compose up --build
+   
+   # Запустить Redis 
+   # Запустить PostrgeSQL
+   
    cd ../server
    npm run start:dev
    ```

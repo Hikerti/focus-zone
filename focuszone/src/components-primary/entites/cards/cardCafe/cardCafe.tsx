@@ -108,7 +108,7 @@ const CardCafe = (
                             </Button>
                             <Button
                                 size='icon'
-                                className={`${like ? "border-red-500" : "border-zinc-900"} bg-transparent border-2 hover:bg-white cursor-pointer  group`}
+                                className={`${like ? "border-red-500" : "border-zinc-900"} bg-transparent border-2 hover:bg-white cursor-pointer group`}
                                 onClick={() => ChangeLike()}
                             >
                                 <Heart
