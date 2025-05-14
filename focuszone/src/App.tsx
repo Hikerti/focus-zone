@@ -6,6 +6,7 @@ import MapPage from "@/page/map/page.tsx";
 import ProfilePage from "@/page/profile/page.tsx";
 import CafeList from "@/page/cafelist/page.tsx";
 import CafeSinglePage from "@/page/cafeSinglePage/cafeSinglePage.tsx";
+import 'leaflet/dist/leaflet.css';
 
 function App() {
   return (

@@ -1,4 +1,5 @@
-import Map from "@/page/map/components/map/map.tsx";
+import Map from "@/page/map/components/Map.tsx";
+
 
 export default function MapPage() {
   return (
