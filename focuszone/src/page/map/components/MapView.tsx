@@ -1,14 +1,14 @@
 import {MapContainer, TileLayer, useMapEvents} from "react-leaflet";
 import MapLayout from "@/page/map/components/MapLayout/MapLayout.tsx";
-import {useMap} from "@/page/map/store/store.ts";
+import {useMapData} from "@/page/map/store/store.ts";
 import MarkersMap from "@/page/map/components/MarkersMap.tsx";
 import {Routing} from "@/page/map/components/Routing/Routing.tsx";
 
 const MapView = () => {
 
-    const setPoint = useMap(state => state.setPoints);
-    const userLocations = useMap(state => state.userLocations)
-    const points = useMap(state => state.points)
+    const setPoint = useMapData(state => state.setPoints);
+    const userLocations = useMapData(state => state.userLocations)
+    const points = useMapData(state => state.points)
 
 
     const ClickHandler = () => {

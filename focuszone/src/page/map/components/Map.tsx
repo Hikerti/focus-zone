@@ -1,18 +1,18 @@
 import MapView from "./MapView";
 import {useUserLocation} from "@/page/map/hooks/useUserLocation.ts";
-import {useEffect} from "react";
+import {useMapData} from "@/page/map/store/store.ts";
 
 const Map = () => {
-    const {getUserLocation} = useUserLocation()
-
-    useEffect(() => {
-        getUserLocation()
-    }, [])
-
+    useUserLocation()
+    const userLocation = useMapData(state => state.userLocations)
     return (
-        <section className='w-full flex flex-col items-center justify-center my-10'>
-            <MapView></MapView>
-        </section>
+        <>
+            {userLocation &&
+                <section className='w-full h-full flex flex-col items-center justify-center my-10'>
+                    <MapView></MapView>
+                </section>
+            }
+        </>
     );
 };
 

@@ -77,136 +77,153 @@ const FormRegistration = () => {
                      className='w-full bg-zinc-900 flex flex-col gap-4 px-4 py-4 rounded-xl'
                  >
                      <h3 className='text-white'>Введите свои данные</h3>
-                     <FormField
-                         control={form.control}
-                         name="surname"
-                         render={({ field }) => (
-                             <FormItem>
-                                 <FormLabel className='text-white'>Фамилия</FormLabel>
-                                 <FormControl>
-                                     <Input
-                                         className='text-white'
-                                         type='text'
-                                         {...field}
-                                         placeholder='Иванов'
-                                     >
+                     <div className='w-full flex gap-4'>
+                         <FormField
+                             control={form.control}
+                             name="surname"
+                             render={({ field }) => (
+                                 <FormItem
+                                    className='w-1/2'
+                                 >
+                                     <FormLabel className='text-white'>Фамилия</FormLabel>
+                                     <FormControl>
+                                         <Input
+                                             className='text-white'
+                                             type='text'
+                                             {...field}
+                                             placeholder='Иванов'
+                                         >
 
-                                     </Input>
-                                 </FormControl>
-                                 <FormMessage></FormMessage>
-                             </FormItem>
-                         )}
-                     />
+                                         </Input>
+                                     </FormControl>
+                                     <FormMessage></FormMessage>
+                                 </FormItem>
+                             )}
+                         />
 
-                     <FormField
-                         control={form.control}
-                         name="name"
-                         render={({ field }) => (
-                             <FormItem>
-                                 <FormLabel className='text-white'>Имя</FormLabel>
-                                 <FormControl>
-                                     <Input
-                                         className='text-white'
-                                         type='text'
-                                         {...field}
-                                         placeholder='Иван'
-                                     >
+                         <FormField
+                             control={form.control}
+                             name="name"
+                             render={({ field }) => (
+                                 <FormItem
+                                     className='w-1/2'
+                                 >
+                                     <FormLabel className='text-white'>Имя</FormLabel>
+                                     <FormControl>
+                                         <Input
+                                             className='text-white'
+                                             type='text'
+                                             {...field}
+                                             placeholder='Иван'
+                                         >
 
-                                     </Input>
-                                 </FormControl>
-                                 <FormMessage></FormMessage>
-                             </FormItem>
-                         )}
-                     />
+                                         </Input>
+                                     </FormControl>
+                                     <FormMessage></FormMessage>
+                                 </FormItem>
+                             )}
+                         />
+                     </div>
 
-                     <FormField
-                         control={form.control}
-                         name="login"
-                         render={({ field }) => (
-                             <FormItem>
-                                 <FormLabel className='text-white'>Login</FormLabel>
-                                 <FormControl>
-                                     <Input
-                                         className='text-white'
-                                         type="text"
-                                         {...field}
-                                         placeholder='Russian man'
-                                     />
-                                 </FormControl>
-                                 <FormMessage></FormMessage>
-                             </FormItem>
-                         )}
-                     />
+                     <div className='w-full flex gap-4'>
+                         <FormField
+                             control={form.control}
+                             name="login"
+                             render={({ field }) => (
+                                 <FormItem
+                                     className='w-1/2'
+                                 >
+                                     <FormLabel className='text-white'>Login</FormLabel>
+                                     <FormControl>
+                                         <Input
+                                             className='text-white'
+                                             type="text"
+                                             {...field}
+                                             placeholder='Russian man'
+                                         />
+                                     </FormControl>
+                                     <FormMessage></FormMessage>
+                                 </FormItem>
+                             )}
+                         />
 
-                     <FormField
-                         control={form.control}
-                         name="email"
-                         render={({ field }) => (
-                             <FormItem>
-                                 <FormLabel className='text-white'>Email</FormLabel>
-                                 <FormControl>
-                                     <Input
-                                         className='text-white'
-                                         type='email'
-                                         {...field}
-                                         placeholder='xxx@mail.ru'
-                                     >
+                         <FormField
+                             control={form.control}
+                             name="email"
+                             render={({ field }) => (
+                                 <FormItem
+                                     className='w-1/2'
+                                 >
+                                     <FormLabel className='text-white'>Email</FormLabel>
+                                     <FormControl>
+                                         <Input
+                                             className='text-white'
+                                             type='email'
+                                             {...field}
+                                             placeholder='xxx@mail.ru'
+                                         >
 
-                                     </Input>
-                                 </FormControl>
-                                 <FormMessage></FormMessage>
-                             </FormItem>
-                         )}
-                     />
+                                         </Input>
+                                     </FormControl>
+                                     <FormMessage></FormMessage>
+                                 </FormItem>
+                             )}
+                         />
+                     </div>
 
-                     <FormField
-                         control={form.control}
-                         name="password"
-                         render={({ field }) => (
-                            <FormItem className="relative">
-                            <FormLabel className='text-white'>Пароль</FormLabel>
-                            <FormControl>
-                                <Input
-                                    className='text-white'
-                                    type={!passwortVisible ? 'password' : 'text'}
-                                    {...field}
-                                    placeholder='1234567'
-                                >
-                                </Input>
-                            </FormControl>
-                            <span className='absolute bottom-[6px] right-2'>
-                                    {passwortVisible 
-                                    ?
-                                    <Eye className="text-white" onClick={() => setPasswordVisible(!passwortVisible)} />
-                                    :
-                                    <EyeClosed className="text-white" onClick={() => setPasswordVisible(!passwortVisible)} />
-                                    }
-                            </span>
-                            <FormMessage></FormMessage>
-                        </FormItem>
-                         )}
-                     />
+                     <div className='w-full flex gap-4'>
 
-                     <FormField
-                         control={form.control}
-                         name="phone"
-                         render={({ field }) => (
-                             <FormItem>
-                                 <FormLabel className='text-white'>Телефон</FormLabel>
-                                 <FormControl>
-                                     <Input
-                                         className='text-white'
-                                         type='text'
-                                         {...field}
-                                         placeholder='+7 999 999 99 99'
-                                     >
+                         <FormField
+                             control={form.control}
+                             name="password"
+                             render={({ field }) => (
+                                <FormItem className="w-1/2 relative">
+                                <FormLabel className='text-white'>Пароль</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        className='text-white'
+                                        type={!passwortVisible ? 'password' : 'text'}
+                                        {...field}
+                                        placeholder='1234567'
+                                    >
+                                    </Input>
+                                </FormControl>
+                                <span className='absolute bottom-[6px] right-2'>
+                                        {passwortVisible
+                                        ?
+                                        <Eye className="text-white" onClick={() => setPasswordVisible(!passwortVisible)} />
+                                        :
+                                        <EyeClosed className="text-white" onClick={() => setPasswordVisible(!passwortVisible)} />
+                                        }
+                                </span>
+                                <FormMessage></FormMessage>
+                            </FormItem>
+                             )}
+                         />
 
-                                     </Input>
-                                 </FormControl>
-                                 <FormMessage></FormMessage>
-                             </FormItem>
-                         )}
-                     />
+                         <FormField
+                             control={form.control}
+                             name="phone"
+                             render={({ field }) => (
+                                 <FormItem
+                                     className='w-1/2'
+                                 >
+                                     <FormLabel className='text-white'>Телефон</FormLabel>
+                                     <FormControl>
+                                         <Input
+                                             className='text-white'
+                                             type='text'
+                                             {...field}
+                                             placeholder='+7 999 999 99 99'
+                                         >
+
+                                         </Input>
+                                     </FormControl>
+                                     <FormMessage></FormMessage>
+                                 </FormItem>
+                             )}
+                         />
+                     </div>
 
                      <FormField
                          control={form.control}

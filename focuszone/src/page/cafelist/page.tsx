@@ -4,7 +4,6 @@ import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
 
 const CafeList = () => {
     const filter = useCafeGet((state) => state.filter)
-    console.log(filter)
 
     return (
         <section className="flex w-9/10 flex-col py-10">

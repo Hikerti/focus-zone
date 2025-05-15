@@ -3,11 +3,14 @@ import {LatLngLiteral} from "leaflet";
 import {UseMap} from "@/page/map/interface/interface.ts";
 import * as React from "react";
 
-export const useMap = create<UseMap>((set, get) => ({
+export const useMapData = create<UseMap>((set, get) => ({
     points: [],
     userLocations: null,
     carWaypoints: false,
     walkWaypoints: false,
+    time: 0,
+    length: '0',
+    speed: '0',
 
     setCarWaypoints: (nowCarWaypoints: boolean) => {
         set({carWaypoints: nowCarWaypoints})
@@ -28,5 +31,14 @@ export const useMap = create<UseMap>((set, get) => ({
     },
     setUserLocation: (point: LatLngLiteral) => {
         set({ userLocations: point });
+    },
+    setTime: (time: number) => {
+        set({time });
+    },
+    setLength: (length: string) => {
+        set({length});
+    },
+    setSpeed: (speed: string) => {
+        set({speed});
     }
 }))

@@ -18,6 +18,7 @@ import {useReadFetcher} from "@/helpers/hooks/useReadFetcher.ts";
 import {Message} from "@/components-primary/entites/dialogs/messageDiaog/interface/interafce.ts";
 import MessagesList from "@/components-primary/entites/messageList/messagesList.tsx";
 import MessageButton from "@/components-primary/shared/buttons/messageButton.tsx";
+import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
 
 const CardCafe = (
     {
@@ -36,6 +37,7 @@ const CardCafe = (
     const [like, setLike] = useState<boolean>(favourites);
     const [message, setMessage] = useState<boolean>(false);
     const [rotute, setRotute] = useState<boolean>(false);
+    const setFilter = useCafeGet(state => state.setFilter)
 
     const { mutate } = useUpdateFavourite();
 
@@ -55,7 +57,10 @@ const CardCafe = (
                 description: "Вы добавили место в избранные",
                 action: {
                     label: "Избранные",
-                    onClick: () => navigate("/cafelist"),
+                    onClick: () => {
+                        navigate("/cafelist"),
+                        setFilter('favorites')
+                    }
                 },
             })
         )

@@ -1,25 +1,38 @@
-import {useMap} from "@/page/map/store/store.ts";
+import { useEffect } from "react";
+import { useMapData } from "@/page/map/store/store.ts";
 
-export const useUserLocation  = () => {
-    const setUserLocation = useMap(state => state.setUserLocation);
+export const useUserLocation = () => {
+    const setUserLocation = useMapData(state => state.setUserLocation);
+    const setSpeed = useMapData(state => state.setSpeed);
 
-    const getUserLocation = () => {
+    useEffect(() => {
         if (!navigator.geolocation) {
             alert("Геолокация не поддерживается вашим браузером");
             return;
         }
 
-        navigator.geolocation.getCurrentPosition(
+        const watcherId = navigator.geolocation.watchPosition(
             (position) => {
-                const { latitude: lat, longitude: lng } = position.coords;
-                setUserLocation({lat, lng});
+                const { latitude: lat, longitude: lng, speed } = position.coords;
+                const speedKmh = speed !== null ? (speed * 3.6).toFixed(2) : "Неизвестна";
+                setUserLocation({ lat, lng });
+                setSpeed(speedKmh)
             },
             (error) => {
                 console.error("Ошибка геолокации:", error);
                 alert("Не удалось определить местоположение");
+            },
+            {
+                enableHighAccuracy: true,
+                maximumAge: 0,
+                timeout: 5000,
             }
         );
-    }
 
-    return { getUserLocation };
+        return () => {
+            navigator.geolocation.clearWatch(watcherId);
+        };
+    }, [setUserLocation]);
+
+    return null;
 };

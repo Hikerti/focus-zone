@@ -1,11 +1,11 @@
 import {Marker, Popup} from "react-leaflet";
-import {useMap} from "@/page/map/store/store.ts";
+import {useMapData} from "@/page/map/store/store.ts";
 
 const MarkersMap = () => {
 
-    const points = useMap(state => state.points)
-    const deletePoints = useMap(state => state.deletePoints)
-    const userLocations = useMap(state => state.userLocations)
+    const points = useMapData(state => state.points)
+    const deletePoints = useMapData(state => state.deletePoints)
+    const userLocations = useMapData(state => state.userLocations)
 
     return (
         <>
