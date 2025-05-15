@@ -4,7 +4,7 @@ import Footer from "@/components-primary/widgets/footer/footer.tsx";
 import { Toaster } from "@/components/ui/sonner"
 import {useGetUser} from "@/helpers/store/storeUser.ts";
 import {useEffect} from "react";
-import {UserFullData} from "@/helpers/interface/interface.ts";
+import {UserFullData} from "@/helpers/interface/interface/interface.ts";
 
 
 const Layout = () => {

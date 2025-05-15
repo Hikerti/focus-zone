@@ -7,6 +7,8 @@ import ProfilePage from "@/page/profile/page.tsx";
 import CafeList from "@/page/cafelist/page.tsx";
 import CafeSinglePage from "@/page/cafeSinglePage/cafeSinglePage.tsx";
 import 'leaflet/dist/leaflet.css';
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
+import "leaflet-routing-machine";
 
 function App() {
   return (

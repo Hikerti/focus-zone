@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { UserFullData } from "../interface/interface";
+import { UserFullData } from "../interface/interface/interface.ts";
 
 interface useGetStore {
     users: UserFullData[] | null

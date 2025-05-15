@@ -1,4 +1,4 @@
-import { HttpMethod } from "./type"
+import { HttpMethod } from "../type/type.ts"
 
 export interface useReadReturn<T> {
     data?: T

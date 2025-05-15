@@ -1,4 +1,4 @@
-import {UserFullData} from "@/helpers/interface/interface.ts";
+import {UserFullData} from "@/helpers/interface/interface/interface.ts";
 
 export interface UserRegistration {
     name: string;

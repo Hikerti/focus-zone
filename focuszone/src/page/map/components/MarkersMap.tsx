@@ -1,6 +1,4 @@
 import {Marker, Popup} from "react-leaflet";
-import L from "leaflet";
-import mapPoint from "@/assets/icon/map_point.svg.png";
 import {useMap} from "@/page/map/store/store.ts";
 
 const MarkersMap = () => {
@@ -9,17 +7,10 @@ const MarkersMap = () => {
     const deletePoints = useMap(state => state.deletePoints)
     const userLocations = useMap(state => state.userLocations)
 
-    const customIcon = new L.Icon({
-        iconUrl: mapPoint,
-        iconSize: [32, 32],
-        iconAnchor: [16, 32],
-        popupAnchor: [0, -32],
-    });
-
     return (
         <>
             {points.map((point, index) => (
-                    <Marker key={index} position={point} icon={customIcon}>
+                    <Marker key={index} position={point}>
                         <Popup>
                             <span
                                 className='cursor-pointer'
@@ -30,7 +21,7 @@ const MarkersMap = () => {
                     </Marker>
                 ))}
             {userLocations && (
-                <Marker position={userLocations} icon={customIcon}>
+                <Marker position={userLocations}>
                     <Popup>
                             <span
                                 className='cursor-pointer'

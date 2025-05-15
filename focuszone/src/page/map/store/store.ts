@@ -6,6 +6,15 @@ import * as React from "react";
 export const useMap = create<UseMap>((set, get) => ({
     points: [],
     userLocations: null,
+    carWaypoints: false,
+    walkWaypoints: false,
+
+    setCarWaypoints: (nowCarWaypoints: boolean) => {
+        set({carWaypoints: nowCarWaypoints})
+    },
+    setWalkWaypoints: (nowWalkWaypoints: boolean) => {
+        set({walkWaypoints: nowWalkWaypoints})
+    },
 
     setPoints: (point: LatLngLiteral) => {
         const currentPoints = get().points
