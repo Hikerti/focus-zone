@@ -1,4 +1,4 @@
-import { IsOptional, IsString } from 'class-validator';
+import {IsOptional, IsString} from 'class-validator';
 
 export class CreateCartDto {
 
@@ -23,4 +23,10 @@ export class CreateCartDto {
     @IsString({message: "Поле rating должно быть строкой"})
     @IsOptional()
     rating?: string
+
+    @IsString({message: "Поле locationLat должно быть строкой"})
+    locationLat: string
+
+    @IsString({message: "Поле locationLng должно быть строкой"})
+    locationLng: string
 }

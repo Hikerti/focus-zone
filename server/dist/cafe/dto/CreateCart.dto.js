@@ -18,6 +18,8 @@ class CreateCartDto {
     imageUrl;
     favourites;
     rating;
+    locationLat;
+    locationLng;
 }
 exports.CreateCartDto = CreateCartDto;
 __decorate([
@@ -48,4 +50,12 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreateCartDto.prototype, "rating", void 0);
+__decorate([
+    (0, class_validator_1.IsString)({ message: "Поле locationLat должно быть строкой" }),
+    __metadata("design:type", String)
+], CreateCartDto.prototype, "locationLat", void 0);
+__decorate([
+    (0, class_validator_1.IsString)({ message: "Поле locationLng должно быть строкой" }),
+    __metadata("design:type", String)
+], CreateCartDto.prototype, "locationLng", void 0);
 //# sourceMappingURL=CreateCart.dto.js.map

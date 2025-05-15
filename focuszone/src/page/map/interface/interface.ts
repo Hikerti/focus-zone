@@ -9,8 +9,12 @@ export interface UseMap {
     time: number
     length: string
     speed: string
+    startPath: boolean
+    titlePlaces: string[]
     setCarWaypoints: (nowCarWaypoints: boolean) => void
     setWalkWaypoints: (nowWalkWaypoints: boolean) => void
+    setStartPath: (start: boolean) => void
+    setTitlePlaces: (titlePlace: string) => void
     setPoints: (point: LatLngLiteral) => void
     deletePoints: (pointDelete: LatLngLiteral, e: React.MouseEvent) => void
     setUserLocation: (point: LatLngLiteral) => void

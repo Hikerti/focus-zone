@@ -1,5 +1,5 @@
 import { useGetUser } from "@/helpers/store/storeUser";
-import ProfileContent from "./components/proofileContent";
+import ProfileContent from "./widgets/profileContent/profileContent.tsx";
 import FullForm from "@/components-primary/widgets/forms/fullFrom/fullForm";
 
 export default function ProfilePage() {
@@ -8,7 +8,7 @@ export default function ProfilePage() {
   return (
     <>
     {
-      (users.length !== 0)
+      (users?.length !== 0)
         ?
           <ProfileContent></ProfileContent>
         :

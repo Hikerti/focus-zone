@@ -8,4 +8,7 @@ export interface CardCafeProps {
     favourites: boolean
     rating: string
     createdAt?: string
+    locationLat: string
+    locationLng: string
+    showArrow: boolean
 }

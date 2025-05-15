@@ -128,6 +128,8 @@ exports.Prisma.CardsCafeScalarFieldEnum = {
   imageUrl: 'imageUrl',
   rating: 'rating',
   favourites: 'favourites',
+  locationLat: 'locationLat',
+  locationLng: 'locationLng',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

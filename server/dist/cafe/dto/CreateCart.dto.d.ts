@@ -5,4 +5,6 @@ export declare class CreateCartDto {
     imageUrl?: string;
     favourites?: boolean;
     rating?: string;
+    locationLat: string;
+    locationLng: string;
 }

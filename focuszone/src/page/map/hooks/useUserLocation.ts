@@ -14,7 +14,7 @@ export const useUserLocation = () => {
         const watcherId = navigator.geolocation.watchPosition(
             (position) => {
                 const { latitude: lat, longitude: lng, speed } = position.coords;
-                const speedKmh = speed !== null ? (speed * 3.6).toFixed(2) : "Неизвестна";
+                const speedKmh = speed !== null ? (speed * 3.6).toFixed(2) : "0";
                 setUserLocation({ lat, lng });
                 setSpeed(speedKmh)
             },

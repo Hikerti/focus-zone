@@ -22,6 +22,8 @@ model CardsCafe {
   imageUrl    String?
   rating      String  @default("Нет")
   favourites  Boolean @default(false)
+  locationLat Int     @default(0) @map("location_lat")
+  locationLng Int     @default(0) @map("location_lng")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

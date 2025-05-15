@@ -1,4 +1,4 @@
-import { IsBoolean, IsOptional, IsString } from "class-validator"
+import {IsBoolean, IsOptional, IsString} from "class-validator"
 
 export class UpdateCartDto {
     @IsString({message: "Поле title должно быть строкой"})
@@ -24,4 +24,10 @@ export class UpdateCartDto {
     @IsString({message: "Поле rating должно быть строкой"})
     @IsOptional()
     rating?: string
+
+    @IsString({message: "Поле locationLat должно быть строкой"})
+    locationLat?: string
+
+    @IsString({message: "Поле locationLng должно быть строкой"})
+    locationLng?: string
 }

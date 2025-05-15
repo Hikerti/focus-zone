@@ -8,6 +8,8 @@ export interface Card {
     favourites: boolean
     rating: string
     createdAt: string
+    locationLat: string
+    locationLng: string
 }
 
 export interface CardPut {
@@ -20,4 +22,6 @@ export interface CardPut {
     description?: string
     favourites?: boolean
     createdAt?: string
+    locationLat?: string
+    locationLng?: string
 }

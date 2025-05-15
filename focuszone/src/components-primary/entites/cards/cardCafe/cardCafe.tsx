@@ -19,6 +19,9 @@ import {Message} from "@/components-primary/entites/dialogs/messageDiaog/interfa
 import MessagesList from "@/components-primary/entites/messageList/messagesList.tsx";
 import MessageButton from "@/components-primary/shared/buttons/messageButton.tsx";
 import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
+import {useMapData} from "@/page/map/store/store.ts";
+import {LatLngLiteral} from "leaflet";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel.tsx";
 
 const CardCafe = (
     {
@@ -30,7 +33,10 @@ const CardCafe = (
         description,
         favourites,
         createdAt,
-        rating
+        rating,
+        locationLat,
+        locationLng,
+        showArrow
     }: CardCafeProps) => {
     const navigate = useNavigate();
 
@@ -38,6 +44,8 @@ const CardCafe = (
     const [message, setMessage] = useState<boolean>(false);
     const [rotute, setRotute] = useState<boolean>(false);
     const setFilter = useCafeGet(state => state.setFilter)
+    const setPoints = useMapData(state => state.setPoints)
+    const setTitlePlase = useMapData(state => state.setTitlePlaces)
 
     const { mutate } = useUpdateFavourite();
 
@@ -91,11 +99,32 @@ const CardCafe = (
                         </div>
                     </CardTitle>
                 </CardHeader>
-                <CardContent className="w-full h-full flex flex-col gap-4">
-                    <Link to={`/cafelist/${id}`} target='_blank' className='w-full h-[600px] flex items-center justify-center rounded-lg'>
-                        <img className="w-full h-full rounded-xl" src={imageUrl} alt="img" />
-                    </Link>
-                    <div className='flex gap-2 justify-between items-center'>
+                <CardContent className="w-full h-full flex flex-col items-center gap-4">
+                    <div className='w-[94%] h-[600px] flex items-center justify-center'>
+                        <Carousel className='w-full h-full flex flex-col'>
+                            <CarouselContent className="w-full h-[600px]">
+                                <CarouselItem>
+                                    <Link to={`/cafelist/${id}`} target='_blank' >
+                                        <img className="w-full h-full object-cover rounded-lg" src={imageUrl} alt="img" />
+                                    </Link>
+                                </CarouselItem>
+                                <CarouselItem>
+                                    <img className="w-full h-full object-cover rounded-lg" src={imageUrl} alt="img" />
+                                </CarouselItem>
+                                <CarouselItem>
+                                    <img className="w-full h-full object-cover rounded-lg" src={imageUrl} alt="img" />
+                                </CarouselItem>
+                            </CarouselContent>
+                            {
+                                showArrow &&
+                                <>
+                                    <CarouselPrevious />
+                                    <CarouselNext />
+                                </>
+                            }
+                        </Carousel>
+                    </div>
+                    <div className='w-full flex gap-2 justify-between items-center'>
                         <div className='flex gap-2'>
                             <Button
                                 className='cursor-pointer'
@@ -104,7 +133,15 @@ const CardCafe = (
                                         description: `${description}`,
                                         action: {
                                             label: "Карта",
-                                            onClick: () => navigate("/map"),
+                                            onClick: () => {
+                                                navigate("/map")
+                                                const newPoint: LatLngLiteral = {
+                                                    lat: Number(locationLat),
+                                                    lng: Number(locationLng),
+                                                };
+                                                setTitlePlase(title)
+                                                setPoints(newPoint)
+                                            },
                                         },
                                     })
                                 }

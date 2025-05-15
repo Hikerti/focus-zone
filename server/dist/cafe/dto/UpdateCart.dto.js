@@ -18,6 +18,8 @@ class UpdateCartDto {
     imageUrl;
     favourites;
     rating;
+    locationLat;
+    locationLng;
 }
 exports.UpdateCartDto = UpdateCartDto;
 __decorate([
@@ -50,4 +52,12 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], UpdateCartDto.prototype, "rating", void 0);
+__decorate([
+    (0, class_validator_1.IsString)({ message: "Поле locationLat должно быть строкой" }),
+    __metadata("design:type", String)
+], UpdateCartDto.prototype, "locationLat", void 0);
+__decorate([
+    (0, class_validator_1.IsString)({ message: "Поле locationLng должно быть строкой" }),
+    __metadata("design:type", String)
+], UpdateCartDto.prototype, "locationLng", void 0);
 //# sourceMappingURL=UpdateCart.dto.js.map

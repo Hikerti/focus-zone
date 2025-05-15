@@ -1079,6 +1079,8 @@ export namespace Prisma {
     imageUrl: string | null
     rating: string | null
     favourites: boolean | null
+    locationLat: string | null
+    locationLng: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1091,6 +1093,8 @@ export namespace Prisma {
     imageUrl: string | null
     rating: string | null
     favourites: boolean | null
+    locationLat: string | null
+    locationLng: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1103,6 +1107,8 @@ export namespace Prisma {
     imageUrl: number
     rating: number
     favourites: number
+    locationLat: number
+    locationLng: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1125,6 +1131,8 @@ export namespace Prisma {
     imageUrl?: true
     rating?: true
     favourites?: true
+    locationLat?: true
+    locationLng?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1137,6 +1145,8 @@ export namespace Prisma {
     imageUrl?: true
     rating?: true
     favourites?: true
+    locationLat?: true
+    locationLng?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1149,6 +1159,8 @@ export namespace Prisma {
     imageUrl?: true
     rating?: true
     favourites?: true
+    locationLat?: true
+    locationLng?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1248,6 +1260,8 @@ export namespace Prisma {
     imageUrl: string | null
     rating: string
     favourites: boolean
+    locationLat: string
+    locationLng: string
     createdAt: Date
     updatedAt: Date
     _count: CardsCafeCountAggregateOutputType | null
@@ -1279,6 +1293,8 @@ export namespace Prisma {
     imageUrl?: boolean
     rating?: boolean
     favourites?: boolean
+    locationLat?: boolean
+    locationLng?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["cardsCafe"]>
@@ -1291,6 +1307,8 @@ export namespace Prisma {
     imageUrl?: boolean
     rating?: boolean
     favourites?: boolean
+    locationLat?: boolean
+    locationLng?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["cardsCafe"]>
@@ -1303,6 +1321,8 @@ export namespace Prisma {
     imageUrl?: boolean
     rating?: boolean
     favourites?: boolean
+    locationLat?: boolean
+    locationLng?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["cardsCafe"]>
@@ -1315,11 +1335,13 @@ export namespace Prisma {
     imageUrl?: boolean
     rating?: boolean
     favourites?: boolean
+    locationLat?: boolean
+    locationLng?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type CardsCafeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "address" | "imageUrl" | "rating" | "favourites" | "createdAt" | "updatedAt", ExtArgs["result"]["cardsCafe"]>
+  export type CardsCafeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "address" | "imageUrl" | "rating" | "favourites" | "locationLat" | "locationLng" | "createdAt" | "updatedAt", ExtArgs["result"]["cardsCafe"]>
 
   export type $CardsCafePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "CardsCafe"
@@ -1332,6 +1354,8 @@ export namespace Prisma {
       imageUrl: string | null
       rating: string
       favourites: boolean
+      locationLat: string
+      locationLng: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["cardsCafe"]>
@@ -1764,6 +1788,8 @@ export namespace Prisma {
     readonly imageUrl: FieldRef<"CardsCafe", 'String'>
     readonly rating: FieldRef<"CardsCafe", 'String'>
     readonly favourites: FieldRef<"CardsCafe", 'Boolean'>
+    readonly locationLat: FieldRef<"CardsCafe", 'String'>
+    readonly locationLng: FieldRef<"CardsCafe", 'String'>
     readonly createdAt: FieldRef<"CardsCafe", 'DateTime'>
     readonly updatedAt: FieldRef<"CardsCafe", 'DateTime'>
   }
@@ -4273,6 +4299,8 @@ export namespace Prisma {
     imageUrl: 'imageUrl',
     rating: 'rating',
     favourites: 'favourites',
+    locationLat: 'locationLat',
+    locationLng: 'locationLng',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4415,6 +4443,8 @@ export namespace Prisma {
     imageUrl?: StringNullableFilter<"CardsCafe"> | string | null
     rating?: StringFilter<"CardsCafe"> | string
     favourites?: BoolFilter<"CardsCafe"> | boolean
+    locationLat?: StringFilter<"CardsCafe"> | string
+    locationLng?: StringFilter<"CardsCafe"> | string
     createdAt?: DateTimeFilter<"CardsCafe"> | Date | string
     updatedAt?: DateTimeFilter<"CardsCafe"> | Date | string
   }
@@ -4427,6 +4457,8 @@ export namespace Prisma {
     imageUrl?: SortOrderInput | SortOrder
     rating?: SortOrder
     favourites?: SortOrder
+    locationLat?: SortOrder
+    locationLng?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -4442,6 +4474,8 @@ export namespace Prisma {
     imageUrl?: StringNullableFilter<"CardsCafe"> | string | null
     rating?: StringFilter<"CardsCafe"> | string
     favourites?: BoolFilter<"CardsCafe"> | boolean
+    locationLat?: StringFilter<"CardsCafe"> | string
+    locationLng?: StringFilter<"CardsCafe"> | string
     createdAt?: DateTimeFilter<"CardsCafe"> | Date | string
     updatedAt?: DateTimeFilter<"CardsCafe"> | Date | string
   }, "id">
@@ -4454,6 +4488,8 @@ export namespace Prisma {
     imageUrl?: SortOrderInput | SortOrder
     rating?: SortOrder
     favourites?: SortOrder
+    locationLat?: SortOrder
+    locationLng?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: CardsCafeCountOrderByAggregateInput
@@ -4474,6 +4510,8 @@ export namespace Prisma {
     imageUrl?: StringNullableWithAggregatesFilter<"CardsCafe"> | string | null
     rating?: StringWithAggregatesFilter<"CardsCafe"> | string
     favourites?: BoolWithAggregatesFilter<"CardsCafe"> | boolean
+    locationLat?: StringWithAggregatesFilter<"CardsCafe"> | string
+    locationLng?: StringWithAggregatesFilter<"CardsCafe"> | string
     createdAt?: DateTimeWithAggregatesFilter<"CardsCafe"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"CardsCafe"> | Date | string
   }
@@ -4626,6 +4664,8 @@ export namespace Prisma {
     imageUrl?: string | null
     rating?: string
     favourites?: boolean
+    locationLat?: string
+    locationLng?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4638,6 +4678,8 @@ export namespace Prisma {
     imageUrl?: string | null
     rating?: string
     favourites?: boolean
+    locationLat?: string
+    locationLng?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4649,6 +4691,8 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: StringFieldUpdateOperationsInput | string
     favourites?: BoolFieldUpdateOperationsInput | boolean
+    locationLat?: StringFieldUpdateOperationsInput | string
+    locationLng?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4661,6 +4705,8 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: StringFieldUpdateOperationsInput | string
     favourites?: BoolFieldUpdateOperationsInput | boolean
+    locationLat?: StringFieldUpdateOperationsInput | string
+    locationLng?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4673,6 +4719,8 @@ export namespace Prisma {
     imageUrl?: string | null
     rating?: string
     favourites?: boolean
+    locationLat?: string
+    locationLng?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4684,6 +4732,8 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: StringFieldUpdateOperationsInput | string
     favourites?: BoolFieldUpdateOperationsInput | boolean
+    locationLat?: StringFieldUpdateOperationsInput | string
+    locationLng?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4696,6 +4746,8 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: StringFieldUpdateOperationsInput | string
     favourites?: BoolFieldUpdateOperationsInput | boolean
+    locationLat?: StringFieldUpdateOperationsInput | string
+    locationLng?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4928,6 +4980,8 @@ export namespace Prisma {
     imageUrl?: SortOrder
     rating?: SortOrder
     favourites?: SortOrder
+    locationLat?: SortOrder
+    locationLng?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -4944,6 +4998,8 @@ export namespace Prisma {
     imageUrl?: SortOrder
     rating?: SortOrder
     favourites?: SortOrder
+    locationLat?: SortOrder
+    locationLng?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -4956,6 +5012,8 @@ export namespace Prisma {
     imageUrl?: SortOrder
     rating?: SortOrder
     favourites?: SortOrder
+    locationLat?: SortOrder
+    locationLng?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }

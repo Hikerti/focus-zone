@@ -18,7 +18,7 @@ const CafeListContent = () => {
 
     return (
         <>
-            <section className="flex flex-col justify-center pt-4 items-center w-full gap-4">
+            <div className="flex flex-col justify-center pt-4 items-center w-full gap-4">
                 {cards?.map((elem) => {
                     return (
                         <CardCafe 
@@ -32,10 +32,14 @@ const CafeListContent = () => {
                             favourites={elem.favourites}
                             createdAt={elem.createdAt}
                             rating={elem.rating}
+                            locationLat={elem.locationLat}
+                            locationLng={elem.locationLng}
+                            showArrow={true}
                         >
                         </CardCafe>
                     )
                 })}
+                {totalPage > 5 &&
                 <Pagination>
                     <PaginationContent>
                         <PaginationItem
@@ -61,7 +65,8 @@ const CafeListContent = () => {
                         </PaginationItem>
                     </PaginationContent>
                 </Pagination>
-            </section>
+                }
+            </div>
 
         </>
     );

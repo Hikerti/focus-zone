@@ -34,16 +34,19 @@ export default function CaruselCafe() {
                 data?.map(elem => (
                     <CarouselItem key={elem.id}>
                         <CardCafe
-                                id={elem.id}
-                                key={elem.id}
-                                style="w-full"
-                                title={elem.title}
-                                adress={elem.address}
-                                imageUrl={elem.imageUrl}
-                                description={elem.description}
-                                favourites={elem.favourites}
-                                createdAt={elem.createdAt}
-                                rating={elem.rating}
+                            id={elem.id}
+                            key={elem.id}
+                            style="w-full"
+                            title={elem.title}
+                            adress={elem.address}
+                            imageUrl={elem.imageUrl}
+                            description={elem.description}
+                            favourites={elem.favourites}
+                            createdAt={elem.createdAt}
+                            rating={elem.rating}
+                            locationLat={elem.locationLat}
+                            locationLng={elem.locationLng}
+                            showArrow={false}
                             >
                         </CardCafe>
                     </CarouselItem>
