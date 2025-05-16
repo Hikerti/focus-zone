@@ -3,18 +3,23 @@ import {
     AvatarFallback,
     AvatarImage,
 } from "@/components/ui/avatar.tsx"
+import { AvatarComponentProps } from "./interface/interface";
 
-type AvatarComponentProps = {
-    size?: string;
-};
-
-export default function AvatarComponent({size}: AvatarComponentProps) {
+export default function AvatarComponent({size, url}: AvatarComponentProps) {
     return (
         <>
-            <Avatar className={size}>
-                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
+            {
+                url &&
+            <>
+                <Avatar className={size}>
+                    <AvatarImage
+                        src={url}
+                        alt="User avatar"
+                    />
+                    <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+            </>
+            }
         </>
     );
 };

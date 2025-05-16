@@ -7,6 +7,8 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { MessageModule } from './message/message.module';
+import { DiscountsModule } from './discounts/discounts.module';
+import { AchievementModule } from './achievement/achievement.module';
 
 
 @Module({
@@ -15,7 +17,7 @@ import { MessageModule } from './message/message.module';
     PrismaModule, 
     ConfigModule.forRoot({
       isGlobal: true,
-    }), AuthModule, UserModule, MessageModule,
+    }), AuthModule, UserModule, MessageModule, DiscountsModule, AchievementModule,
 ],
   controllers: [AppController],
   providers: [AppService],

@@ -10,3 +10,5 @@ export interface ProfileDescriptionProps {
     adress?: string
     phone?: string
 }
+
+

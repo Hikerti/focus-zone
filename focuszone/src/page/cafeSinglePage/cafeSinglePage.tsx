@@ -6,17 +6,7 @@ import {Heart} from "lucide-react";
 import {useUpdateFavourite} from "@/components-primary/entites/cards/hooks/useUpdateFavourite.ts";
 import {useState, useEffect} from "react";
 import {Message} from "@/components-primary/entites/dialogs/messageDiaog/interface/interafce.ts";
-
-interface GetCard {
-    id: number;
-    title: string;
-    description: string;
-    address: string;
-    imageUrl: string;
-    favourites: boolean
-    createdAt: string
-    updatedAt: string
-}
+import {GetCard} from "@/page/cafeSinglePage/interface/interface.ts";
 
 const CafeSinglePage = () => {
     const { id } = useParams();

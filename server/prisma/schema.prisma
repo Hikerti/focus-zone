@@ -59,3 +59,26 @@ model Message {
 
   @@map("message")
 }
+
+model Discounts {
+  id          Int    @id @default(autoincrement())
+  userId      String
+  cafeId      Int
+  url         String
+  logo        String @default("")
+  title       String @default("")
+  description String @default("")
+
+  @@map("discounts")
+}
+
+model Achievement {
+  id          Int    @id @default(autoincrement())
+  userId      String
+  cafeId      Int
+  url         String
+  title       String
+  description String
+
+  @@map("achievement")
+}

@@ -38,7 +38,12 @@ const SheetInfo = () => {
                 <>
                     <SheetTrigger asChild>
                         <div className="flex h-full justify-center items-center cursor-pointer gap-4">
-                            <AvatarComponent></AvatarComponent>
+                            <AvatarComponent
+                                size={'w-[32px] h-[32px]'}
+                                url={user.name}
+                            >
+
+                            </AvatarComponent>
                             <div className='flex flex-col '>
                                 <p className='text-white !text-[12px]'>{user.name + " " + user.surname}</p>
                                 <p className='text-white !text-[12px]'>@{user.login}</p>
@@ -49,7 +54,10 @@ const SheetInfo = () => {
                         <SheetHeader>
                             <div className="flex h-full flex-col justify-center gap-2">
                                 <div className="flex gap-4">
-                                    <AvatarComponent size={'w-[100px] h-[100px]'}></AvatarComponent>
+                                    <AvatarComponent
+                                        size={'w-[100px] h-[100px]'}
+                                        url={user.name}
+                                    />
                                     <div>
                                         <h4 className='text-zinc-900'>{user.name + " " + user.surname}</h4>
                                         <h4 className='text-zinc-900'>@{user.login}</h4>

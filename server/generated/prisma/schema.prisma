@@ -22,8 +22,8 @@ model CardsCafe {
   imageUrl    String?
   rating      String  @default("Нет")
   favourites  Boolean @default(false)
-  locationLat Int     @default(0) @map("location_lat")
-  locationLng Int     @default(0) @map("location_lng")
+  locationLat String  @default("0") @map("location_lat")
+  locationLng String  @default("0") @map("location_lng")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -58,4 +58,27 @@ model Message {
   updatedAt DateTime @updatedAt
 
   @@map("message")
+}
+
+model Discounts {
+  id          Int    @id @default(autoincrement())
+  userId      String
+  cafeId      Int
+  url         String
+  logo        String @default("")
+  title       String @default("")
+  description String @default("")
+
+  @@map("discounts")
+}
+
+model Achievement {
+  id          Int    @id @default(autoincrement())
+  userId      String
+  cafeId      Int
+  url         String
+  title       String
+  description String
+
+  @@map("achievement")
 }
