@@ -5,13 +5,13 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-  } from "@/components/ui/select"
+  } from "@/components/ui/select.tsx"
 import { useEffect, useState } from "react"
-import {Card} from "../interface/interface"
+import {Card} from "../../interface/interface.ts"
 import { useReadFetcher } from "@/helpers/hooks/useReadFetcher.ts"
-import { FindLoading } from "@/helpers/functions/findLoading"
-import { FindError } from "@/helpers/functions/findError"
-import { useCafeGet } from "../store/storeCafe"
+import { FindLoading } from "@/components-primary/entites/loading/findLoading.tsx"
+import { ErrorPage } from "@/page/errorPage/errorPage.tsx"
+import { useCafeGet } from "../../store/storeCafe.ts"
 type FilterProps = {
     filterProps: 'none' | "favorites" | "date" | "estimation"
 }
@@ -32,7 +32,7 @@ export const FilterCards = ({filterProps} : {filterProps: FilterProps | string})
 
     useEffect(() => {
         FindLoading(isPending)
-        FindError(isError)
+        ErrorPage(isError)
 
         if (data) {
             setCards(data)

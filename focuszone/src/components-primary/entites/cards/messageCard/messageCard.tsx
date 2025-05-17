@@ -7,7 +7,7 @@ import {
 import AvatarComponent from "@/components-primary/shared/ui/avatar.tsx";
 import {Message} from "@/components-primary/entites/dialogs/messageDiaog/interface/interafce.ts";
 import {useReadFetcher} from "@/helpers/hooks/useReadFetcher.ts";
-import {UserFullData} from "@/helpers/interface/interface/interface.ts";
+import {UserFullData} from "@/helpers/interface/interface.ts";
 
 interface MessageCardProps {
     message: Message;

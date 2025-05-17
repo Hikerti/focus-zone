@@ -9,7 +9,9 @@ export const LoginUser = async (body: UserLogin) => {
             withCredentials: true,
         })
         const { user } = response.data;
+
         useGetUser.getState().setUser(user);
+
         return response.data
     } catch (error) {
         console.log(error)

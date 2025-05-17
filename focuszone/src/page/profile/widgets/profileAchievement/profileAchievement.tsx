@@ -1,8 +1,8 @@
 import {Carousel, CarouselContent, CarouselNext, CarouselPrevious} from "@/components/ui/carousel.tsx";
 import {useReadFetcher} from "@/helpers/hooks/useReadFetcher.ts";
 import {useGetUser} from "@/helpers/store/storeUser.ts";
-import {FindError} from "@/helpers/functions/findError.tsx";
-import {FindLoading} from "@/helpers/functions/findLoading.tsx";
+import {ErrorPage} from "@/page/errorPage/errorPage.tsx";
+import {FindLoading} from "@/components-primary/entites/loading/findLoading.tsx";
 import {useAchievements} from "@/page/profile/widgets/profileAchievement/store/store.ts";
 import {useEffect} from "react";
 import {Achievements} from "@/page/profile/widgets/profileAchievement/interface/interface.ts";
@@ -21,7 +21,7 @@ const ProfileAchievement = () => {
         queryKey: `achievement_${users[0].id}`
     })
 
-    FindError(isError)
+    ErrorPage(isError)
     FindLoading(isPending)
 
     useEffect(() => {

@@ -1,4 +1,4 @@
-import { HttpMethod } from "../type/type.ts"
+import { HttpMethod } from "@/helpers/type/type.ts"
 
 export interface useReadReturn<T> {
     data?: T
@@ -24,4 +24,15 @@ export interface UserFullData {
   description: string
   createdAt: string
   updatedAt: string
+}
+
+export interface useGetStore {
+    users: UserFullData[] | null
+    isError: boolean,
+    isPending: boolean,
+    login: boolean
+
+    setUser: (user: UserFullData) => void
+    clearUser: () => void,
+    setLogin: (loginUser: boolean) => void,
 }

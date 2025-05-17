@@ -25,7 +25,7 @@ const FullForm = () => {
             <div className="w-4/10 my-8">
                 {
                     changeForm
-                    ?
+                        ?
                         <FormRegistration></FormRegistration>
                         :
                         <FormLogin></FormLogin>

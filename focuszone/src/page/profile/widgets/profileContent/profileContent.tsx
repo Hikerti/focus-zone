@@ -1,9 +1,9 @@
 import { useGetUser } from "@/helpers/store/storeUser.ts";
 import ProfileDescription from "../../entites/profileDescription/profileDescription.tsx";
 import ProfileHeader from "../../entites/profileHeader/profileHeader.tsx";
-import { FindError } from "@/helpers/functions/findError.tsx";
-import { FindLoading } from "@/helpers/functions/findLoading.tsx";
-import {UserFullData} from "@/helpers/interface/interface/interface.ts";
+import { ErrorPage } from "@/page/errorPage/errorPage.tsx";
+import { FindLoading } from "@/components-primary/entites/loading/findLoading.tsx";
+import {UserFullData} from "@/helpers/interface/interface.ts";
 import {useEffect, useState} from "react";
 import ProfileAchievement from "@/page/profile/widgets/profileAchievement/profileAchievement.tsx";
 import ProfileDiscounts from "@/page/profile/widgets/profileDiscounts/profileDiscounts.tsx";
@@ -19,7 +19,7 @@ export default function ProfileContent() {
         }
     }, [users]);
 
-    FindError(isError)
+    ErrorPage(isError)
     FindLoading(isPending)
 
     if (isPending || isError || users?.length === 0) {

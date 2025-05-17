@@ -38,14 +38,16 @@ const CardCafe = (
         locationLng,
         showArrow
     }: CardCafeProps) => {
+
     const navigate = useNavigate();
 
     const [like, setLike] = useState<boolean>(favourites);
     const [message, setMessage] = useState<boolean>(false);
     const [rotute, setRotute] = useState<boolean>(false);
+
     const setFilter = useCafeGet(state => state.setFilter)
     const setPoints = useMapData(state => state.setPoints)
-    const setTitlePlase = useMapData(state => state.setTitlePlaces)
+    const setTitlePlace = useMapData(state => state.setTitlePlaces)
 
     const { mutate } = useUpdateFavourite();
 
@@ -139,7 +141,7 @@ const CardCafe = (
                                                     lat: Number(locationLat),
                                                     lng: Number(locationLng),
                                                 };
-                                                setTitlePlase(title)
+                                                setTitlePlace(title)
                                                 setPoints(newPoint)
                                             },
                                         },

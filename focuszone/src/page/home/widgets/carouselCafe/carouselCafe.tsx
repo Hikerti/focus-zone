@@ -5,13 +5,13 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-  } from "@/components/ui/carousel"
-import { FindError } from "@/helpers/functions/findError";
-import { FindLoading } from "@/helpers/functions/findLoading";
+  } from "@/components/ui/carousel.tsx"
+import { ErrorPage } from "@/page/errorPage/errorPage.tsx";
+import { FindLoading } from "@/components-primary/entites/loading/findLoading.tsx";
 import { useReadFetcher } from "@/helpers/hooks/useReadFetcher.ts";
-import { Card } from "@/page/cafelist/interface/interface";
+import { Card } from "@/page/cafelist/interface/interface.ts";
 
-export default function CaruseleCafe() {
+export default function CarouselCafe() {
 
     const {data, isPending, isError} = useReadFetcher<Card[]>({
         url: 'http://localhost:4000/cafe/card_filter/none/1/6',
@@ -20,7 +20,7 @@ export default function CaruseleCafe() {
     })
 
     FindLoading(isPending)
-    FindError(isError)
+    ErrorPage(isError)
 
     return (
       <>

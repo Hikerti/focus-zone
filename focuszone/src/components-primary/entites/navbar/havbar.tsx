@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button.tsx";
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip.tsx";
 
 export default function NavBar() {
+    const navigateIcon = [
+        { icon: <Goal className='!w-6 !h-6'/>, label: "Главая страница", href: "/" },
+        { icon: <User size={20} />, label: "Профиль", href: "/profile" },
+        { icon: <MapPinCheckInside size={20} />, label: "Карта", href: "/map" },
+        { icon: <ListChecks size={20} />, label: "Список кофе", href: "/cafelist" },
+    ]
+
   return (
     <>
       <TooltipProvider>
@@ -10,12 +17,7 @@ export default function NavBar() {
         className="h-[90vh] w-[4%] bg-zinc-900 text-white flex flex-col
         items-center pt-3 gap-4 absolute top-0 left-0 rounded-br-3xl shadow-lg shadow-zinc-700/50"
         >
-          {[
-              { icon: <Goal className='!w-6 !h-6'/>, label: "Главая страница", href: "/" },
-              { icon: <User size={20} />, label: "Профиль", href: "/profile" },
-              { icon: <MapPinCheckInside size={20} />, label: "Карта", href: "/map" },
-              { icon: <ListChecks size={20} />, label: "Список кофе", href: "/cafelist" },
-          ].map((item, index) => (
+          {navigateIcon.map((item, index) => (
             <Tooltip key={index}>
               <TooltipTrigger asChild>
                   <div>

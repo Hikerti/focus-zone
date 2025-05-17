@@ -4,8 +4,8 @@ import AvatarComponent from "@/components-primary/shared/ui/avatar.tsx";
 import ContactInfo from "@/components-primary/entites/contactInfo/ContactInfo.tsx";
 
 import { useGetUser } from "@/helpers/store/storeUser";
-import { FindError } from "@/helpers/functions/findError";
-import { FindLoading } from "@/helpers/functions/findLoading";
+import { ErrorPage } from "@/page/errorPage/errorPage.tsx";
+import { FindLoading } from "@/components-primary/entites/loading/findLoading.tsx";
 
 import DialogRegistration from "@/components-primary/entites/dialogs/dialogRegistration/dialogRegistration.tsx";
 import DialogLogin from "@/components-primary/entites/dialogs/dialogLogin/dialogLogin.tsx";
@@ -18,7 +18,7 @@ const SheetInfo = () => {
     const {users, isError, isPending} = useGetUser()
     const logoutUser = useLogout()
 
-    FindError(isError)
+    ErrorPage(isError)
     FindLoading(isPending)
 
     if (!users || users.length === 0) {
@@ -29,8 +29,8 @@ const SheetInfo = () => {
             </div>
         );
     }
-    const user = users[0]
 
+    const user = users[0]
 
     return (
         <>
@@ -43,7 +43,6 @@ const SheetInfo = () => {
                                 size={'w-[32px] h-[32px]'}
                                 url={user.name}
                             >
-
                             </AvatarComponent>
                             <div className='flex flex-col '>
                                 <p className='text-white !text-[12px]'>{user.name + " " + user.surname}</p>

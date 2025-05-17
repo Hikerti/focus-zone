@@ -6,7 +6,7 @@ import {
     PaginationLink,
     PaginationNext,
     PaginationPrevious,
-} from "@/components/ui/pagination";
+} from "@/components/ui/pagination.tsx";
 
 import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
 

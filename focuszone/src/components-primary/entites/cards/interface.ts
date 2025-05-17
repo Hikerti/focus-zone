@@ -12,3 +12,8 @@ export interface CardCafeProps {
     locationLng: string
     showArrow: boolean
 }
+
+export interface useUpdateFavouriteFunction {
+    id?: string
+    favourites: boolean
+}

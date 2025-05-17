@@ -11,8 +11,9 @@ import {useState} from "react";
 import {useMutation} from "@tanstack/react-query";
 import axios from "axios";
 import {useGetUser} from "@/helpers/store/storeUser.ts";
+import {MessageDialogProps} from "@/components-primary/entites/dialogs/messageDiaog/interface/interafce.ts";
 
-const MessageDialog = ({cafeId}: {cafeId: number} ) => {
+const MessageDialog = ({cafeId}: MessageDialogProps ) => {
     const [message, setMessage] = useState<string>();
     const users = useGetUser(state => state.users);
 

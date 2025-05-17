@@ -1,24 +1,8 @@
 import { create } from "zustand";
-import {Card, CardPut} from "../interface/interface";
+import {Card, CardPut, useCafeGetProps} from "../interface/interface";
 import axios from "axios";
 
-interface useCafeGet {
-    cards: Card[]
-    totalPage: number
-    page: number
-    limit: number
-    filter: string
-    setCards: (cards: Card[]) => void
-    setTotalPage: (total: number) => void
-    setLimit: (limit: number) => void
-    setFilter: (filter: string) => void
-    setPage: (page: number) => void
-    getLengthCards: (body: CardPut) => Promise<number>
-    calcPaginationPage: (body: CardPut) => Promise<void>
-    deleteAllCards: () => void
-}
-
-export const useCafeGet = create<useCafeGet>((
+export const useCafeGet = create<useCafeGetProps>((
     set,
     get
 ) => ({

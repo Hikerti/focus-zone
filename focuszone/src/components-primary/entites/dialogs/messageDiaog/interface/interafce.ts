@@ -6,3 +6,7 @@ export interface Message {
     createdAt: Date
     updatedAt: Date
 }
+
+export interface MessageDialogProps {
+    cafeId: number
+}

@@ -1,5 +1,5 @@
-import CafeListContent from "@/page/cafelist/components/cafeListContent.tsx";
-import { FilterCards } from "./components/filterCards";
+import CafeListContent from "@/page/cafelist/widgets/cafeListContent/cafeListContent.tsx";
+import { FilterCards } from "@/page/cafelist/widgets/filterCards/filterCards.tsx";
 import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
 
 const CafeList = () => {

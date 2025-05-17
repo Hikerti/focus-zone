@@ -1,12 +1,11 @@
 import {useParams} from "react-router-dom";
 import {useReadFetcher} from "@/helpers/hooks/useReadFetcher.ts";
-import {FindError} from "@/helpers/functions/findError.tsx";
-import {FindLoading} from "@/helpers/functions/findLoading.tsx";
+import {FindLoading} from "@/components-primary/entites/loading/findLoading.tsx";
 import {Heart} from "lucide-react";
 import {useUpdateFavourite} from "@/components-primary/entites/cards/hooks/useUpdateFavourite.ts";
 import {useState, useEffect} from "react";
-import {Message} from "@/components-primary/entites/dialogs/messageDiaog/interface/interafce.ts";
 import {GetCard} from "@/page/cafeSinglePage/interface/interface.ts";
+import {ErrorPage} from "@/page/errorPage/errorPage.tsx";
 
 const CafeSinglePage = () => {
     const { id } = useParams();
@@ -17,14 +16,6 @@ const CafeSinglePage = () => {
         method: "get",
         queryKey: `cafe_card_${id}`,
     })
-
-    const messages = useReadFetcher<Message[]>({
-        url: `http://localhost:4000/message/get_cafe_messages/${id}`,
-        method: "get",
-        queryKey: `message_singleCafe ${id}`,
-    })
-
-    console.log(messages.data)
 
     const [like, setLike] = useState<boolean>(false);
 
@@ -38,7 +29,7 @@ const CafeSinglePage = () => {
         mutate({ id: data?.id.toString(), favourites: like });
     }, [like])
 
-    FindError(isError)
+    ErrorPage(isError)
     FindLoading(isPending)
 
 

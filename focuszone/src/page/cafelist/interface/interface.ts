@@ -25,3 +25,19 @@ export interface CardPut {
     locationLat?: string
     locationLng?: string
 }
+
+export interface useCafeGetProps {
+    cards: Card[]
+    totalPage: number
+    page: number
+    limit: number
+    filter: string
+    setCards: (cards: Card[]) => void
+    setTotalPage: (total: number) => void
+    setLimit: (limit: number) => void
+    setFilter: (filter: string) => void
+    setPage: (page: number) => void
+    getLengthCards: (body: CardPut) => Promise<number>
+    calcPaginationPage: (body: CardPut) => Promise<void>
+    deleteAllCards: () => void
+}

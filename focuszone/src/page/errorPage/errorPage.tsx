@@ -1,4 +1,4 @@
-export const FindError = (isError: boolean) => {
+export const ErrorPage = (isError: boolean) => {
     if (isError) {
         return <div>Error...</div>
     }

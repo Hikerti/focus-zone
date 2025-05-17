@@ -17,7 +17,7 @@ import {useMutation} from "@tanstack/react-query";
 import {RegistrationUser} from "@/components-primary/widgets/forms/function/registrationUser.ts";
 import {UserRegistration} from "@/components-primary/widgets/forms/interface/interface.ts";
 import {useGetUser} from "@/helpers/store/storeUser.ts";
-import {UserFullData} from "@/helpers/interface/interface/interface.ts";
+import {UserFullData} from "@/helpers/interface/interface.ts";
 import { useState } from "react";
 import { Eye, EyeClosed } from "lucide-react";
 
@@ -35,6 +35,7 @@ const formSchema = z.object({
 })
 
 const FormRegistration = () => {
+
     const setUser = useGetUser(state => state.setUser)
     const setLogin = useGetUser(state => state.setLogin)
     const [passwortVisible, setPasswordVisible] = useState<boolean>(false)

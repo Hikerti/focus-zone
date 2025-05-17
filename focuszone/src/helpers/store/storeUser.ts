@@ -1,16 +1,5 @@
 import { create } from "zustand";
-import { UserFullData } from "../interface/interface/interface.ts";
-
-interface useGetStore {
-    users: UserFullData[] | null
-    isError: boolean,
-    isPending: boolean,
-    login: boolean
-
-    setUser: (user: UserFullData) => void
-    clearUser: () => void,
-    setLogin: (loginUser: boolean) => void,
-}
+import {useGetStore, UserFullData} from "../interface/interface.ts";
 
 export const useGetUser = create<useGetStore>((set) => ({
     users: [],
