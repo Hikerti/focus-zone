@@ -10,13 +10,14 @@ import { FindLoading } from "@/helpers/functions/findLoading";
 import DialogRegistration from "@/components-primary/entites/dialogs/dialogRegistration/dialogRegistration.tsx";
 import DialogLogin from "@/components-primary/entites/dialogs/dialogLogin/dialogLogin.tsx";
 import {Button} from "@/components/ui/button.tsx";
-import {logoutUser} from "@/components-primary/entites/sheetInfo/function/functions.ts";
+import {useLogout} from "@/components-primary/entites/sheetInfo/hooks/useLogout.ts";
 
 
 const SheetInfo = () => {
 
     const {users, isError, isPending} = useGetUser()
-        
+    const logoutUser = useLogout()
+
     FindError(isError)
     FindLoading(isPending)
 

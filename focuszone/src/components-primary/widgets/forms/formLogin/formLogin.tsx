@@ -32,6 +32,7 @@ const FormLogin = () => {
     const [passwortVisible, setPasswordVisible] = useState<boolean>(false)
 
     const setUser = useGetUser(state => state.setUser);
+    const setLogin = useGetUser(state => state.setLogin);
 
     const form = useForm<UserLogin>({
         resolver: zodResolver(formSchema),
@@ -47,6 +48,7 @@ const FormLogin = () => {
             console.log("Успешно отправлено:", res.user);
             form.reset()
             setUser(res.user)
+            setLogin(true)
         },
         onError: (error) => {
             console.error("Ошибка при отправке:", error);

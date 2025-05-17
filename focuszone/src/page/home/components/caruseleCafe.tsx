@@ -11,7 +11,7 @@ import { FindLoading } from "@/helpers/functions/findLoading";
 import { useReadFetcher } from "@/helpers/hooks/useReadFetcher.ts";
 import { Card } from "@/page/cafelist/interface/interface";
 
-export default function CaruselCafe() {
+export default function CaruseleCafe() {
 
     const {data, isPending, isError} = useReadFetcher<Card[]>({
         url: 'http://localhost:4000/cafe/card_filter/none/1/6',

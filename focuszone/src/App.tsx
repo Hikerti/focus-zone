@@ -9,8 +9,41 @@ import CafeSinglePage from "@/page/cafeSinglePage/cafeSinglePage.tsx";
 import 'leaflet/dist/leaflet.css';
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import "leaflet-routing-machine";
+import {useEffect} from "react";
+import {useGetUser} from "@/helpers/store/storeUser.ts";
+import axios from "axios";
 
 function App() {
+    const setUser = useGetUser(state => state.setUser)
+    const login = localStorage.getItem("login");
+
+    async function fetchUser() {
+        try {
+            const response = await axios.get('http://localhost:4000/auth/me', { withCredentials: true });
+            console.log(response)
+            if (response.data.status === 200) {}
+            setUser(response.data.user);
+        } catch (error) {
+            if (error.response?.status === 401) {
+                try {
+                    const refreshResponse = await axios.post('http://localhost:4000/auth/refresh', {}, { withCredentials: true });
+                    setUser(refreshResponse.data.user);
+                } catch {
+                    console.error(error);
+                }
+            } else {
+                console.error(error);
+            }
+        }
+    }
+
+    useEffect(() => {
+        if (login == 'true') {
+            fetchUser();
+        }
+    }, []);
+
+
   return (
     <>
         <Routes>

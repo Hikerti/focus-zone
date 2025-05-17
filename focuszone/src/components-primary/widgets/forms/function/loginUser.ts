@@ -8,9 +8,8 @@ export const LoginUser = async (body: UserLogin) => {
         const response = await axios.post('http://localhost:4000/auth/login', body, {
             withCredentials: true,
         })
-        const { user, accessToken } = response.data;
+        const { user } = response.data;
         useGetUser.getState().setUser(user);
-        localStorage.setItem('accessToken', accessToken);
         return response.data
     } catch (error) {
         console.log(error)

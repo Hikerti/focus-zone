@@ -5,7 +5,7 @@ import { FindError } from "@/helpers/functions/findError.tsx";
 import { FindLoading } from "@/helpers/functions/findLoading.tsx";
 import {UserFullData} from "@/helpers/interface/interface/interface.ts";
 import {useEffect, useState} from "react";
-import ProfileAchievement from "@/page/profile/entites/profileAchievement/profileAchievement.tsx";
+import ProfileAchievement from "@/page/profile/widgets/profileAchievement/profileAchievement.tsx";
 import ProfileDiscounts from "@/page/profile/widgets/profileDiscounts/profileDiscounts.tsx";
 
 export default function ProfileContent() {
@@ -26,12 +26,9 @@ export default function ProfileContent() {
         return null;
     }
 
-    console.log(user)
-
     return (
       <>
           {user && user !== null &&
-
               <section className="w-9/10 flex flex-col items-center justify-center my-10 bg-zinc-200 rounded-xl p-4">
                   <div className='w-9/10 flex flex-col items-center justify-center gap-8 my-[4%]'>
                        <ProfileHeader

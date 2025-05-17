@@ -1,12 +1,12 @@
 // import {create} from "zustand";
 // import axios from "axios";
 //
-// interface.ts.ts MessageCreate {
+// interface.ts.ts.ts MessageCreate {
 //     userId: string
 //     cafeId: number
 //     content: string
 // }
-// interface.ts.ts Message {
+// interface.ts.ts.ts Message {
 //     id: number
 //     userId: string
 //     cafeId: number
@@ -15,7 +15,7 @@
 //     updatedAt: Date
 // }
 //
-// interface.ts.ts MessageStore {
+// interface.ts.ts.ts MessageStore {
 //     messages: Message[]
 //     setUserMessage: (userId: string) => Promise<void>
 //     setCafeMessage: (cafeId: number) => Promise<void>

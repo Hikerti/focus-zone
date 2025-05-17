@@ -6,8 +6,7 @@ import {useGetUser} from "@/helpers/store/storeUser.ts";
 export const RegistrationUser = async (body: UserRegistration) => {
     try {
         const response = await axios.post('http://localhost:4000/auth/register', body)
-        const { user, accessToken } = response.data;
-        localStorage.setItem('accessToken', accessToken);
+        const { user } = response.data;
         useGetUser.getState().setUser(user);
         return response.data
     } catch (error) {

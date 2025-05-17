@@ -23,35 +23,39 @@ let AuthController = class AuthController {
         this.authService = authService;
     }
     ;
-    createUser(req, res, dto) {
-        return this.authService.register(res, req, dto);
+    register(res, dto) {
+        return this.authService.register(res, dto);
     }
-    login(dto, res, req) {
-        return this.authService.login(res, req, dto);
+    login(res, dto) {
+        return this.authService.login(res, dto);
     }
     logout(req, res) {
         return this.authService.logout(req, res);
+    }
+    refresh(req, res) {
+        return this.authService.refreshToken(req, res);
+    }
+    me(req) {
+        return this.authService.me(req);
     }
 };
 exports.AuthController = AuthController;
 __decorate([
     (0, common_1.Post)('register'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
-    __param(0, (0, common_1.Req)()),
-    __param(1, (0, common_1.Res)({ passthrough: true })),
-    __param(2, (0, common_1.Body)()),
+    __param(0, (0, common_1.Res)({ passthrough: true })),
+    __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object, UserCreateDto_dto_1.UserCreateDto]),
+    __metadata("design:paramtypes", [Object, UserCreateDto_dto_1.UserCreateDto]),
     __metadata("design:returntype", void 0)
-], AuthController.prototype, "createUser", null);
+], AuthController.prototype, "register", null);
 __decorate([
     (0, common_1.Post)('login'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
-    __param(0, (0, common_1.Body)()),
-    __param(1, (0, common_1.Res)({ passthrough: true })),
-    __param(2, (0, common_1.Req)()),
+    __param(0, (0, common_1.Res)({ passthrough: true })),
+    __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [login_dto_1.LoginDto, Object, Object]),
+    __metadata("design:paramtypes", [Object, login_dto_1.LoginDto]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "login", null);
 __decorate([
@@ -63,6 +67,23 @@ __decorate([
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "logout", null);
+__decorate([
+    (0, common_1.Post)('refresh'),
+    (0, common_1.HttpCode)(common_1.HttpStatus.OK),
+    __param(0, (0, common_1.Req)()),
+    __param(1, (0, common_1.Res)({ passthrough: true })),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", void 0)
+], AuthController.prototype, "refresh", null);
+__decorate([
+    (0, common_1.Get)('me'),
+    (0, common_1.HttpCode)(common_1.HttpStatus.OK),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AuthController.prototype, "me", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
     __metadata("design:paramtypes", [auth_service_1.AuthService])

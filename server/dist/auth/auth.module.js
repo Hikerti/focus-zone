@@ -14,6 +14,7 @@ const jwt_1 = require("@nestjs/jwt");
 const passport_1 = require("@nestjs/passport");
 const user_module_1 = require("../user/user.module");
 const config_1 = require("@nestjs/config");
+const redis_module_1 = require("../redis/redis.module");
 const config = new config_1.ConfigService();
 let AuthModule = class AuthModule {
 };
@@ -26,7 +27,8 @@ exports.AuthModule = AuthModule = __decorate([
                 secret: config.getOrThrow("COOKIE_SECRET"),
                 signOptions: { expiresIn: '1h' },
             }),
-            user_module_1.UserModule
+            user_module_1.UserModule,
+            redis_module_1.RedisModule
         ],
         controllers: [auth_controller_1.AuthController],
         providers: [auth_service_1.AuthService],

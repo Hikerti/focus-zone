@@ -5,13 +5,32 @@ import { UserCreateDto } from 'src/user/dto/UserCreateDto.dto';
 export declare class AuthController {
     private readonly authService;
     constructor(authService: AuthService);
-    createUser(req: Request, res: Response, dto: UserCreateDto): Promise<{
+    register(res: Response, dto: UserCreateDto): Promise<{
         user: import("./interface/interface").User;
         accessToken: string;
     }>;
-    login(dto: LoginDto, res: Response, req: Request): Promise<{
+    login(res: Response, dto: LoginDto): Promise<{
         user: import("./interface/interface").User;
         accessToken: string;
     }>;
     logout(req: Request, res: Response): Promise<void>;
+    refresh(req: Request, res: Response): Promise<{
+        user: import("./interface/interface").User;
+        accessToken: string;
+    }>;
+    me(req: Request): Promise<{
+        user: {
+            id: string;
+            email: string;
+            password: string;
+            adress: string | null;
+            phone: string | null;
+            name: string;
+            surname: string;
+            login: string;
+            description: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+        };
+    }>;
 }

@@ -1,3 +1,4 @@
+
 export interface ProfileHeaderProps {
     name: string, 
     surname: string, 
@@ -10,5 +11,9 @@ export interface ProfileDescriptionProps {
     adress?: string
     phone?: string
 }
-
+export interface ProfileAchievementContentProps {
+    url: string
+    title: string
+    description: string
+}
 

@@ -1,4 +1,4 @@
-import { Inject, MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import {Module} from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CafeModule } from './cafe/cafe.module';
@@ -9,6 +9,8 @@ import { UserModule } from './user/user.module';
 import { MessageModule } from './message/message.module';
 import { DiscountsModule } from './discounts/discounts.module';
 import { AchievementModule } from './achievement/achievement.module';
+import { RedisModule } from './redis/redis.module';
+import {JwtModule} from "@nestjs/jwt";
 
 
 @Module({
@@ -17,8 +19,13 @@ import { AchievementModule } from './achievement/achievement.module';
     PrismaModule, 
     ConfigModule.forRoot({
       isGlobal: true,
-    }), AuthModule, UserModule, MessageModule, DiscountsModule, AchievementModule,
-],
+    }),
+      JwtModule.register({
+          secret: 'defaultSecret',
+          signOptions: { expiresIn: '60s' },
+      }),
+      AuthModule, UserModule, MessageModule, DiscountsModule, AchievementModule, RedisModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

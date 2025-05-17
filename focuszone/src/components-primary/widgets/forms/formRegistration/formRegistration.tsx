@@ -36,6 +36,7 @@ const formSchema = z.object({
 
 const FormRegistration = () => {
     const setUser = useGetUser(state => state.setUser)
+    const setLogin = useGetUser(state => state.setLogin)
     const [passwortVisible, setPasswordVisible] = useState<boolean>(false)
 
     const form = useForm<UserRegistration>({
@@ -58,6 +59,7 @@ const FormRegistration = () => {
             console.log("Успешно отправлено:", res);
             form.reset()
             setUser(res)
+            setLogin(true)
         },
         onError: (error) => {
             console.error("Ошибка при отправке:", error);

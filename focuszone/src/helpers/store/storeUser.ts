@@ -5,22 +5,28 @@ interface useGetStore {
     users: UserFullData[] | null
     isError: boolean,
     isPending: boolean,
+    login: boolean
 
     setUser: (user: UserFullData) => void
     clearUser: () => void,
+    setLogin: (loginUser: boolean) => void,
 }
 
 export const useGetUser = create<useGetStore>((set) => ({
     users: [],
+    login: false,
     isError: false,
     isPending: false,
 
     setUser(user: UserFullData) {
         set({users: [user]})
-        localStorage.setItem('user', JSON.stringify(user));
     },
     clearUser: () => {
-        set({ users: null });
-        localStorage.removeItem('user');
+        set({ users: [] });
     },
+    setLogin: (loginUser: boolean) => {
+        set({login: loginUser})
+        localStorage.setItem("login", JSON.stringify(loginUser));
+        console.log(loginUser);
+    }
 }))

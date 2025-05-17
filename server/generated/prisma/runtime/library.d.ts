@@ -28,7 +28,7 @@ export declare type Action = keyof typeof DMMF_2.ModelAction | 'executeRaw' | 'q
 declare type ActiveConnectorType = Exclude<ConnectorType, 'postgres' | 'prisma+postgres'>;
 
 /**
- * An interface that exposes some basic information about the
+ * An interface.ts that exposes some basic information about the
  * adapter like its name and provider type.
  */
 declare interface AdapterInfo {
@@ -3097,7 +3097,7 @@ export declare const skip: Skip;
 declare type SortOrder = 'asc' | 'desc';
 
 /**
- * An interface that represents a span. A span represents a single operation
+ * An interface.ts that represents a span. A span represents a single operation
  * within a trace. Examples of span might include remote procedure calls or a
  * in-process function calls to sub-components. A Trace has a single, top-level
  * "root" Span that in turn may have zero or more child Spans, which in turn

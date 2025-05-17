@@ -5,6 +5,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { UserModule } from 'src/user/user.module';
 import { ConfigService } from '@nestjs/config';
+import {RedisModule} from "../redis/redis.module";
 
 const config = new ConfigService()
 
@@ -15,7 +16,8 @@ const config = new ConfigService()
       secret: config.getOrThrow("COOKIE_SECRET"),
       signOptions: { expiresIn: '1h' },
     }),
-    UserModule
+    UserModule,
+      RedisModule
   ],
   controllers: [AuthController],
   providers: [AuthService],

@@ -1,12 +1,16 @@
-import CaruselCafe from "./components/caruselCafe";
+import CaruseleCafe from "./components/caruseleCafe.tsx";
 import SectionHello from "./components/sectionHello";
 import FullForm from "@/components-primary/widgets/forms/fullFrom/fullForm.tsx";
 const HomePage = () => {
+    const login = localStorage.getItem("login");
+
   return (
     <>
       <SectionHello></SectionHello>
-      <CaruselCafe></CaruselCafe>
-        <FullForm></FullForm>
+      <CaruseleCafe></CaruseleCafe>
+        {Boolean(!login) &&
+            <FullForm></FullForm>
+        }
     </>
   );
 }

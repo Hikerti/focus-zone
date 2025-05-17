@@ -26,8 +26,10 @@ export class UpdateCartDto {
     rating?: string
 
     @IsString({message: "Поле locationLat должно быть строкой"})
+    @IsOptional()
     locationLat?: string
 
     @IsString({message: "Поле locationLng должно быть строкой"})
+    @IsOptional()
     locationLng?: string
 }
