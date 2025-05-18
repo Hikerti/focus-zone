@@ -89,7 +89,10 @@ export class CafeService {
     async getCardCafeLength(dto: UpdateCartDto) {
         try {
             const data = await this.prisma.cardsCafe.findMany({
-                where: dto || {}
+                where: {
+                    ...dto,
+                    rating: dto.rating ? { hasSome: dto.rating } : undefined,
+                }
             });
             return data.length;
         } catch (error) {

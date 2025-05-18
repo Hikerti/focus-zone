@@ -6,25 +6,23 @@ import {
     CarouselNext,
     CarouselPrevious,
   } from "@/components/ui/carousel.tsx"
-import { ErrorPage } from "@/page/errorPage/errorPage.tsx";
 import { FindLoading } from "@/components-primary/entites/loading/findLoading.tsx";
 import { useReadFetcher } from "@/helpers/hooks/useReadFetcher.ts";
 import { Card } from "@/page/cafelist/interface/interface.ts";
 
 export default function CarouselCafe() {
 
-    const {data, isPending, isError} = useReadFetcher<Card[]>({
+    const {data, isPending} = useReadFetcher<Card[]>({
         url: 'http://localhost:4000/cafe/card_filter/none/1/6',
         method: 'get',
         queryKey: 'cafe_card',
     })
 
     FindLoading(isPending)
-    ErrorPage(isError)
 
     return (
       <>
-        <section className="flex w-full flex-col items-center justify-center px-20 gap-4">
+        <section className="flex w-full flex-col items-center justify-center my-10 px-20 gap-4">
             <div className="flex w-full items-start">
                 <h2 className="text-zinc-900">Топ лучших мест</h2>
             </div>

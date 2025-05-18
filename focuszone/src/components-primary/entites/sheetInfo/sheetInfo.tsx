@@ -4,7 +4,6 @@ import AvatarComponent from "@/components-primary/shared/ui/avatar.tsx";
 import ContactInfo from "@/components-primary/entites/contactInfo/ContactInfo.tsx";
 
 import { useGetUser } from "@/helpers/store/storeUser";
-import { ErrorPage } from "@/page/errorPage/errorPage.tsx";
 import { FindLoading } from "@/components-primary/entites/loading/findLoading.tsx";
 
 import DialogRegistration from "@/components-primary/entites/dialogs/dialogRegistration/dialogRegistration.tsx";
@@ -15,10 +14,9 @@ import {useLogout} from "@/components-primary/entites/sheetInfo/hooks/useLogout.
 
 const SheetInfo = () => {
 
-    const {users, isError, isPending} = useGetUser()
+    const {users, isPending} = useGetUser()
     const logoutUser = useLogout()
 
-    ErrorPage(isError)
     FindLoading(isPending)
 
     if (!users || users.length === 0) {

@@ -1,7 +1,6 @@
 import {Carousel, CarouselContent, CarouselNext, CarouselPrevious} from "@/components/ui/carousel.tsx";
 import {useReadFetcher} from "@/helpers/hooks/useReadFetcher.ts";
 import {useGetUser} from "@/helpers/store/storeUser.ts";
-import {ErrorPage} from "@/page/errorPage/errorPage.tsx";
 import {FindLoading} from "@/components-primary/entites/loading/findLoading.tsx";
 import {useAchievements} from "@/page/profile/widgets/profileAchievement/store/store.ts";
 import {useEffect} from "react";
@@ -15,13 +14,12 @@ const ProfileAchievement = () => {
 
     if (!users) return null;
 
-    const {data, isError, isPending} = useReadFetcher<Achievements[]>({
+    const {data, isPending} = useReadFetcher<Achievements[]>({
         url: `http://localhost:4000/achievement/get_achievement_user_id/${users[0].id}`,
         method: "get",
         queryKey: `achievement_${users[0].id}`
     })
 
-    ErrorPage(isError)
     FindLoading(isPending)
 
     useEffect(() => {

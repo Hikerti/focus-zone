@@ -1,7 +1,6 @@
 import { useGetUser } from "@/helpers/store/storeUser.ts";
 import ProfileDescription from "../../entites/profileDescription/profileDescription.tsx";
 import ProfileHeader from "../../entites/profileHeader/profileHeader.tsx";
-import { ErrorPage } from "@/page/errorPage/errorPage.tsx";
 import { FindLoading } from "@/components-primary/entites/loading/findLoading.tsx";
 import {UserFullData} from "@/helpers/interface/interface.ts";
 import {useEffect, useState} from "react";
@@ -19,7 +18,6 @@ export default function ProfileContent() {
         }
     }, [users]);
 
-    ErrorPage(isError)
     FindLoading(isPending)
 
     if (isPending || isError || users?.length === 0) {

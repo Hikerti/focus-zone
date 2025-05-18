@@ -21,9 +21,8 @@ export class UpdateCartDto {
     @IsOptional()
     favourites?: boolean
 
-    @IsString({message: "Поле rating должно быть строкой"})
     @IsOptional()
-    rating?: string
+    rating?: number[]
 
     @IsString({message: "Поле locationLat должно быть строкой"})
     @IsOptional()

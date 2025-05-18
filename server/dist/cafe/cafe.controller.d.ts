@@ -10,7 +10,7 @@ export declare class CafeController {
         address: string;
         imageUrl: string | null;
         favourites: boolean;
-        rating: string;
+        rating: number[];
         locationLat: string;
         locationLng: string;
         id: number;
@@ -23,7 +23,7 @@ export declare class CafeController {
         address: string;
         imageUrl: string | null;
         favourites: boolean;
-        rating: string;
+        rating: number[];
         locationLat: string;
         locationLng: string;
         id: number;
@@ -36,7 +36,7 @@ export declare class CafeController {
         address: string;
         imageUrl: string | null;
         favourites: boolean;
-        rating: string;
+        rating: number[];
         locationLat: string;
         locationLng: string;
         id: number;
@@ -49,7 +49,7 @@ export declare class CafeController {
         address: string;
         imageUrl: string | null;
         favourites: boolean;
-        rating: string;
+        rating: number[];
         locationLat: string;
         locationLng: string;
         id: number;
@@ -63,7 +63,7 @@ export declare class CafeController {
         address: string;
         imageUrl: string | null;
         favourites: boolean;
-        rating: string;
+        rating: number[];
         locationLat: string;
         locationLng: string;
         id: number;
@@ -76,7 +76,7 @@ export declare class CafeController {
         address: string;
         imageUrl: string | null;
         favourites: boolean;
-        rating: string;
+        rating: number[];
         locationLat: string;
         locationLng: string;
         id: number;
@@ -89,7 +89,7 @@ export declare class CafeController {
         address: string;
         imageUrl: string | null;
         favourites: boolean;
-        rating: string;
+        rating: number[];
         locationLat: string;
         locationLng: string;
         id: number;

@@ -7,7 +7,6 @@ import AvatarComponent from "@/components-primary/shared/ui/avatar.tsx";
 
 const ProfileDiscountsContent = () => {
     const discounts = useDiscounts(state => state.discounts);
-    console.log(discounts);
 
     return (
         <>

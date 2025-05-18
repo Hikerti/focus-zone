@@ -10,7 +10,6 @@ import { useEffect, useState } from "react"
 import {Card} from "../../interface/interface.ts"
 import { useReadFetcher } from "@/helpers/hooks/useReadFetcher.ts"
 import { FindLoading } from "@/components-primary/entites/loading/findLoading.tsx"
-import { ErrorPage } from "@/page/errorPage/errorPage.tsx"
 import { useCafeGet } from "../../store/storeCafe.ts"
 type FilterProps = {
     filterProps: 'none' | "favorites" | "date" | "estimation"
@@ -19,6 +18,7 @@ type FilterProps = {
 export const FilterCards = ({filterProps} : {filterProps: FilterProps | string}) => {
 
     const [filter, setFilter] = useState<FilterProps | string>(filterProps)
+
     const setCards = useCafeGet((state) => state.setCards)
     const calcPaginationPage = useCafeGet((state) => state.calcPaginationPage)
     const limit = useCafeGet(state => state.limit)
@@ -32,7 +32,6 @@ export const FilterCards = ({filterProps} : {filterProps: FilterProps | string})
 
     useEffect(() => {
         FindLoading(isPending)
-        ErrorPage(isError)
 
         if (data) {
             setCards(data)

@@ -5,13 +5,12 @@ import {Heart} from "lucide-react";
 import {useUpdateFavourite} from "@/components-primary/entites/cards/hooks/useUpdateFavourite.ts";
 import {useState, useEffect} from "react";
 import {GetCard} from "@/page/cafeSinglePage/interface/interface.ts";
-import {ErrorPage} from "@/page/errorPage/errorPage.tsx";
 
 const CafeSinglePage = () => {
     const { id } = useParams();
     const { mutate } = useUpdateFavourite();
 
-    const {data, isPending, isError} = useReadFetcher<GetCard>({
+    const {data, isPending} = useReadFetcher<GetCard>({
         url: `http://localhost:4000/cafe/get_by_id/${id}`,
         method: "get",
         queryKey: `cafe_card_${id}`,
@@ -29,10 +28,7 @@ const CafeSinglePage = () => {
         mutate({ id: data?.id.toString(), favourites: like });
     }, [like])
 
-    ErrorPage(isError)
     FindLoading(isPending)
-
-
 
     return (
         <section className="w-9/10 flex flex-col mt-10">

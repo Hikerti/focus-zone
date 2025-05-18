@@ -1247,10 +1247,12 @@ export namespace Prisma {
 
   export type CardsCafeAvgAggregateOutputType = {
     id: number | null
+    rating: number | null
   }
 
   export type CardsCafeSumAggregateOutputType = {
     id: number | null
+    rating: number[]
   }
 
   export type CardsCafeMinAggregateOutputType = {
@@ -1259,7 +1261,6 @@ export namespace Prisma {
     description: string | null
     address: string | null
     imageUrl: string | null
-    rating: string | null
     favourites: boolean | null
     locationLat: string | null
     locationLng: string | null
@@ -1273,7 +1274,6 @@ export namespace Prisma {
     description: string | null
     address: string | null
     imageUrl: string | null
-    rating: string | null
     favourites: boolean | null
     locationLat: string | null
     locationLng: string | null
@@ -1299,10 +1299,12 @@ export namespace Prisma {
 
   export type CardsCafeAvgAggregateInputType = {
     id?: true
+    rating?: true
   }
 
   export type CardsCafeSumAggregateInputType = {
     id?: true
+    rating?: true
   }
 
   export type CardsCafeMinAggregateInputType = {
@@ -1311,7 +1313,6 @@ export namespace Prisma {
     description?: true
     address?: true
     imageUrl?: true
-    rating?: true
     favourites?: true
     locationLat?: true
     locationLng?: true
@@ -1325,7 +1326,6 @@ export namespace Prisma {
     description?: true
     address?: true
     imageUrl?: true
-    rating?: true
     favourites?: true
     locationLat?: true
     locationLng?: true
@@ -1440,7 +1440,7 @@ export namespace Prisma {
     description: string | null
     address: string
     imageUrl: string | null
-    rating: string
+    rating: number[]
     favourites: boolean
     locationLat: string
     locationLng: string
@@ -1534,7 +1534,7 @@ export namespace Prisma {
       description: string | null
       address: string
       imageUrl: string | null
-      rating: string
+      rating: number[]
       favourites: boolean
       locationLat: string
       locationLng: string
@@ -1968,7 +1968,7 @@ export namespace Prisma {
     readonly description: FieldRef<"CardsCafe", 'String'>
     readonly address: FieldRef<"CardsCafe", 'String'>
     readonly imageUrl: FieldRef<"CardsCafe", 'String'>
-    readonly rating: FieldRef<"CardsCafe", 'String'>
+    readonly rating: FieldRef<"CardsCafe", 'Int[]'>
     readonly favourites: FieldRef<"CardsCafe", 'Boolean'>
     readonly locationLat: FieldRef<"CardsCafe", 'String'>
     readonly locationLng: FieldRef<"CardsCafe", 'String'>
@@ -6753,7 +6753,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"CardsCafe"> | string | null
     address?: StringFilter<"CardsCafe"> | string
     imageUrl?: StringNullableFilter<"CardsCafe"> | string | null
-    rating?: StringFilter<"CardsCafe"> | string
+    rating?: IntNullableListFilter<"CardsCafe">
     favourites?: BoolFilter<"CardsCafe"> | boolean
     locationLat?: StringFilter<"CardsCafe"> | string
     locationLng?: StringFilter<"CardsCafe"> | string
@@ -6784,7 +6784,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"CardsCafe"> | string | null
     address?: StringFilter<"CardsCafe"> | string
     imageUrl?: StringNullableFilter<"CardsCafe"> | string | null
-    rating?: StringFilter<"CardsCafe"> | string
+    rating?: IntNullableListFilter<"CardsCafe">
     favourites?: BoolFilter<"CardsCafe"> | boolean
     locationLat?: StringFilter<"CardsCafe"> | string
     locationLng?: StringFilter<"CardsCafe"> | string
@@ -6820,7 +6820,7 @@ export namespace Prisma {
     description?: StringNullableWithAggregatesFilter<"CardsCafe"> | string | null
     address?: StringWithAggregatesFilter<"CardsCafe"> | string
     imageUrl?: StringNullableWithAggregatesFilter<"CardsCafe"> | string | null
-    rating?: StringWithAggregatesFilter<"CardsCafe"> | string
+    rating?: IntNullableListFilter<"CardsCafe">
     favourites?: BoolWithAggregatesFilter<"CardsCafe"> | boolean
     locationLat?: StringWithAggregatesFilter<"CardsCafe"> | string
     locationLng?: StringWithAggregatesFilter<"CardsCafe"> | string
@@ -7097,7 +7097,7 @@ export namespace Prisma {
     description?: string | null
     address: string
     imageUrl?: string | null
-    rating?: string
+    rating?: CardsCafeCreateratingInput | number[]
     favourites?: boolean
     locationLat?: string
     locationLng?: string
@@ -7111,7 +7111,7 @@ export namespace Prisma {
     description?: string | null
     address: string
     imageUrl?: string | null
-    rating?: string
+    rating?: CardsCafeCreateratingInput | number[]
     favourites?: boolean
     locationLat?: string
     locationLng?: string
@@ -7124,7 +7124,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     address?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    rating?: StringFieldUpdateOperationsInput | string
+    rating?: CardsCafeUpdateratingInput | number[]
     favourites?: BoolFieldUpdateOperationsInput | boolean
     locationLat?: StringFieldUpdateOperationsInput | string
     locationLng?: StringFieldUpdateOperationsInput | string
@@ -7138,7 +7138,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     address?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    rating?: StringFieldUpdateOperationsInput | string
+    rating?: CardsCafeUpdateratingInput | number[]
     favourites?: BoolFieldUpdateOperationsInput | boolean
     locationLat?: StringFieldUpdateOperationsInput | string
     locationLng?: StringFieldUpdateOperationsInput | string
@@ -7152,7 +7152,7 @@ export namespace Prisma {
     description?: string | null
     address: string
     imageUrl?: string | null
-    rating?: string
+    rating?: CardsCafeCreateratingInput | number[]
     favourites?: boolean
     locationLat?: string
     locationLng?: string
@@ -7165,7 +7165,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     address?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    rating?: StringFieldUpdateOperationsInput | string
+    rating?: CardsCafeUpdateratingInput | number[]
     favourites?: BoolFieldUpdateOperationsInput | boolean
     locationLat?: StringFieldUpdateOperationsInput | string
     locationLng?: StringFieldUpdateOperationsInput | string
@@ -7179,7 +7179,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     address?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    rating?: StringFieldUpdateOperationsInput | string
+    rating?: CardsCafeUpdateratingInput | number[]
     favourites?: BoolFieldUpdateOperationsInput | boolean
     locationLat?: StringFieldUpdateOperationsInput | string
     locationLng?: StringFieldUpdateOperationsInput | string
@@ -7513,6 +7513,14 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type IntNullableListFilter<$PrismaModel = never> = {
+    equals?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    has?: number | IntFieldRefInput<$PrismaModel> | null
+    hasEvery?: number[] | ListIntFieldRefInput<$PrismaModel>
+    hasSome?: number[] | ListIntFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -7550,6 +7558,7 @@ export namespace Prisma {
 
   export type CardsCafeAvgOrderByAggregateInput = {
     id?: SortOrder
+    rating?: SortOrder
   }
 
   export type CardsCafeMaxOrderByAggregateInput = {
@@ -7558,7 +7567,6 @@ export namespace Prisma {
     description?: SortOrder
     address?: SortOrder
     imageUrl?: SortOrder
-    rating?: SortOrder
     favourites?: SortOrder
     locationLat?: SortOrder
     locationLng?: SortOrder
@@ -7572,7 +7580,6 @@ export namespace Prisma {
     description?: SortOrder
     address?: SortOrder
     imageUrl?: SortOrder
-    rating?: SortOrder
     favourites?: SortOrder
     locationLat?: SortOrder
     locationLng?: SortOrder
@@ -7582,6 +7589,7 @@ export namespace Prisma {
 
   export type CardsCafeSumOrderByAggregateInput = {
     id?: SortOrder
+    rating?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -7814,12 +7822,21 @@ export namespace Prisma {
     cafeId?: SortOrder
   }
 
+  export type CardsCafeCreateratingInput = {
+    set: number[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type CardsCafeUpdateratingInput = {
+    set?: number[]
+    push?: number | number[]
   }
 
   export type BoolFieldUpdateOperationsInput = {

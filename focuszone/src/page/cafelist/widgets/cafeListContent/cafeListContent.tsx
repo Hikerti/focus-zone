@@ -39,7 +39,7 @@ const CafeListContent = () => {
                         </CardCafe>
                     )
                 })}
-                {totalPage > 5 &&
+                {totalPage !== 1 &&
                 <Pagination>
                     <PaginationContent>
                         <PaginationItem

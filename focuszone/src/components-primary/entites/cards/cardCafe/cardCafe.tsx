@@ -97,7 +97,16 @@ const CardCafe = (
                         </div>
                         <div className='flex flex-col items-center'>
                             <Star />
-                            <p className="text-zinc-900">{rating}</p>
+                            <p
+                                className="text-zinc-900"
+                            >
+                                {rating.length !== 0
+                                    ?
+                                    rating.reduce((sum, item) => sum + item , 0) / rating.length
+                                    :
+                                    'Нет оценки'
+                                }
+                            </p>
                         </div>
                     </CardTitle>
                 </CardHeader>
@@ -169,6 +178,7 @@ const CardCafe = (
                                 </AlertDialogTrigger>
                                 <MessageDialog
                                     cafeId={id}
+                                    ratingNow={rating}
                                 >
                                 </MessageDialog>
                             </AlertDialog>
