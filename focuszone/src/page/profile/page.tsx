@@ -6,14 +6,16 @@ export default function ProfilePage() {
   const users = useGetUser(state => state.users)
 
   return (
-    <>
+    <div
+        className="relative z-50"
+    >
     {
       (users?.length !== 0)
         ?
-          <ProfileContent></ProfileContent>
+          <ProfileContent/>
         :
-          <FullForm></FullForm>
+          <FullForm/>
     }
-    </>
+    </div>
   );
 }

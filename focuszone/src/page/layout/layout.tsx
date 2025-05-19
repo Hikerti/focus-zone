@@ -6,8 +6,10 @@ import { Toaster } from "@/components/ui/sonner"
 const Layout = () => {
     return (
         <>
-            <Header></Header>
-            <main className='w-[100%] relative z-20 flex flex-col items-center'>
+            <Header/>
+            <main
+                className='w-[100%] relative flex flex-col items-center'
+            >
                 <Outlet />
             </main>
             <Toaster />

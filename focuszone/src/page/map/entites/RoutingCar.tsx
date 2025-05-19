@@ -1,6 +1,6 @@
 import { useMap } from "react-leaflet";
 import * as L from "leaflet";
-import "leaflet-routing-machine"; // Импорт плагина
+import "leaflet-routing-machine";
 import { useEffect } from "react";
 import { RoutingProps } from "@/page/map/interface/interface.ts";
 import { useMapData } from "@/page/map/store/store.ts";
@@ -30,7 +30,7 @@ const RoutingCar = ({ waypoints }: RoutingProps) => {
         routingControl.on("routesfound", function (e: any) {
             const route = e.routes[0];
             const distanceKilometer = (route.summary.totalDistance / 1000).toFixed(2);
-            const timeMinute = Math.round(Number(distanceKilometer) / 60 * 100)
+            const timeMinute = Math.round(Number(distanceKilometer))
 
             setTime(timeMinute);
             setLength(distanceKilometer);

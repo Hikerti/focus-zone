@@ -19,13 +19,17 @@ const MarkersMap = () => {
     return (
         <>
             {points.map((point, index) => (
-                    <Marker key={index} position={point}>
+                    <Marker
+                        key={index}
+                        position={point}
+                    >
                         <Popup>
                             <span
                                 className='cursor-pointer'
                                 onClick={(e) => deletePoints(point, e)}
                             >
-                                Удалить</span>
+                                Удалить
+                            </span>
                         </Popup>
                     </Marker>
                 ))}
@@ -38,7 +42,8 @@ const MarkersMap = () => {
                             <span
                                 className='cursor-pointer'
                             >
-                                Вы здесь</span>
+                                Вы здесь
+                            </span>
                     </Popup>
                 </Marker>
             )}

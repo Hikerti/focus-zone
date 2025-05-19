@@ -14,7 +14,7 @@ export default function NavBar() {
     <>
       <TooltipProvider>
         <aside 
-        className="h-[90vh] w-[4%] bg-zinc-900 text-white flex flex-col
+        className="h-[90vh] w-[4vw] bg-zinc-900 text-white flex flex-col
         items-center pt-3 gap-4 absolute top-0 left-0 rounded-br-3xl shadow-lg shadow-zinc-700/50"
         >
           {navigateIcon.map((item, index) => (

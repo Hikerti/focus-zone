@@ -6,7 +6,7 @@ import "leaflet-routing-machine";
 export default function MapPage() {
   return (
     <>
-      <Map></Map>
+      <Map/>
     </>
   );
 }

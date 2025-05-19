@@ -27,8 +27,12 @@ export default function ProfileContent() {
     return (
       <>
           {user && user !== null &&
-              <section className="w-9/10 flex flex-col items-center justify-center my-10 bg-zinc-200 rounded-xl p-4">
-                  <div className='w-9/10 flex flex-col items-center justify-center gap-8 my-[4%]'>
+              <section
+                  className="w-9/10 flex flex-col items-center justify-center my-10 bg-zinc-200 rounded-xl p-4"
+              >
+                  <div
+                      className='w-9/10 flex flex-col items-center justify-center gap-8 my-[4%]'
+                  >
                        <ProfileHeader
                           name={user.name}
                           surname={user.surname}
@@ -41,8 +45,8 @@ export default function ProfileContent() {
                           description={user.description}
                       >
                       </ProfileDescription>
-                      <ProfileAchievement></ProfileAchievement>
-                      <ProfileDiscounts></ProfileDiscounts>
+                      <ProfileAchievement/>
+                      <ProfileDiscounts/>
                   </div>
               </section>
           }

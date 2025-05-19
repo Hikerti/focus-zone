@@ -13,6 +13,9 @@ export const useMapData = create<UseMap>((set, get) => ({
     length: '0',
     speed: '0',
     titlePlaces: [],
+    flyToUser: false,
+    fitBounds: false,
+    urlScreen: '',
 
     setCarWaypoints: (nowCarWaypoints: boolean) => {
         set({carWaypoints: nowCarWaypoints})
@@ -26,6 +29,9 @@ export const useMapData = create<UseMap>((set, get) => ({
     setPoints: (point: LatLngLiteral) => {
         const currentPoints = get().points
         set({ points: [...currentPoints, point] });
+    },
+    setFullPoints: (fullPoints: LatLngLiteral[]) => {
+        set({ points: fullPoints });
     },
     setTitlePlaces: (titlePlace: string) => {
         const currentTitlePlaces = get().titlePlaces
@@ -41,12 +47,21 @@ export const useMapData = create<UseMap>((set, get) => ({
         set({ userLocations: point });
     },
     setTime: (time: number) => {
-        set({time });
+        set({time});
     },
     setLength: (length: string) => {
         set({length});
     },
     setSpeed: (speed: string) => {
         set({speed});
+    },
+    setFlyToUser: (flyToUser: boolean) => {
+        set({flyToUser});
+    },
+    setFitBounds: (fitBoundsNow: boolean) => {
+        set({fitBounds: fitBoundsNow});
+    },
+    setUrlScreen: (urlScreen: string) => {
+        set({urlScreen});
     }
 }))

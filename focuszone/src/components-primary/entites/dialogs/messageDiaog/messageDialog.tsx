@@ -60,7 +60,8 @@ const MessageDialog = ({cafeId, ratingNow}: MessageDialogProps ) => {
                     <AlertDialogAction
                         onClick={handleSendMessage}
                     >
-                        Отправить</AlertDialogAction>
+                        Отправить
+                    </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </>

@@ -10,22 +10,36 @@ const ProfileDiscountsContent = () => {
 
     return (
         <>
-            <Carousel className="w-full h-full flex flex-col">
-                <CarouselContent className='flex w-[800px] h-[300px]'>
+            <Carousel
+                className="w-full h-full flex flex-col"
+            >
+                <CarouselContent
+                    className='flex w-[800px] h-[300px]'
+                >
                     {discounts?.map((discount: Discount, index: number) => (
-                        <CarouselItem key={discount.id || index}>
-                            <Card className="flex w-full h-full">
-                                <CardHeader className='text-[18px] font-bold'>
+                        <CarouselItem
+                            key={discount.id || index}
+                        >
+                            <Card
+                                className="flex w-full h-full"
+                            >
+                                <CardHeader
+                                    className='text-[18px] font-bold'
+                                >
                                     {discount.title}
                                 </CardHeader>
                                 <CardContent>
-                                    <div className="flex w-full justify-between">
+                                    <div
+                                        className="flex w-full justify-between"
+                                    >
                                         <QRCode
                                             style={{ height: "auto", maxWidth: "25%", width: "25%" }}
                                             value={discount.url}
                                             viewBox={`0 0 256 256`}
                                         />
-                                        <div className='w-1/2 flex items-center gap-2'>
+                                        <div
+                                            className='w-1/2 flex items-center gap-2'
+                                        >
                                             <p
                                                 className='text-[18px] text-zinc-900'
                                             >

@@ -5,7 +5,6 @@ import {
 
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import {Link, useNavigate} from "react-router-dom";
-import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 import LinkToMap from "@/components-primary/shared/ui/linkToMap.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import { toast } from "sonner"
@@ -22,6 +21,7 @@ import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
 import {useMapData} from "@/page/map/store/store.ts";
 import {LatLngLiteral} from "leaflet";
 import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel.tsx";
+import AvatarComponent from "@/components-primary/shared/ui/avatar.tsx";
 
 const CardCafe = (
     {
@@ -52,7 +52,7 @@ const CardCafe = (
     const { mutate } = useUpdateFavourite();
 
     useEffect(() => {
-        mutate({ id: id.toString(), favourites: like });
+        mutate({ id, favourites: like });
     }, [like])
 
     const messages = useReadFetcher<Message[]>({
@@ -84,10 +84,11 @@ const CardCafe = (
                     <CardTitle className='flex justify-between items-center'>
                         <div className='flex items-center gap-2'>
                             <Link to={`/cafelist/${id}`} className='flex items-center gap-2 cursor-pointer'>
-                                <Avatar className='w-10 h-10'>
-                                    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                                    <AvatarFallback>U</AvatarFallback>
-                                </Avatar>
+                                <AvatarComponent
+                                    url={imageUrl}
+                                    size={'text-[12px] w-10 h-10'}
+                                >
+                                </AvatarComponent>
                             </Link>
                             <div className='flex flex-col justify-between'>
                                 <Link to={`/cafelist/${id}`} target='_blank' className='text-zinc-900'>{title}</Link>

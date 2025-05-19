@@ -31,8 +31,12 @@ const ProfileDiscounts = () => {
 
     return (
         <>
-            <div className='w-full flex flex-col gap-4'>
-                <h3>Скидки на покупку</h3>
+            <div
+                className='w-full flex flex-col gap-4'
+            >
+                <h3>
+                    Скидки на покупку
+                </h3>
                 {
                     discounts
                         ?
@@ -41,7 +45,9 @@ const ProfileDiscounts = () => {
                         </>
                         :
                         <>
-                         <p>У вас пока нет скидочных купонов</p>
+                         <p>
+                             У вас пока нет скидочных купонов
+                         </p>
                      </>
                 }
             </div>

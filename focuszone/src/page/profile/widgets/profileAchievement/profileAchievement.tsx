@@ -30,10 +30,18 @@ const ProfileAchievement = () => {
 
     return (
        <>
-           <div className='w-full flex flex-col gap-4'>
-               <h3>Достижения и медали</h3>
-               <Carousel className="w-full h-full flex flex-col">
-                   <CarouselContent className='flex w-[400px] h-[500px]'>
+           <div
+               className='w-full flex flex-col gap-4'
+           >
+               <h3>
+                   Достижения и медали
+               </h3>
+               <Carousel
+                   className="w-full h-full flex flex-col"
+               >
+                   <CarouselContent
+                       className='flex w-[400px] h-[500px]'
+                   >
                        {
                            achievements.map((achievement, index) => (
                                <ProfileAchievementContent
@@ -45,8 +53,8 @@ const ProfileAchievement = () => {
                            ))
                        }
                    </CarouselContent>
-                   <CarouselNext></CarouselNext>
-                   <CarouselPrevious></CarouselPrevious>
+                   <CarouselNext/>
+                   <CarouselPrevious/>
                </Carousel>
            </div>
        </>

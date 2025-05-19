@@ -3,9 +3,12 @@ import {useMapData} from "@/page/map/store/store.ts";
 import MarkersMap from "@/page/map/widgets/MarkersMap/MarkersMap.tsx";
 import {Routing} from "@/page/map/widgets/Routing/Routing.tsx";
 import MapLayout from "@/page/map/widgets/MapLayout/MapLayout.tsx";
+import FlyToUser from "@/page/map/entites/FlyToUser.tsx";
+import { FitBounds } from "../../entites/FitBounds";
 
 const MapView = () => {
 
+    const flyToUser = useMapData(state => state.flyToUser);
     const setPoint = useMapData(state => state.setPoints);
     const userLocations = useMapData(state => state.userLocations)
     const points = useMapData(state => state.points)
@@ -26,25 +29,42 @@ const MapView = () => {
         <>
             {userLocations &&
                 <MapLayout>
-                    <MapContainer
-                        center={userLocations}
-                        zoom={13}
-                        scrollWheelZoom={true}
-                        style={{ width: '80%', height: '100%'}}
+                    <div
+                        className='w-full flex justify-center'
+                        id='map_container'
                     >
-                        <TileLayer
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        />
-
-                        <ClickHandler />
-                        <MarkersMap></MarkersMap>
-                        <Routing
-                            waypoints={[userLocations,...points]}
+                        <MapContainer
+                            center={userLocations}
+                            zoom={13}
+                            scrollWheelZoom={true}
+                            style={{ width: '100%', height: '100%'}}
                         >
-                        </Routing>
-                        <span className='absolute bottom-0 right-0 w-[80px] h-[20px] z-[1100] bg-white'>{userLocations.lng}</span>
-                        <span className='absolute bottom-5 right-0 w-[80px] h-[20px] z-[1100] bg-white'>{userLocations.lat}</span>
-                    </MapContainer>
+                            <TileLayer
+                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            />
+
+                            <ClickHandler />
+                            <MarkersMap/>
+                            <Routing
+                                waypoints={[userLocations,...points]}
+                            >
+                            </Routing>
+                            {flyToUser && <FlyToUser/>}
+                            <FitBounds
+                                positions={[userLocations, ...points]}
+                            />
+                            <span
+                                className='absolute bottom-0 right-0 w-[80px] h-[20px] z-[1100] bg-white'
+                            >
+                                {userLocations.lng}
+                            </span>
+                            <span
+                                className='absolute bottom-5 right-0 w-[80px] h-[20px] z-[1100] bg-white'
+                            >
+                                {userLocations.lat}
+                            </span>
+                        </MapContainer>
+                    </div>
                 </MapLayout>
             }
         </>

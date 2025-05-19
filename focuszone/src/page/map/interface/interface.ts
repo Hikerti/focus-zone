@@ -11,6 +11,10 @@ export interface UseMap {
     speed: string
     startPath: boolean
     titlePlaces: string[]
+    flyToUser: boolean
+    fitBounds: boolean
+    urlScreen: string
+
     setCarWaypoints: (nowCarWaypoints: boolean) => void
     setWalkWaypoints: (nowWalkWaypoints: boolean) => void
     setStartPath: (start: boolean) => void
@@ -21,6 +25,10 @@ export interface UseMap {
     setTime: (time: number) => void
     setLength: (length: string) => void
     setSpeed: (speed: string) => void
+    setFlyToUser: (flyToUser: boolean) => void
+    setFitBounds: (fitBoundsNow: boolean) => void
+    setUrlScreen: (urlScreen: string) => void
+    setFullPoints: (fullPoints: LatLngLiteral[]) => void
 }
 
 export type RoutingProps = {

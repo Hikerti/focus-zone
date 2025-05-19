@@ -20,9 +20,11 @@ const SearchList = ({searchValue}: SearchCardProps) => {
     }, [searchValue])
     return (
         <div
-            className='absolute bg-white w-full flex flex-col gap-4 items-center h-100 mt-4 pt-4 overflow-y-scroll rounded-xl'
+            className='absolute bg-white w-full flex flex-col gap-4 items-center justify-center h-100 mt-4 pt-4 overflow-y-scroll rounded-xl'
         >
-            {filterCards?.map((elem) => (
+            {filterCards.length !== 0
+                ?
+                filterCards?.map((elem) => (
                 <SearchCards
                     key={elem.id}
                     id={elem.id}
@@ -30,7 +32,10 @@ const SearchList = ({searchValue}: SearchCardProps) => {
                     title={elem.title}
                     imageUrl={elem.imageUrl}
                 />
-            ))}
+            ))
+            :
+                <h3 className='text-zinc-900'>Заведение с таким названием не найдено</h3>
+            }
         </div>
     );
 };

@@ -22,15 +22,29 @@ export default function CarouselCafe() {
 
     return (
       <>
-        <section className="flex w-full flex-col items-center justify-center my-10 px-20 gap-4">
-            <div className="flex w-full items-start">
-                <h2 className="text-zinc-900">Топ лучших мест</h2>
+        <section
+            className="flex w-full flex-col items-center justify-center my-10 px-20 gap-4"
+        >
+            <div
+                className="flex w-full items-start"
+            >
+                <h2
+                    className="text-zinc-900"
+                >
+                    Топ лучших мест
+                </h2>
             </div>
-            <Carousel className="w-full">
-            <CarouselContent className="w-1/2">
+            <Carousel
+                className="w-full"
+            >
+            <CarouselContent
+                className="w-1/2"
+            >
             {
                 data?.map(elem => (
-                    <CarouselItem key={elem.id}>
+                    <CarouselItem
+                        key={elem.id}
+                    >
                         <CardCafe
                             id={elem.id}
                             key={elem.id}
@@ -45,8 +59,7 @@ export default function CarouselCafe() {
                             locationLat={elem.locationLat}
                             locationLng={elem.locationLng}
                             showArrow={false}
-                            >
-                        </CardCafe>
+                            />
                     </CarouselItem>
                 ))
             }

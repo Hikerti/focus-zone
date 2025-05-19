@@ -15,9 +15,8 @@ import {Input} from "@/components/ui/input.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {useMutation} from "@tanstack/react-query";
 import {RegistrationUser} from "@/components-primary/widgets/forms/function/registrationUser.ts";
-import {UserRegistration} from "@/components-primary/widgets/forms/interface/interface.ts";
+import {UserRegistrationData, UserRegistrationUser} from "@/components-primary/widgets/forms/interface/interface.ts";
 import {useGetUser} from "@/helpers/store/storeUser.ts";
-import {UserFullData} from "@/helpers/interface/interface.ts";
 import { useState } from "react";
 import { Eye, EyeClosed } from "lucide-react";
 
@@ -40,7 +39,7 @@ const FormRegistration = () => {
     const setLogin = useGetUser(state => state.setLogin)
     const [passwortVisible, setPasswordVisible] = useState<boolean>(false)
 
-    const form = useForm<UserRegistration>({
+    const form = useForm<UserRegistrationUser>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: '',
@@ -55,11 +54,11 @@ const FormRegistration = () => {
     });
 
     const mutation = useMutation({
-        mutationFn: (data: UserRegistration) => RegistrationUser(data),
-        onSuccess: (res: UserFullData) => {
-            console.log("Успешно отправлено:", res);
+        mutationFn: (data: UserRegistrationUser) => RegistrationUser(data),
+        onSuccess: (res: UserRegistrationData) => {
+            console.log("Успешно отправлено:", res.user);
             form.reset()
-            setUser(res)
+            setUser(res.user)
             setLogin(true)
         },
         onError: (error) => {
@@ -67,7 +66,7 @@ const FormRegistration = () => {
         },
     })
 
-    function onSubmit(values: UserRegistration) {
+    function onSubmit(values: UserRegistrationUser) {
         mutation.mutate(values)
     }
 

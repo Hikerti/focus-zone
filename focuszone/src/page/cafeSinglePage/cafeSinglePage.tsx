@@ -25,13 +25,15 @@ const CafeSinglePage = () => {
     }, [data]);
 
     useEffect(() => {
-        mutate({ id: data?.id.toString(), favourites: like });
+        if (data?.id !== undefined) {
+            mutate({ id: data?.id, favourites: like });
+        }
     }, [like])
 
     FindLoading(isPending)
 
     return (
-        <section className="w-9/10 flex flex-col mt-10">
+        <section className="relative z-50 w-9/10 flex flex-col mt-10">
             <div className='flex gap-8'>
                 <img className='h-[400px] w-[300px] object-cover rounded-xl' src={data?.imageUrl} alt="#"/>
                 <div className='flex flex-col gap-8'>

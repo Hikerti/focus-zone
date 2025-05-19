@@ -14,15 +14,13 @@ export const Routing = ({ waypoints }: RoutingProps) => {
                carWaypoints && startPath &&
                <RoutingCar
                    waypoints={waypoints}
-               >
-               </RoutingCar>
+               />
            }
            {
                walkWaypoints && startPath &&
                <RoutingWalk
                    waypoints={waypoints}
-               >
-               </RoutingWalk>
+               />
            }
        </>
    )

@@ -6,18 +6,26 @@ const ProfileAchievementContent = ({url, title, description}: ProfileAchievement
     return (
        <>
            <CarouselItem>
-               <Card className='flex w-full h-full '>
-                   <CardHeader className='w-full text-center text-[18px] font-bold'>
+               <Card
+                   className='flex w-full h-full'
+               >
+                   <CardHeader
+                       className='w-full text-center text-[18px] font-bold'
+                   >
                        {title}
                    </CardHeader>
-                   <CardContent className='w-full h-full'>
+                   <CardContent
+                       className='w-full h-full'
+                   >
                        <img
                            src={url}
                            alt="#"
                            className='object-cover object-center'
                        />
                    </CardContent>
-                   <CardFooter className='text-center'>
+                   <CardFooter
+                       className='text-center'
+                   >
                        {description}
                    </CardFooter>
                </Card>

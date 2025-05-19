@@ -14,6 +14,6 @@ export interface CardCafeProps {
 }
 
 export interface useUpdateFavouriteFunction {
-    id?: string
+    id?: number
     favourites: boolean
 }

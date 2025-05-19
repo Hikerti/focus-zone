@@ -7347,7 +7347,7 @@ export namespace Prisma {
 
   export type DiscountsCreateInput = {
     userId: string
-    cafeId: number
+    cafeId?: number
     url: string
     logo?: string
     title?: string
@@ -7357,7 +7357,7 @@ export namespace Prisma {
   export type DiscountsUncheckedCreateInput = {
     id?: number
     userId: string
-    cafeId: number
+    cafeId?: number
     url: string
     logo?: string
     title?: string
@@ -7386,7 +7386,7 @@ export namespace Prisma {
   export type DiscountsCreateManyInput = {
     id?: number
     userId: string
-    cafeId: number
+    cafeId?: number
     url: string
     logo?: string
     title?: string

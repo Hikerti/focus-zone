@@ -10,7 +10,6 @@ import {Card} from "@/page/cafelist/interface/interface.ts";
 export default function ToolBar() {
     const [search, setSearch] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>('');
-    console.log(search)
 
     const {data: cards} = useReadFetcher<Card[]>({
         url: 'http://localhost:4000/cafe/get',
@@ -28,7 +27,7 @@ export default function ToolBar() {
 
   return (
     <>
-      <div className="absolute top-0 right-0 py-2 w-[96%] ms-[4%] px-4 flex justify-between items-center bg-zinc-900">
+      <div className="absolute top-0 right-0 h-[6vh] w-[96%] ms-[4%] px-4 flex justify-between items-center bg-zinc-900">
           <div className="relative w-4/10">
               <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-white" size={20} />
               <Input

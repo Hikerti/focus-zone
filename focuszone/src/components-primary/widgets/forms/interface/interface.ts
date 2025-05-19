@@ -1,6 +1,6 @@
 import {UserFullData} from "@/helpers/interface/interface.ts";
 
-export interface UserRegistration {
+export interface UserRegistrationUser {
     name: string;
     surname: string
     phone: string
@@ -9,6 +9,17 @@ export interface UserRegistration {
     email: string;
     description: string
     adress: string
+}
+
+export interface UserRegistrationSet extends UserRegistrationUser{
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export interface UserRegistrationData {
+   user: UserRegistrationSet;
+   accessToken: string
 }
 
 export interface UserLogin {

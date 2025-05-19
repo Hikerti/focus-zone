@@ -25,7 +25,7 @@ const MessageCard = ({message}: MessageCardProps) => {
         <>
             <Card className="w-full">
                 <CardHeader className='flex items-center'>
-                    <AvatarComponent></AvatarComponent>
+                    <AvatarComponent />
                     <div>
                         <h5>
                             {user.data?.name + ' ' + user.data?.surname}
@@ -40,9 +40,7 @@ const MessageCard = ({message}: MessageCardProps) => {
                         {message.content}
                     </div>
                 </CardContent>
-                <CardFooter>
-
-                </CardFooter>
+                <CardFooter></CardFooter>
             </Card>
         </>
     );

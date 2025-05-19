@@ -6,10 +6,10 @@ const HomePage = () => {
 
   return (
     <>
-      <SectionHello></SectionHello>
-      <CarouselCafe></CarouselCafe>
+      <SectionHello/>
+      <CarouselCafe/>
         {login == 'false' &&
-            <FullForm></FullForm>
+            <FullForm/>
         }
     </>
   );

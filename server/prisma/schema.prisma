@@ -57,7 +57,7 @@ model Message {
 model Discounts {
   id          Int    @id @default(autoincrement())
   userId      String
-  cafeId      Int
+  cafeId      Int    @default(0)
   url         String
   logo        String @default("")
   title       String @default("")
