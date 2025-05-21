@@ -6,7 +6,7 @@ const FullForm = () => {
     const [changeForm, setChangeForm] = useState<boolean>(false)
 
     return (
-        <>
+        <div className='w-1/2 flex flex-col items-center justify-center'>
             <div className="flex gap-4 mt-8">
                 <h2
                     className='cursor-pointer border-b-2 border-white transition hover:border-zinc-900'
@@ -22,7 +22,7 @@ const FullForm = () => {
                     Вход
                 </h2>
             </div>
-            <div className="w-4/10 my-8">
+            <div className="w-full my-8">
                 {
                     changeForm
                         ?
@@ -31,7 +31,7 @@ const FullForm = () => {
                         <FormLogin></FormLogin>
                 }
             </div>
-        </>
+        </div>
     );
 };
 

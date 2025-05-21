@@ -5,51 +5,51 @@ export declare class AchievementController {
     private readonly achievementService;
     constructor(achievementService: AchievementService);
     getAchievement(): Promise<{
+        title: string;
+        description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
-        title: string;
-        description: string;
     }[]>;
     getAchievementUserId(user_id: string): Promise<{
+        title: string;
+        description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
-        title: string;
-        description: string;
     }[]>;
     getAchievementCafeId(cafe_id: string): Promise<{
+        title: string;
+        description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
-        title: string;
-        description: string;
     }[]>;
     createAchievement(discountDto: CreateAchievementDto): Promise<{
+        title: string;
+        description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
-        title: string;
-        description: string;
     }>;
     updateAchievement(updateDto: UpdateAchievementtDto, achievement_id: string): Promise<{
+        title: string;
+        description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
-        title: string;
-        description: string;
     }>;
     deleteAchievement(achievement_id: string): Promise<{
+        title: string;
+        description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
-        title: string;
-        description: string;
     }>;
 }

@@ -29,7 +29,7 @@ const formSchema = z.object({
     password: z.string().min(8, "Пароль должен состоять из минимум 8 символов"),
     login: z.string().min(1, "Логин пользователя должно быть"),
     email: z.string().email("Не верная форма email").min(1, "Почта пользователя должно быть"),
-    description: z.string().max(300, ''),
+    description: z.string().max(300, 'Максимум 300 символов'),
     adress: z.string(),
 })
 
@@ -186,7 +186,7 @@ const FormRegistration = () => {
                                         className='text-white'
                                         type={!passwortVisible ? 'password' : 'text'}
                                         {...field}
-                                        placeholder='1234567'
+                                        placeholder='12345678'
                                     >
                                     </Input>
                                 </FormControl>

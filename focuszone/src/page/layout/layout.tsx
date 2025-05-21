@@ -8,7 +8,7 @@ const Layout = () => {
         <>
             <Header/>
             <main
-                className='w-[100%] relative flex flex-col items-center'
+                className='relative flex flex-col items-center mt-[68px]'
             >
                 <Outlet />
             </main>

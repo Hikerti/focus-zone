@@ -100,7 +100,7 @@ const FormLogin = () => {
                                             className='text-white'
                                             type={!passwortVisible ? 'password' : 'text'}
                                             {...field}
-                                            placeholder='1234567'
+                                            placeholder='12345678'
                                         >
                                         </Input>
                                     </FormControl>

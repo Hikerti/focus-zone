@@ -1,22 +1,22 @@
 import {useParams} from "react-router-dom";
 import {useReadFetcher} from "@/helpers/hooks/useReadFetcher.ts";
 import {FindLoading} from "@/components-primary/entites/loading/findLoading.tsx";
-import {Heart} from "lucide-react";
 import {useUpdateFavourite} from "@/components-primary/entites/cards/hooks/useUpdateFavourite.ts";
 import {useState, useEffect} from "react";
 import {GetCard} from "@/page/cafeSinglePage/interface/interface.ts";
+import LikeButton from "@/components-primary/shared/buttons/likeButton";
 
 const CafeSinglePage = () => {
     const { id } = useParams();
     const { mutate } = useUpdateFavourite();
+
+    const [like, setLike] = useState<boolean | undefined>(false);
 
     const {data, isPending} = useReadFetcher<GetCard>({
         url: `http://localhost:4000/cafe/get_by_id/${id}`,
         method: "get",
         queryKey: `cafe_card_${id}`,
     })
-
-    const [like, setLike] = useState<boolean>(false);
 
     useEffect(() => {
         if (data) {
@@ -25,7 +25,7 @@ const CafeSinglePage = () => {
     }, [data]);
 
     useEffect(() => {
-        if (data?.id !== undefined) {
+        if (data?.id !== undefined && like !== undefined) {
             mutate({ id: data?.id, favourites: like });
         }
     }, [like])
@@ -40,9 +40,9 @@ const CafeSinglePage = () => {
                     <div>
                         <div className='flex items-center gap-4'>
                             <h2>{data?.title}</h2>
-                            <Heart
-                                className={`${like ? "text-red-500" : "text-zinc-900"} transition bg-white mt-1`}
-                                onClick={() => setLike(!like)}
+                            <LikeButton
+                                likeProps={like}
+                                setLikeProps={setLike}
                             />
                         </div>
                         <h5>{data?.address}</h5>

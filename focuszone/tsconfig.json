@@ -8,6 +8,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
-  }
+    },
+    "types": ["jest", "jest-dom", "node"]
+  },
+  "include": ["**/*.ts", "**/*.tsx", "jest.setup.ts"]
 }

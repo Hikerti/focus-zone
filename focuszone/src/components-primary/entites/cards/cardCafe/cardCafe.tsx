@@ -103,7 +103,7 @@ const CardCafe = (
                             >
                                 {rating.length !== 0
                                     ?
-                                    rating.reduce((sum, item) => sum + item , 0) / rating.length
+                                    (rating.reduce((sum, item) => sum + item , 0) / rating.length).toFixed(2)
                                     :
                                     'Нет оценки'
                                 }

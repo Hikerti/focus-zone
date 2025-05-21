@@ -183,7 +183,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\anika\\OneDrive\\Рабочий стол\\web\\2025\\focus-zone\\server\\generated\\prisma",
+      "value": "C:\\Users\\Hikerti\\Desktop\\Document\\focus-zone\\server\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -197,7 +197,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\anika\\OneDrive\\Рабочий стол\\web\\2025\\focus-zone\\server\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\Hikerti\\Desktop\\Document\\focus-zone\\server\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

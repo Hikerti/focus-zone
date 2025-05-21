@@ -7,7 +7,7 @@ export default function ProfilePage() {
 
   return (
     <div
-        className="relative z-50"
+        className="w-full flex flex-col items-center relative z-50"
     >
     {
       (users?.length !== 0)

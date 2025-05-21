@@ -9,7 +9,7 @@ export default function SectionHello() {
             className="w-screen"
         >
             <div
-                className="w-screen h-[84vh] flex flex-col items-center justify-center gap-8"
+                className="w-[100%] h-[90vh] flex flex-col items-center justify-center gap-8"
             >
                 <div
                     className='w-full h-full relative flex flex-col items-center justify-center gap-2'
@@ -23,20 +23,20 @@ export default function SectionHello() {
                         className="absolute inset-0 bg-black opacity-50 z-0"
                     />
                     <div
-                        className='relative flex flex-col items-center justify-center gap-2 z-20'
+                        className='relative w-7/10 flex flex-col items-center justify-center gap-2 z-20'
                     >
                         <h2
-                            className='text-white'
+                            className='text-white text-center text-[24px]'
                         >
                             Добро пожаловать на сайт,
                         </h2>
                         <h1
-                            className='text-white'
+                            className='text-white text-center'
                         >
                             Focus zone
                         </h1>
                         <h4
-                            className='text-white'
+                            className='text-white text-center'
                         >
                             Проходите новые маршруты и изучайте новые места
                         </h4>

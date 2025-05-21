@@ -27,7 +27,12 @@ export default function ToolBar() {
 
   return (
     <>
-      <div className="absolute top-0 right-0 h-[6vh] w-[96%] ms-[4%] px-4 flex justify-between items-center bg-zinc-900">
+      <div
+          className="absolute top-0 right-0 w-[100vw] p-4 flex justify-between items-center bg-zinc-900 z-100
+          lg:w-[94vw]
+          xl:w-[96vw]
+          sm:w-[92vw]"
+      >
           <div className="relative w-4/10">
               <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-white" size={20} />
               <Input

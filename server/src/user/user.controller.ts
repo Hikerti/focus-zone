@@ -11,11 +11,11 @@ export class UserController {
     return this.userService.create(dto)
   }
 
-  @Get('get_user/:id')
+  @Get('get_user_by_id/:id')
   getUserById(@Param('id') id: string) {
     return this.userService.getUserById(id)
   }
-  @Get('get_user/:email')
+  @Get('get_user_email/:email')
   getUserByEmail(@Param('email') email: string) {
     return this.userService.getUserByEmail(email)
   }
