@@ -9,46 +9,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CafeService = void 0;
+exports.PlacesService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
-let CafeService = class CafeService {
+let PlacesService = class PlacesService {
     prisma;
     constructor(prisma) {
         this.prisma = prisma;
     }
-    async getCardCafe() {
-        return await this.prisma.cardsCafe.findMany();
+    async getPlaces() {
+        return await this.prisma.places.findMany();
     }
-    async getCardCafeById(id) {
-        return await this.prisma.cardsCafe.findUnique({
+    async getPlacesById(id) {
+        return await this.prisma.places.findUnique({
             where: {
                 id
             }
         });
     }
-    async createCardCafe(dto) {
-        return await this.prisma.cardsCafe.create({
+    async createPlaces(dto) {
+        return await this.prisma.places.create({
             data: dto
         });
     }
     async updateField(id, dto) {
-        return await this.prisma.cardsCafe.update({
+        return await this.prisma.places.update({
             where: {
                 id
             },
             data: dto
         });
     }
-    async deleteCardCafe(id) {
-        return await this.prisma.cardsCafe.delete({
+    async deletePlaces(id) {
+        return await this.prisma.places.delete({
             where: { id }
         });
     }
-    async filterCards(filter, limit, page) {
+    async filterPlaces(filter, limit, page) {
         const skip = (page - 1) * limit;
         if (filter == "favorites") {
-            return await this.prisma.cardsCafe.findMany({
+            return await this.prisma.places.findMany({
                 skip: skip,
                 take: limit,
                 where: {
@@ -60,7 +60,7 @@ let CafeService = class CafeService {
             });
         }
         if (filter == "date") {
-            return await this.prisma.cardsCafe.findMany({
+            return await this.prisma.places.findMany({
                 skip: skip,
                 take: limit,
                 orderBy: {
@@ -69,12 +69,12 @@ let CafeService = class CafeService {
             });
         }
         if (filter == "none") {
-            return this.getCafePage(limit, page);
+            return this.getPlacesLimit(limit, page);
         }
     }
-    async getCafePage(limit, page) {
+    async getPlacesLimit(limit, page) {
         const skip = (page - 1) * limit;
-        return await this.prisma.cardsCafe.findMany({
+        return await this.prisma.places.findMany({
             skip: skip,
             take: limit,
             orderBy: {
@@ -82,9 +82,9 @@ let CafeService = class CafeService {
             }
         });
     }
-    async getCardCafeLength(dto) {
+    async getPlacesLength(dto) {
         try {
-            const data = await this.prisma.cardsCafe.findMany({
+            const data = await this.prisma.places.findMany({
                 where: {
                     ...dto,
                     rating: dto.rating ? { hasSome: dto.rating } : undefined,
@@ -97,9 +97,9 @@ let CafeService = class CafeService {
         }
     }
 };
-exports.CafeService = CafeService;
-exports.CafeService = CafeService = __decorate([
+exports.PlacesService = PlacesService;
+exports.PlacesService = PlacesService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService])
-], CafeService);
-//# sourceMappingURL=cafe.service.js.map
+], PlacesService);
+//# sourceMappingURL=places.service.js.map

@@ -1,3 +1,5 @@
+import {Message} from "@/components-primary/entites/dialogs/messageDiaog/interface/interafce";
+
 export interface CardCafeProps {
     id: number
     style?: string
@@ -16,4 +18,15 @@ export interface CardCafeProps {
 export interface useUpdateFavouriteFunction {
     id?: number
     favourites: boolean
+}
+
+export interface SearchCardProps {
+    id: number,
+    title: string,
+    rating: number[],
+    imageUrl: string,
+}
+
+export interface MessageCardProps {
+    message: Message;
 }

@@ -1,10 +1,16 @@
 import { Input } from "@/components/ui/input.tsx"
+
 import { Search } from "lucide-react";
+
+import {useEffect, useState} from "react";
+
 import SheetHeaderComponents from "@/components-primary/widgets/sheetHeader/sheetHeader.tsx";
 import SearchList from "@/components-primary/widgets/searchList/searchList.tsx";
+
 import {useReadFetcher} from "@/helpers/hooks/useReadFetcher.ts";
+
 import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
-import {useEffect, useState} from "react";
+
 import {Card} from "@/page/cafelist/interface/interface.ts";
 
 export default function ToolBar() {
@@ -12,9 +18,9 @@ export default function ToolBar() {
     const [searchValue, setSearchValue] = useState<string>('');
 
     const {data: cards} = useReadFetcher<Card[]>({
-        url: 'http://localhost:4000/cafe/get',
+        url: 'http://localhost:4000/places/get',
         method: "get",
-        queryKey: 'cafe_search_get',
+        queryKey: 'places_search_get',
     })
 
     const setCards = useCafeGet(state => state.setCards);
@@ -28,13 +34,32 @@ export default function ToolBar() {
   return (
     <>
       <div
-          className="absolute top-0 right-0 w-[100vw] p-4 flex justify-between items-center bg-zinc-900 z-100
+          className="
+          absolute top-0 right-0 z-100
+          flex
+          w-[100vw]
+          p-4
+          justify-between items-center
+          bg-zinc-900
+
           lg:w-[94vw]
           xl:w-[96vw]
           sm:w-[92vw]"
       >
-          <div className="relative w-4/10">
-              <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-white" size={20} />
+          <div
+              className="
+              relative
+              w-4/10
+              "
+          >
+              <Search
+                  className="
+                  absolute left-2 top-1/2
+                  -translate-y-1/2
+                  text-white
+                  "
+                  size={20}
+              />
               <Input
                   type="text"
                   placeholder="Поиск"

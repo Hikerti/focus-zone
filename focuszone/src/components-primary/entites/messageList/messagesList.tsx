@@ -1,11 +1,17 @@
 import MessageCard from "@/components-primary/entites/cards/messageCard/messageCard.tsx";
 import {MessageCardProps} from "@/components-primary/entites/messageList/interface/interface.ts";
+import React from "react";
 
-const MessagesList = ({messages, rotute}: MessageCardProps) => {
+const MessagesList: React.FC<MessageCardProps> = ({messages, rotute}) => {
     return (
         <>
             <div
-                className={`flex flex-col items-center transition-all ${rotute ? 'h-auto' : 'h-0 hidden'} gap-4 w-full h-full`}
+                className={`
+                ${rotute ? 'h-auto' : 'h-0 hidden'}
+                w-full h-full
+                flex 
+                flex-col items-center gap-4 
+                transition-all`}
             >
                 {messages?.map((item) => (
                     <MessageCard
@@ -14,7 +20,13 @@ const MessagesList = ({messages, rotute}: MessageCardProps) => {
                     >
                     </MessageCard>
                 ))}
-                {messages?.length == 0 && <h3 className='text-zinc-900'>Комментариев нет</h3>}
+                {messages?.length == 0 &&
+                    <h3
+                        className='text-zinc-900'
+                    >
+                        Комментариев нет
+                    </h3>
+                }
             </div>
 
         </>

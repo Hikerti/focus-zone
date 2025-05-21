@@ -43,14 +43,14 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)('get_user/:id'),
+    (0, common_1.Get)('get_user_by_id/:id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "getUserById", null);
 __decorate([
-    (0, common_1.Get)('get_user/:email'),
+    (0, common_1.Get)('get_user_email/:email'),
     __param(0, (0, common_1.Param)('email')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

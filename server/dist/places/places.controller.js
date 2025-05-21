@@ -12,103 +12,103 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CafeController = void 0;
+exports.PlacesController = void 0;
 const common_1 = require("@nestjs/common");
-const cafe_service_1 = require("./cafe.service");
-const CreateCart_dto_1 = require("./dto/CreateCart.dto");
-const UpdateCart_dto_1 = require("./dto/UpdateCart.dto");
-let CafeController = class CafeController {
-    cafeService;
-    constructor(cafeService) {
-        this.cafeService = cafeService;
+const places_service_1 = require("./places.service");
+const CreatePlaces_dto_1 = require("./dto/CreatePlaces.dto");
+const UpdatePlaces_dto_1 = require("./dto/UpdatePlaces.dto");
+let PlacesController = class PlacesController {
+    placesService;
+    constructor(placesService) {
+        this.placesService = placesService;
     }
-    getCafe() {
-        return this.cafeService.getCardCafe();
+    getPlaces() {
+        return this.placesService.getPlaces();
     }
-    getCafeById(id) {
-        return this.cafeService.getCardCafeById(Number(id));
+    getPlacesById(id) {
+        return this.placesService.getPlacesById(Number(id));
     }
-    filter_card(filter, page, limit) {
-        return this.cafeService.filterCards(filter, Number(limit), Number(page));
+    filterPlaces(filter, page, limit) {
+        return this.placesService.filterPlaces(filter, Number(limit), Number(page));
     }
-    getCafePage(limit, page) {
-        return this.cafeService.getCafePage(limit, page);
+    getPlacesLimit(limit, page) {
+        return this.placesService.getPlacesLimit(limit, page);
     }
-    getCafeLength(dto) {
-        return this.cafeService.getCardCafeLength(dto);
+    getPlacesLength(dto) {
+        return this.placesService.getPlacesLength(dto);
     }
-    createCafe(dto) {
-        return this.cafeService.createCardCafe(dto);
+    createPlaces(dto) {
+        return this.placesService.createPlaces(dto);
     }
     update(dto, id) {
-        return this.cafeService.updateField(Number(id), dto);
+        return this.placesService.updateField(Number(id), dto);
     }
     delete(id) {
-        return this.cafeService.deleteCardCafe(Number(id));
+        return this.placesService.deletePlaces(Number(id));
     }
 };
-exports.CafeController = CafeController;
+exports.PlacesController = PlacesController;
 __decorate([
     (0, common_1.Get)('get'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], CafeController.prototype, "getCafe", null);
+], PlacesController.prototype, "getPlaces", null);
 __decorate([
     (0, common_1.Get)('get_by_id/:id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], CafeController.prototype, "getCafeById", null);
+], PlacesController.prototype, "getPlacesById", null);
 __decorate([
-    (0, common_1.Get)('card_filter/:filter/:page/:limit'),
+    (0, common_1.Get)('places_filter/:filter/:page/:limit'),
     __param(0, (0, common_1.Param)('filter')),
     __param(1, (0, common_1.Param)('page')),
     __param(2, (0, common_1.Param)('limit')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String, String]),
     __metadata("design:returntype", void 0)
-], CafeController.prototype, "filter_card", null);
+], PlacesController.prototype, "filterPlaces", null);
 __decorate([
-    (0, common_1.Get)('card_pagination/:page/:limit'),
+    (0, common_1.Get)('places_pagination/:page/:limit'),
     __param(0, (0, common_1.Param)('limit', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Param)('page', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Number]),
     __metadata("design:returntype", void 0)
-], CafeController.prototype, "getCafePage", null);
+], PlacesController.prototype, "getPlacesLimit", null);
 __decorate([
-    (0, common_1.Post)('cards_length'),
+    (0, common_1.Post)('places_length'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [UpdateCart_dto_1.UpdateCartDto]),
+    __metadata("design:paramtypes", [UpdatePlaces_dto_1.UpdatePlacesDto]),
     __metadata("design:returntype", void 0)
-], CafeController.prototype, "getCafeLength", null);
+], PlacesController.prototype, "getPlacesLength", null);
 __decorate([
     (0, common_1.Post)('create'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [CreateCart_dto_1.CreateCartDto]),
+    __metadata("design:paramtypes", [CreatePlaces_dto_1.CreatePlacesDto]),
     __metadata("design:returntype", void 0)
-], CafeController.prototype, "createCafe", null);
+], PlacesController.prototype, "createPlaces", null);
 __decorate([
     (0, common_1.Put)('update/:id'),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [UpdateCart_dto_1.UpdateCartDto, String]),
+    __metadata("design:paramtypes", [UpdatePlaces_dto_1.UpdatePlacesDto, String]),
     __metadata("design:returntype", void 0)
-], CafeController.prototype, "update", null);
+], PlacesController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)('delete/:id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], CafeController.prototype, "delete", null);
-exports.CafeController = CafeController = __decorate([
-    (0, common_1.Controller)('cafe'),
-    __metadata("design:paramtypes", [cafe_service_1.CafeService])
-], CafeController);
-//# sourceMappingURL=cafe.controller.js.map
+], PlacesController.prototype, "delete", null);
+exports.PlacesController = PlacesController = __decorate([
+    (0, common_1.Controller)('places'),
+    __metadata("design:paramtypes", [places_service_1.PlacesService])
+], PlacesController);
+//# sourceMappingURL=places.controller.js.map

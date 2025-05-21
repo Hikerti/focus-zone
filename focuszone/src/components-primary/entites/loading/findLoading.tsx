@@ -6,7 +6,7 @@ export const FindLoading = (isPending?: boolean) => {
             {isPending &&
                 <div>
                     <Skeleton
-                    className='w-9/10 h-screen'
+                        className='w-9/10 h-screen'
                     />
                 </div>
             }

@@ -1,6 +1,6 @@
 import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import { DiscountsService } from './discounts.service';
-import {CreateDescountDto} from "./dto/CreateDescount.dto";
+import {CreateDiscountDto} from "./dto/CreateDescount.dto";
 import {UpdateDescountDto} from "./dto/UpdateDescount.dto";
 
 @Controller('discounts')
@@ -20,11 +20,11 @@ export class DiscountsController {
         return this.discountsService.getDiscountCafeId(Number(cafe_id));
     }
     @Post('create_discount')
-    createDiscount(@Body() discountDto: CreateDescountDto) {
+    createDiscounts(@Body() discountDto: CreateDiscountDto) {
       return this.discountsService.createDiscounts(discountDto);
     }
     @Put('update_discount/:discount_id')
-    updateDiscount(@Body() updateDto: UpdateDescountDto, @Param('discount_id') discount_id: string) {
+    updateDiscounts(@Body() updateDto: UpdateDescountDto, @Param('discount_id') discount_id: string) {
       return this.discountsService.updateDiscounts(Number(discount_id), updateDto)
     }
     @Delete('delete_discount/:discount_id')

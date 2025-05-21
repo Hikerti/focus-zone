@@ -21,6 +21,10 @@ describe('UserController', () => {
         controller = module.get<UserController>(UserController);
     });
 
+    afterEach(async () => {
+        jest.clearAllMocks();
+    })
+
     it('should call create on userService with dto', async () => {
         const dto: UserCreateDto = {
             name: 'John',

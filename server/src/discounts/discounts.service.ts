@@ -1,6 +1,6 @@
 import {Injectable, NotFoundException} from '@nestjs/common';
 import {PrismaService} from "../prisma/prisma.service";
-import {CreateDescountDto} from "./dto/CreateDescount.dto";
+import {CreateDiscountDto} from "./dto/CreateDescount.dto";
 import {UpdateDescountDto} from "./dto/UpdateDescount.dto";
 
 @Injectable()
@@ -27,7 +27,7 @@ export class DiscountsService {
         });
     }
 
-    async createDiscounts(dto: CreateDescountDto) {
+    async createDiscounts(dto: CreateDiscountDto) {
         return await this.prisma.discounts.create({
             data: dto
         });

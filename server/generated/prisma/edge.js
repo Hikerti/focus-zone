@@ -182,7 +182,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Hikerti\\Desktop\\Document\\focus-zone\\server\\generated\\prisma",
+      "value": "C:\\Users\\anika\\OneDrive\\Рабочий стол\\web\\2025\\focus-zone\\server\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -196,7 +196,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Hikerti\\Desktop\\Document\\focus-zone\\server\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\anika\\OneDrive\\Рабочий стол\\web\\2025\\focus-zone\\server\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -210,11 +210,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:Roman13_D14AR@localhost:5432/focuszone"
+        "value": null
       }
     }
   },

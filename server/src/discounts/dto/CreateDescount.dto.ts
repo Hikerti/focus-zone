@@ -1,6 +1,6 @@
 import {IsInt, IsNotEmpty, IsString} from "class-validator";
 
-export class CreateDescountDto {
+export class CreateDiscountDto {
 
     @IsString({message: 'Поле userId должно быть строкой'})
     @IsNotEmpty({message: 'Поле является обязательным'})

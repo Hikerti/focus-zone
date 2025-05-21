@@ -21,7 +21,7 @@ export const useCafeGet = create<useCafeGetProps>((
 
     getLengthCards: async (body: CardPut) => {
         try {
-            const length = await axios.post('http://localhost:4000/cafe/cards_length', body)
+            const length = await axios.post('http://localhost:4000/places/places_length', body)
             return length.data
         } catch (e) {
             console.error("Error in getLengthCards: " + e);

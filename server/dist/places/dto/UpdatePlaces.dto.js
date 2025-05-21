@@ -9,9 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateCartDto = void 0;
+exports.UpdatePlacesDto = void 0;
 const class_validator_1 = require("class-validator");
-class CreateCartDto {
+class UpdatePlacesDto {
     title;
     description;
     address;
@@ -21,40 +21,44 @@ class CreateCartDto {
     locationLat;
     locationLng;
 }
-exports.CreateCartDto = CreateCartDto;
+exports.UpdatePlacesDto = UpdatePlacesDto;
 __decorate([
     (0, class_validator_1.IsString)({ message: "Поле title должно быть строкой" }),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], CreateCartDto.prototype, "title", void 0);
+], UpdatePlacesDto.prototype, "title", void 0);
 __decorate([
     (0, class_validator_1.IsString)({ message: "Поле description должно быть строкой" }),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], CreateCartDto.prototype, "description", void 0);
+], UpdatePlacesDto.prototype, "description", void 0);
 __decorate([
     (0, class_validator_1.IsString)({ message: "Поле address должно быть строкой" }),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], CreateCartDto.prototype, "address", void 0);
+], UpdatePlacesDto.prototype, "address", void 0);
 __decorate([
     (0, class_validator_1.IsString)({ message: "Поле imageUrl должно быть строкой" }),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], CreateCartDto.prototype, "imageUrl", void 0);
+], UpdatePlacesDto.prototype, "imageUrl", void 0);
 __decorate([
-    (0, class_validator_1.IsString)({ message: "Поле favourites должно быть строкой" }),
+    (0, class_validator_1.IsBoolean)({ message: "Поле favourites должно быть boolean" }),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Boolean)
-], CreateCartDto.prototype, "favourites", void 0);
+], UpdatePlacesDto.prototype, "favourites", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Array)
-], CreateCartDto.prototype, "rating", void 0);
+], UpdatePlacesDto.prototype, "rating", void 0);
 __decorate([
     (0, class_validator_1.IsString)({ message: "Поле locationLat должно быть строкой" }),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], CreateCartDto.prototype, "locationLat", void 0);
+], UpdatePlacesDto.prototype, "locationLat", void 0);
 __decorate([
     (0, class_validator_1.IsString)({ message: "Поле locationLng должно быть строкой" }),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], CreateCartDto.prototype, "locationLng", void 0);
-//# sourceMappingURL=CreateCart.dto.js.map
+], UpdatePlacesDto.prototype, "locationLng", void 0);
+//# sourceMappingURL=UpdatePlaces.dto.js.map

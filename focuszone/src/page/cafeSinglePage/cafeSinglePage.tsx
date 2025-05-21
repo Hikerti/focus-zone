@@ -13,9 +13,9 @@ const CafeSinglePage = () => {
     const [like, setLike] = useState<boolean | undefined>(false);
 
     const {data, isPending} = useReadFetcher<GetCard>({
-        url: `http://localhost:4000/cafe/get_by_id/${id}`,
+        url: `http://localhost:4000/places/get_by_id/${id}`,
         method: "get",
-        queryKey: `cafe_card_${id}`,
+        queryKey: `places_card_${id}`,
     })
 
     useEffect(() => {

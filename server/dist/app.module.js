@@ -10,7 +10,6 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
-const cafe_module_1 = require("./cafe/cafe.module");
 const prisma_module_1 = require("./prisma/prisma.module");
 const config_1 = require("@nestjs/config");
 const auth_module_1 = require("./auth/auth.module");
@@ -20,13 +19,13 @@ const discounts_module_1 = require("./discounts/discounts.module");
 const achievement_module_1 = require("./achievement/achievement.module");
 const redis_module_1 = require("./redis/redis.module");
 const jwt_1 = require("@nestjs/jwt");
+const places_module_1 = require("./places/places.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            cafe_module_1.CafeModule,
             prisma_module_1.PrismaModule,
             config_1.ConfigModule.forRoot({
                 isGlobal: true,
@@ -35,7 +34,7 @@ exports.AppModule = AppModule = __decorate([
                 secret: 'defaultSecret',
                 signOptions: { expiresIn: '60s' },
             }),
-            auth_module_1.AuthModule, user_module_1.UserModule, message_module_1.MessageModule, discounts_module_1.DiscountsModule, achievement_module_1.AchievementModule, redis_module_1.RedisModule
+            auth_module_1.AuthModule, user_module_1.UserModule, message_module_1.MessageModule, discounts_module_1.DiscountsModule, achievement_module_1.AchievementModule, redis_module_1.RedisModule, places_module_1.PlacesModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

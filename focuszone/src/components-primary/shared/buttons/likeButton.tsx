@@ -1,5 +1,7 @@
 import {Heart} from "lucide-react";
+
 import {ILikeButtonProps} from "@/components-primary/shared/buttons/interface/interface";
+
 import {useState} from "react";
 
 const LikeButton = ({likeProps, setLikeProps}: ILikeButtonProps) => {
@@ -16,7 +18,12 @@ const LikeButton = ({likeProps, setLikeProps}: ILikeButtonProps) => {
         >
             <Heart
                 data-testid="heart-icon"
-                className={`${like ? "text-red-500" : "text-zinc-900"} transition bg-white mt-1`}
+                className={`
+                ${like ? "text-red-500" : "text-zinc-900"} 
+                bg-white 
+                mt-1
+                transition 
+               `}
             />
         </button>
     );

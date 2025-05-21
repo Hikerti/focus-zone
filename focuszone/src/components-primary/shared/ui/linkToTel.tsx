@@ -1,4 +1,5 @@
 import {PhoneOutgoing} from "lucide-react";
+
 import { Link } from "./interface/interface";
 
 const LinkToTel = ({theme, content, size}: Link) => {
@@ -8,9 +9,18 @@ const LinkToTel = ({theme, content, size}: Link) => {
             className='flex items-center gap-2'
             target='_blank'
         >
-            <PhoneOutgoing size={size} className={`mt-1 ${theme == 'dark' ? "text-zinc-900" : "text-white "}`}/>
+            <PhoneOutgoing
+                size={size}
+                className={`
+                    ${theme == 'dark' ? "text-zinc-900" : "text-white "}
+                    mt-1 
+                `}
+            />
             <span
-                className={`${theme == 'dark' ? "text-zinc-900" : "text-white "} text-[${size}px]`}
+                className={`
+                    ${theme == 'dark' ? "text-zinc-900" : "text-white "} 
+                    text-[${size}px]
+                `}
             >
                 {content}
             </span>

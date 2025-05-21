@@ -1,15 +1,12 @@
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card.tsx";
-import {Link} from "react-router-dom";
-import {Star} from "lucide-react";
-import React from "react";
-import AvatarComponent from "@/components-primary/shared/ui/avatar.tsx";
 
-interface SearchCardProps {
-    id: number,
-    title: string,
-    rating: number[],
-    imageUrl: string,
-}
+import {Star} from "lucide-react";
+
+import React from "react";
+import {Link} from "react-router-dom";
+
+import AvatarComponent from "@/components-primary/shared/ui/avatar.tsx";
+import {SearchCardProps} from "@/components-primary/entites/cards/interface";
 
 const SearchCards: React.FC<SearchCardProps> = ({id, rating, title, imageUrl}) => {
     return (
@@ -18,12 +15,27 @@ const SearchCards: React.FC<SearchCardProps> = ({id, rating, title, imageUrl}) =
             target='_blank'
             className='w-9/10'
         >
-            <Card className="w-full">
+            <Card
+                className="w-full"
+            >
                 <CardHeader>
-                    <CardTitle className='flex justify-between items-center'>
-                        <div className='flex items-center gap-2'>
+                    <CardTitle
+                        className='
+                            flex
+                            justify-between items-center
+                        '
+                    >
+                        <div
+                            className='
+                                flex
+                                items-center gap-2
+                            '>
                             <div
-                                className='flex items-center gap-2 cursor-pointer'
+                                className='
+                                    flex
+                                    items-center gap-2
+                                    cursor-pointer
+                                '
                             >
                                 <AvatarComponent
                                     url={imageUrl}
@@ -31,11 +43,25 @@ const SearchCards: React.FC<SearchCardProps> = ({id, rating, title, imageUrl}) =
                                 >
                                 </AvatarComponent>
                             </div>
-                            <div className='flex flex-col justify-between'>
-                                <div className='text-zinc-900'>{title}</div>
+                            <div
+                                className='
+                                    flex
+                                    flex-col justify-between
+                                '
+                            >
+                                <div
+                                    className='text-zinc-900'
+                                >
+                                    {title}
+                                </div>
                             </div>
                         </div>
-                        <div className='flex flex-col items-center'>
+                        <div
+                            className='
+                            flex
+                            flex-col items-center
+                            '
+                        >
                             <Star />
                             <p
                                 className="text-zinc-900"
@@ -50,8 +76,21 @@ const SearchCards: React.FC<SearchCardProps> = ({id, rating, title, imageUrl}) =
                         </div>
                     </CardTitle>
                 </CardHeader>
-                <CardContent className="w-full h-full flex flex-col items-center gap-4">
-                    <img className="w-full h-[300px] object-cover rounded-lg" src={imageUrl} alt="img" />
+                <CardContent
+                    className="
+                        w-full h-full
+                        flex
+                        flex-col items-center gap-4
+                    "
+                >
+                    <img
+                        className="
+                            w-full h-[300px]
+                            object-cover rounded-lg
+                        "
+                        src={imageUrl}
+                        alt="img"
+                    />
                 </CardContent>
             </Card>
         </Link>

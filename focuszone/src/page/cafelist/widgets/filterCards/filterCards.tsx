@@ -25,9 +25,9 @@ export const FilterCards = ({filterProps} : {filterProps: FilterProps | string})
     const page = useCafeGet(state => state.page)
 
     const { data, isPending, isError } = useReadFetcher<Card[]>({
-        url: `http://localhost:4000/cafe/card_filter/${filter}/${page}/${limit}`,
+        url: `http://localhost:4000/places/places_filter/${filter}/${page}/${limit}`,
         method: "get",
-        queryKey: `cafe_card_${filter}_${page}_${limit}`,
+        queryKey: `places_card_${filter}_${page}_${limit}`,
     });
 
     useEffect(() => {

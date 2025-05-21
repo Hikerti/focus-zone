@@ -1,7 +1,5 @@
 import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import { AchievementService } from './achievement.service';
-import {CreateDescountDto} from "../discounts/dto/CreateDescount.dto";
-import {UpdateDescountDto} from "../discounts/dto/UpdateDescount.dto";
 import {CreateAchievementDto} from "./dto/CreateAchievement.dto";
 import {UpdateAchievementtDto} from "./dto/UpdateAchievement.dto";
 

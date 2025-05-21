@@ -5,57 +5,57 @@ export declare class DiscountsService {
     private readonly prisma;
     constructor(prisma: PrismaService);
     getDiscount(): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
         logo: string;
+        title: string;
     }[]>;
     getDiscountUserId(userId: string): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
         logo: string;
+        title: string;
     }[]>;
     getDiscountCafeId(cafeId: number): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
         logo: string;
+        title: string;
     }[]>;
     createDiscounts(dto: CreateDescountDto): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
         logo: string;
+        title: string;
     }>;
     updateDiscounts(id: number, dto: UpdateDescountDto): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
         logo: string;
+        title: string;
     }>;
     deleteDiscount(id: number): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
         logo: string;
+        title: string;
     }>;
 }

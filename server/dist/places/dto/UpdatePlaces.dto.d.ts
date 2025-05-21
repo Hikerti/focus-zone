@@ -1,4 +1,4 @@
-export declare class UpdateCartDto {
+export declare class UpdatePlacesDto {
     title?: string;
     description?: string;
     address?: string;

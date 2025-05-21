@@ -115,43 +115,43 @@ DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST
 
 ## 📡 API Роуты
 
-| Метод  | URL                                               | Описание                                        |
-|--------|---------------------------------------------------|-------------------------------------------------|
-| GET    | `/cafe/get`                                       | Получить список кофе                            |
-| POST   | `/cafe/create`                                    | Создать кофе                                    | 
-| DELETE | `/cafe/delete`                                    | Удалить кофе                                    |
-| PUT    | `/cafe/update`                                    | Изменить элемент контента                       | 
-| GET    | `/cafe/card_filter/:filter/:page/:limit`          | Фильтрация кофе по фильтрам на сайте            |
-| GET    | `/cafe/get_by_id/:id`                             | Фильрация кофе по id                            | 
-| GET    | `/cafe/card_pagination/:page/:limit`              | Пагинации на странице                           |
-| GET    | `/cafe/cards_length`                              | Получение длинны списка кафе                    | 
-| GET    | `/user/get_users`                                 | Получение пользователя                          |
-| GET    | `/user/get_users/:id`                             | Получение пользователя по id                    | 
-| GET    | `/user/get_user/:email`                           | Получение пользователя по email                 |
-| POST   | `/user/create`                                    | Создать пользователя                            | 
-| POST   | `/auth/register`                                  | Регистрация пользователя                        |
-| POST   | `/auth/login`                                     | Аунтетификация пользователя                     | 
-| POST   | `/auth/refrech`                                   | Обновление токенов на клиенте                   |
-| POST   | `/auth/me`                                         | Получение данных о пользователе после входа     |
-| POST   | `/auth/logout`                                    | Выход пользователя из профиля                   |
-| GET    | `/message/get_user_messages:userId`               | Получить списка комментариев по id пользователя |
-| GET    | `/message/get_cafe_messages/:cafeId`              | Получить списка комментариев по id кафе         | 
-| GET    | `/message/get_id_messages/:id`                    | Получить списка комментариев по id отзыва       | 
-| POST   | `/message/create_messages`                        | Создать отзыва                                  | 
-| PUT    | `/message/update_messages/:id`                    | Обновление отзыва                               | 
-| DELETE | `/message/delete_messages/:id`                    | Удаление отзыва                                 |
-| GET    | `/discounts/get_discount`                         | Получить списка скидок                          |
-| GET    | `/discounts/get_discount_cafe_id/:cafe_id`        | Получить списка скидок по id кафе               | 
-| GET    | `/discounts/get_discount_user_id/:user_id`        | Получить списка скидок по userId                | 
-| POST   | `/discounts/create_discount`                      | Создать скидку                                  | 
-| PUT    | `/discount/update_discount/:discount_id`          | Обновление скидок                               | 
-| DELETE | `/descoun/delete_discount/:discount_id`           | Удаление скидки                                 |
-| GET    | `/achievement/get_discount`                       | Получить списка достижений                      |
-| GET    | `/achievement/get_achievement_cafe_id/:cafe_id`   | Получить списка достижений по id кафе           | 
-| GET    | `/achievement/get_achievement_user_id/:user_id`   | Получить списка достижений по userId            | 
-| POST   | `/achievement/create_achievement`                 | Создать достижение                              | 
-| PUT    | `/achievement/update_achievement/:discount_id`    | Обновление достижения                           | 
-| DELETE | `/achievement/delete_achievement/:achievement_id` | Удаление достижения                             |
+| Метод  | URL                                                             | Описание                                        |
+|--------|-----------------------------------------------------------------|-------------------------------------------------|
+| GET    | `/places/get`                                                   | Получить список кофе                            |
+| POST   | `/places/create`                                                | Создать кофе                                    | 
+| DELETE | `/places/delete`                                                | Удалить кофе                                    |
+| PUT    | `/places/update`                                                | Изменить элемент контента                       | 
+| GET    | `/places/places_filter/:filter/:page/:limit`                          | Фильтрация кофе по фильтрам на сайте            |
+| GET    | `/places/get_by_id/:id`                                         | Фильрация кофе по id                            | 
+| GET    | `/places/places_pagination/:page/:limit`                        | Пагинации на странице                           |
+| GET    | `/places/places_length`                                         | Получение длинны списка кафе                    | 
+| GET    | `/user/get_users`                                               | Получение пользователя                          |
+| GET    | `/user/get_users/:id`                                           | Получение пользователя по id                    | 
+| GET    | `/user/get_user/:email`                                         | Получение пользователя по email                 |
+| POST   | `/user/create`                                                  | Создать пользователя                            | 
+| POST   | `/auth/register`                                                | Регистрация пользователя                        |
+| POST   | `/auth/login`                                                   | Аунтетификация пользователя                     | 
+| POST   | `/auth/refrech`                                                 | Обновление токенов на клиенте                   |
+| POST   | `/auth/me`                                                      | Получение данных о пользователе после входа     |
+| POST   | `/auth/logout`                                                  | Выход пользователя из профиля                   |
+| GET    | `/message/get_user_messages:userId`                             | Получить списка комментариев по id пользователя |
+| GET    | `/message/get_cafe_messages/:cafeId`                            | Получить списка комментариев по id кафе         | 
+| GET    | `/message/get_id_messages/:id`                                  | Получить списка комментариев по id отзыва       | 
+| POST   | `/message/create_messages`                                      | Создать отзыва                                  | 
+| PUT    | `/message/update_messages/:id`                                  | Обновление отзыва                               | 
+| DELETE | `/message/delete_messages/:id`                                  | Удаление отзыва                                 |
+| GET    | `/discounts/get_discount`                                       | Получить списка скидок                          |
+| GET    | `/discounts/get_discount_cafe_id/:cafe_id`                      | Получить списка скидок по id кафе               | 
+| GET    | `/discounts/get_discount_user_id/:user_id`                      | Получить списка скидок по userId                | 
+| POST   | `/discounts/create_discount`                                    | Создать скидку                                  | 
+| PUT    | `/discount/update_discount/:discount_id`                        | Обновление скидок                               | 
+| DELETE | `/descoun/delete_discount/:discount_id`                         | Удаление скидки                                 |
+| GET    | `/achievement/get_discount`                                     | Получить списка достижений                      |
+| GET    | `/achievement/get_achievement_cafe_id/:cafe_id`                 | Получить списка достижений по id кафе           | 
+| GET    | `/achievement/get_achievement_user_id/:user_id`                 | Получить списка достижений по userId            | 
+| POST   | `/achievement/create_achievement`                               | Создать достижение                              | 
+| PUT    | `/achievement/update_achievement/:discount_id`                  | Обновление достижения                           | 
+| DELETE | `/achievement/delete_achievement/:achievement_id`               | Удаление достижения                             |
 
 ---
 

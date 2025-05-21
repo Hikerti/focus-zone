@@ -5,51 +5,51 @@ export declare class AchievementService {
     private readonly prisma;
     constructor(prisma: PrismaService);
     getAchievement(): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
+        title: string;
     }[]>;
     getAchievementUserId(userId: string): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
+        title: string;
     }[]>;
     getAchievementCafeId(cafeId: number): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
+        title: string;
     }[]>;
     createAchievement(dto: CreateAchievementDto): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
+        title: string;
     }>;
     updateAchievement(id: number, dto: UpdateAchievementtDto): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
+        title: string;
     }>;
     deleteAchievement(id: number): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
+        title: string;
     }>;
 }

@@ -4,16 +4,16 @@ import {
     CardFooter,
     CardHeader
 } from "@/components/ui/card"
+
 import AvatarComponent from "@/components-primary/shared/ui/avatar.tsx";
-import {Message} from "@/components-primary/entites/dialogs/messageDiaog/interface/interafce.ts";
+import {MessageCardProps} from "@/components-primary/entites/cards/interface";
+
+import React from "react";
+
 import {useReadFetcher} from "@/helpers/hooks/useReadFetcher.ts";
 import {UserFullData} from "@/helpers/interface/interface.ts";
 
-interface MessageCardProps {
-    message: Message;
-}
-
-const MessageCard = ({message}: MessageCardProps) => {
+const MessageCard: React.FC<MessageCardProps> = ({message}) => {
 
     const user = useReadFetcher<UserFullData>({
         url: `http://localhost:4000/user/get_user/${message.userId}`,
@@ -23,8 +23,15 @@ const MessageCard = ({message}: MessageCardProps) => {
 
     return (
         <>
-            <Card className="w-full">
-                <CardHeader className='flex items-center'>
+            <Card
+                className="w-full"
+            >
+                <CardHeader
+                    className='
+                        flex
+                        items-center
+                    '
+                >
                     <AvatarComponent />
                     <div>
                         <h5>
@@ -40,7 +47,7 @@ const MessageCard = ({message}: MessageCardProps) => {
                         {message.content}
                     </div>
                 </CardContent>
-                <CardFooter></CardFooter>
+                <CardFooter/>
             </Card>
         </>
     );

@@ -3,9 +3,11 @@ import {
     AvatarFallback,
     AvatarImage,
 } from "@/components/ui/avatar.tsx"
-import { AvatarComponentProps } from "./interface/interface";
 
-export default function AvatarComponent({size, url}: AvatarComponentProps) {
+import { AvatarComponentProps } from "./interface/interface";
+import React from "react";
+
+const AvatarComponent: React.FC<AvatarComponentProps> = ({size, url}) => {
     return (
         <>
             {
@@ -16,10 +18,14 @@ export default function AvatarComponent({size, url}: AvatarComponentProps) {
                         src={url}
                         alt="User avatar"
                     />
-                    <AvatarFallback>CN</AvatarFallback>
+                    <AvatarFallback>
+                        CN
+                    </AvatarFallback>
                 </Avatar>
             </>
             }
         </>
     );
 };
+
+export default AvatarComponent

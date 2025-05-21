@@ -7,7 +7,9 @@ import {
     AlertDialogDescription
 } from "@/components/ui/alert-dialog.tsx";
 import {Button} from "@/components/ui/button.tsx";
+
 import {X} from "lucide-react";
+
 import FormLogin from "@/components-primary/widgets/forms/formLogin/formLogin.tsx";
 
 const DialogRegistration = () => {
@@ -15,7 +17,11 @@ const DialogRegistration = () => {
         <div>
             <AlertDialog>
                 <AlertDialogTrigger asChild>
-                    <Button variant='secondary'>Войти</Button>
+                    <Button
+                        variant='secondary'
+                    >
+                        Войти
+                    </Button>
                 </AlertDialogTrigger>
                 <AlertDialogContent>
                     <div>
@@ -23,11 +29,13 @@ const DialogRegistration = () => {
                             <X/>
                         </AlertDialogCancel>
                     </div>
-                    <AlertDialogTitle>Войти</AlertDialogTitle>
+                    <AlertDialogTitle>
+                        Войти
+                    </AlertDialogTitle>
                     <AlertDialogDescription>
                         Пожалуйста, заполните форму входа ниже.
                     </AlertDialogDescription>
-                    <FormLogin></FormLogin>
+                    <FormLogin/>
                 </AlertDialogContent>
             </AlertDialog>
         </div>

@@ -7,17 +7,22 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea"
-
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {Input} from "@/components/ui/input.tsx";
 import {Button} from "@/components/ui/button.tsx";
-import {useMutation} from "@tanstack/react-query";
+
 import {RegistrationUser} from "@/components-primary/widgets/forms/function/registrationUser.ts";
 import {UserRegistrationData, UserRegistrationUser} from "@/components-primary/widgets/forms/interface/interface.ts";
-import {useGetUser} from "@/helpers/store/storeUser.ts";
+
+import { useForm } from "react-hook-form";
 import { useState } from "react";
+
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import {useMutation} from "@tanstack/react-query";
+
+import {useGetUser} from "@/helpers/store/storeUser.ts";
+
 import { Eye, EyeClosed } from "lucide-react";
 
 const phoneRegex = /^(\+7|8)\s?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/;
@@ -37,6 +42,7 @@ const FormRegistration = () => {
 
     const setUser = useGetUser(state => state.setUser)
     const setLogin = useGetUser(state => state.setLogin)
+
     const [passwortVisible, setPasswordVisible] = useState<boolean>(false)
 
     const form = useForm<UserRegistrationUser>({
@@ -56,7 +62,6 @@ const FormRegistration = () => {
     const mutation = useMutation({
         mutationFn: (data: UserRegistrationUser) => RegistrationUser(data),
         onSuccess: (res: UserRegistrationData) => {
-            console.log("Успешно отправлено:", res.user);
             form.reset()
             setUser(res.user)
             setLogin(true)
@@ -72,14 +77,37 @@ const FormRegistration = () => {
 
     return (
         <>
-         <section className='w-full flex flex-col gap-4 items-center justify-center'>
+         <section
+             className='
+                flex
+                w-full
+                flex-col gap-4 items-center justify-center
+             '
+         >
              <Form {...form}>
                  <form
                      onSubmit={form.handleSubmit(onSubmit)}
-                     className='w-full bg-zinc-900 flex flex-col gap-4 px-4 py-4 rounded-xl'
+                     className='
+                        flex
+                        w-full
+                        flex-col gap-4
+                         bg-zinc-900
+                        px-4 py-4
+                        rounded-xl
+                     '
                  >
-                     <h3 className='text-white'>Введите свои данные</h3>
-                     <div className='w-full flex gap-4'>
+                     <h3
+                         className='text-white'
+                     >
+                         Введите свои данные
+                     </h3>
+                     <div
+                         className='
+                            flex
+                            w-full
+                            gap-4
+                         '
+                     >
                          <FormField
                              control={form.control}
                              name="surname"
@@ -87,18 +115,20 @@ const FormRegistration = () => {
                                  <FormItem
                                     className='w-1/2'
                                  >
-                                     <FormLabel className='text-white'>Фамилия</FormLabel>
+                                     <FormLabel
+                                         className='text-white'
+                                     >
+                                         Фамилия</FormLabel>
+
                                      <FormControl>
                                          <Input
                                              className='text-white'
                                              type='text'
                                              {...field}
                                              placeholder='Иванов'
-                                         >
-
-                                         </Input>
+                                         />
                                      </FormControl>
-                                     <FormMessage></FormMessage>
+                                     <FormMessage/>
                                  </FormItem>
                              )}
                          />
@@ -110,7 +140,9 @@ const FormRegistration = () => {
                                  <FormItem
                                      className='w-1/2'
                                  >
-                                     <FormLabel className='text-white'>Имя</FormLabel>
+                                     <FormLabel className='text-white'>
+                                         Имя
+                                     </FormLabel>
                                      <FormControl>
                                          <Input
                                              className='text-white'
@@ -121,13 +153,19 @@ const FormRegistration = () => {
 
                                          </Input>
                                      </FormControl>
-                                     <FormMessage></FormMessage>
+                                     <FormMessage/>
                                  </FormItem>
                              )}
                          />
                      </div>
 
-                     <div className='w-full flex gap-4'>
+                     <div
+                         className='
+                            flex
+                            w-full
+                            gap-4
+                         '
+                     >
                          <FormField
                              control={form.control}
                              name="login"
@@ -135,7 +173,11 @@ const FormRegistration = () => {
                                  <FormItem
                                      className='w-1/2'
                                  >
-                                     <FormLabel className='text-white'>Login</FormLabel>
+                                     <FormLabel
+                                         className='text-white'
+                                     >
+                                         Login
+                                     </FormLabel>
                                      <FormControl>
                                          <Input
                                              className='text-white'
@@ -144,7 +186,7 @@ const FormRegistration = () => {
                                              placeholder='Russian man'
                                          />
                                      </FormControl>
-                                     <FormMessage></FormMessage>
+                                     <FormMessage/>
                                  </FormItem>
                              )}
                          />
@@ -156,7 +198,11 @@ const FormRegistration = () => {
                                  <FormItem
                                      className='w-1/2'
                                  >
-                                     <FormLabel className='text-white'>Email</FormLabel>
+                                     <FormLabel
+                                         className='text-white'
+                                     >
+                                         Email
+                                     </FormLabel>
                                      <FormControl>
                                          <Input
                                              className='text-white'
@@ -167,38 +213,60 @@ const FormRegistration = () => {
 
                                          </Input>
                                      </FormControl>
-                                     <FormMessage></FormMessage>
+                                     <FormMessage/>
                                  </FormItem>
                              )}
                          />
                      </div>
 
-                     <div className='w-full flex gap-4'>
-
+                     <div
+                         className='
+                         flex
+                         w-full
+                         gap-4
+                         '
+                     >
                          <FormField
                              control={form.control}
                              name="password"
                              render={({ field }) => (
-                                <FormItem className="w-1/2 relative">
-                                <FormLabel className='text-white'>Пароль</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        className='text-white'
-                                        type={!passwortVisible ? 'password' : 'text'}
-                                        {...field}
-                                        placeholder='12345678'
+                                <FormItem
+                                    className="w-1/2 relative"
+                                >
+                                    <FormLabel
+                                        className='text-white relative'
                                     >
-                                    </Input>
-                                </FormControl>
-                                <span className='absolute bottom-[6px] right-2'>
+                                        Пароль
+                                    </FormLabel>
+                                    <FormControl
+                                        className='relative'
+                                    >
+                                        <Input
+                                            className='text-white'
+                                            type={!passwortVisible ? 'password' : 'text'}
+                                            {...field}
+                                            placeholder='12345678'
+                                        >
+
+                                        </Input>
+                                    </FormControl>
+                                    <FormMessage/>
+                                    <span
+                                        className='absolute right-2 top-7'
+                                    >
                                         {passwortVisible
-                                        ?
-                                        <Eye className="text-white" onClick={() => setPasswordVisible(!passwortVisible)} />
-                                        :
-                                        <EyeClosed className="text-white" onClick={() => setPasswordVisible(!passwortVisible)} />
+                                            ?
+                                            <Eye
+                                                className="text-white"
+                                                onClick={() => setPasswordVisible(!passwortVisible)}
+                                            />
+                                            :
+                                            <EyeClosed
+                                                className="text-white"
+                                                onClick={() => setPasswordVisible(!passwortVisible)}
+                                            />
                                         }
-                                </span>
-                                <FormMessage></FormMessage>
+                                    </span>
                             </FormItem>
                              )}
                          />
@@ -210,7 +278,11 @@ const FormRegistration = () => {
                                  <FormItem
                                      className='w-1/2'
                                  >
-                                     <FormLabel className='text-white'>Телефон</FormLabel>
+                                     <FormLabel
+                                         className='text-white'
+                                     >
+                                         Телефон
+                                     </FormLabel>
                                      <FormControl>
                                          <Input
                                              className='text-white'
@@ -218,10 +290,9 @@ const FormRegistration = () => {
                                              {...field}
                                              placeholder='+7 999 999 99 99'
                                          >
-
                                          </Input>
                                      </FormControl>
-                                     <FormMessage></FormMessage>
+                                     <FormMessage/>
                                  </FormItem>
                              )}
                          />

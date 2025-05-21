@@ -1,23 +1,22 @@
-import {IsBoolean, IsOptional, IsString} from "class-validator"
+import {IsNumber, IsOptional, IsString} from 'class-validator';
 
-export class UpdateCartDto {
+export class CreatePlacesDto {
+
     @IsString({message: "Поле title должно быть строкой"})
-    @IsOptional()
-    title?:   string
-    
+    title:   string
+
     @IsString({message: "Поле description должно быть строкой"})
     @IsOptional()
     description?: string
-    
+
     @IsString({message: "Поле address должно быть строкой"})
-    @IsOptional()
-    address?: string
-    
+    address: string
+
     @IsString({message: "Поле imageUrl должно быть строкой"})
     @IsOptional()
     imageUrl?: string
-    
-    @IsBoolean({message: "Поле favourites должно быть boolean"})
+
+    @IsString({message: "Поле favourites должно быть строкой"})
     @IsOptional()
     favourites?: boolean
 
@@ -25,10 +24,8 @@ export class UpdateCartDto {
     rating?: number[]
 
     @IsString({message: "Поле locationLat должно быть строкой"})
-    @IsOptional()
-    locationLat?: string
+    locationLat: string
 
     @IsString({message: "Поле locationLng должно быть строкой"})
-    @IsOptional()
-    locationLng?: string
+    locationLng: string
 }

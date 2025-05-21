@@ -7,16 +7,20 @@ import {
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import {Textarea} from "@/components/ui/textarea.tsx";
+
 import { Star } from "lucide-react";
-import {useState} from "react";
+
+import React, {useState} from "react";
 
 import {MessageDialogProps} from "@/components-primary/entites/dialogs/messageDiaog/interface/interafce.ts";
 import useCreateMessage from "@/components-primary/entites/dialogs/messageDiaog/hooks/useCreateMessage.tsx";
 import useRating from "@/components-primary/entites/dialogs/messageDiaog/hooks/useRating.tsx";
 
-const MessageDialog = ({cafeId, ratingNow}: MessageDialogProps ) => {
+const MessageDialog: React.FC<MessageDialogProps> = ({cafeId, ratingNow}) => {
+
     const [message, setMessage] = useState<string>();
     const [rating, setRating] = useState<number>(0);
+
     const createMessage = useCreateMessage({cafeId, message});
     const ratingMessage = useRating({ratingNow, rating, cafeId})
 
@@ -27,17 +31,40 @@ const MessageDialog = ({cafeId, ratingNow}: MessageDialogProps ) => {
 
     return (
         <>
-            <AlertDialogContent className='flex flex-col justify-center'>
-                <AlertDialogHeader className='w-[460px]'>
+            <AlertDialogContent
+                className='
+                flex
+                flex-col justify-center
+                '
+            >
+                <AlertDialogHeader
+                    className='w-[460px]'
+                >
                     <div
-                        className="flex flex-col justify-center gap-4"
+                        className="
+                        flex
+                        flex-col justify-center gap-4
+                        "
                     >
-                        <div className='flex w-full justify-between items-center'>
-                            <AlertDialogTitle>Введите свой отзыв</AlertDialogTitle>
+                        <div
+                            className='
+                            w-full
+                            flex
+                            justify-between items-center
+                            '
+                        >
+                            <AlertDialogTitle>
+                                Введите свой отзыв
+                            </AlertDialogTitle>
                             <div>
                                 {[1, 2, 3, 4, 5].map((star) => (
                                     <button
-                                        className={`p-1 rounded transition-colors hover:text-yellow-400 ${rating >= star && 'text-yellow-400'}`}
+                                        className={`
+                                        ${rating >= star && 'text-yellow-400'}
+                                        p-1 
+                                        rounded 
+                                        transition-colors 
+                                        hover:text-yellow-400`}
                                         key={star}
                                         onClick={() => setRating(star)}
                                     >
@@ -56,7 +83,9 @@ const MessageDialog = ({cafeId, ratingNow}: MessageDialogProps ) => {
                     </div>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                    <AlertDialogCancel>Выйти</AlertDialogCancel>
+                    <AlertDialogCancel>
+                        Выйти
+                    </AlertDialogCancel>
                     <AlertDialogAction
                         onClick={handleSendMessage}
                     >

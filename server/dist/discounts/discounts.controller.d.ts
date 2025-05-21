@@ -5,57 +5,57 @@ export declare class DiscountsController {
     private readonly discountsService;
     constructor(discountsService: DiscountsService);
     getDiscount(): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
         logo: string;
+        title: string;
     }[]>;
     getDiscountUserId(user_id: string): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
         logo: string;
+        title: string;
     }[]>;
     getDiscountCafeId(cafe_id: string): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
         logo: string;
+        title: string;
     }[]>;
     createDiscount(discountDto: CreateDescountDto): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
         logo: string;
+        title: string;
     }>;
     updateDiscount(updateDto: UpdateDescountDto, discount_id: string): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
         logo: string;
+        title: string;
     }>;
     deleteDiscount(discount_id: string): Promise<{
-        title: string;
         description: string;
         id: number;
         userId: string;
         cafeId: number;
         url: string;
         logo: string;
+        title: string;
     }>;
 }

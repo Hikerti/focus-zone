@@ -1,4 +1,5 @@
 import {Mail} from "lucide-react";
+
 import {Button} from "@/components/ui/button.tsx";
 
 const MessageButton = (props: any) => {
@@ -6,11 +7,19 @@ const MessageButton = (props: any) => {
         <>
             <Button
                 size='icon'
-                className='border-zinc-900 bg-transparent border-2 hover:bg-white cursor-pointer  group'
+                className='
+                border-zinc-900 border-2
+                bg-transparent
+                hover:bg-white
+                cursor-pointer group
+                '
                 {...props}
             >
                 <Mail
-                    className='text-zinc-900 transition bg-white'
+                    className='
+                    text-zinc-900 bg-white
+                    transition
+                    '
                 />
             </Button>
         </>

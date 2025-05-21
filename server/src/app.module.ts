@@ -1,7 +1,6 @@
 import {Module} from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CafeModule } from './cafe/cafe.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
@@ -11,11 +10,11 @@ import { DiscountsModule } from './discounts/discounts.module';
 import { AchievementModule } from './achievement/achievement.module';
 import { RedisModule } from './redis/redis.module';
 import {JwtModule} from "@nestjs/jwt";
+import { PlacesModule } from './places/places.module';
 
 
 @Module({
   imports: [
-    CafeModule, 
     PrismaModule, 
     ConfigModule.forRoot({
       isGlobal: true,
@@ -24,7 +23,7 @@ import {JwtModule} from "@nestjs/jwt";
           secret: 'defaultSecret',
           signOptions: { expiresIn: '60s' },
       }),
-      AuthModule, UserModule, MessageModule, DiscountsModule, AchievementModule, RedisModule
+      AuthModule, UserModule, MessageModule, DiscountsModule, AchievementModule, RedisModule, PlacesModule
   ],
   controllers: [AppController],
   providers: [AppService],

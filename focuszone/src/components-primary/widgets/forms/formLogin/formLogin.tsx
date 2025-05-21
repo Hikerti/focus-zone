@@ -7,7 +7,9 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -20,7 +22,7 @@ import {UserData, UserLogin} from "@/components-primary/widgets/forms/interface/
 import {LoginUser} from "@/components-primary/widgets/forms/function/loginUser.ts";
 
 import {useGetUser} from "@/helpers/store/storeUser.ts"
-import { useState } from "react";
+
 import { Eye, EyeClosed } from "lucide-react";
 
 const formSchema = z.object({
@@ -45,7 +47,6 @@ const FormLogin = () => {
     const mutation = useMutation({
         mutationFn: (data: UserLogin) => LoginUser(data),
         onSuccess: (res: UserData) => {
-            console.log("Успешно отправлено:", res.user);
             form.reset()
             setUser(res.user)
             setLogin(true)
@@ -61,19 +62,40 @@ const FormLogin = () => {
 
     return (
         <>
-            <section className='w-full flex flex-col gap-4 items-center justify-center'>
+            <section
+                className='
+                    flex
+                    w-full
+                    flex-col gap-4 items-center justify-center
+                '
+            >
                 <Form {...form}>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
-                        className='w-full bg-zinc-900 flex flex-col gap-4 px-4 py-5 rounded-xl'
+                        className='
+                            flex
+                            w-full
+                            flex-col gap-4
+                            bg-zinc-900
+                            px-4 py-5
+                            rounded-xl
+                        '
                     >
-                        <h3 className='text-white'>Введите свои данные</h3>
+                        <h3
+                            className='text-white'
+                        >
+                            Введите свои данные
+                        </h3>
                         <FormField
                             control={form.control}
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className='text-white'>Email</FormLabel>
+                                    <FormLabel
+                                        className='text-white'
+                                    >
+                                        Email
+                                    </FormLabel>
                                     <FormControl>
                                         <Input
                                             className='text-white'
@@ -84,7 +106,7 @@ const FormLogin = () => {
 
                                         </Input>
                                     </FormControl>
-                                    <FormMessage></FormMessage>
+                                    <FormMessage/>
                                 </FormItem>
                             )}
                         />
@@ -93,8 +115,14 @@ const FormLogin = () => {
                             control={form.control}
                             name="password"
                             render={({ field }) => (
-                                <FormItem className="relative">
-                                    <FormLabel className='text-white'>Пароль</FormLabel>
+                                <FormItem
+                                    className="relative"
+                                >
+                                    <FormLabel
+                                        className='text-white'
+                                    >
+                                        Пароль
+                                    </FormLabel>
                                     <FormControl>
                                         <Input
                                             className='text-white'
@@ -104,7 +132,7 @@ const FormLogin = () => {
                                         >
                                         </Input>
                                     </FormControl>
-                                    <span className='absolute bottom-[6px] right-2'>
+                                    <span className='absolute right-2 top-7'>
                                             {passwortVisible 
                                             ?
                                             <Eye className="text-white" onClick={() => setPasswordVisible(!passwortVisible)} />
@@ -112,7 +140,7 @@ const FormLogin = () => {
                                             <EyeClosed className="text-white" onClick={() => setPasswordVisible(!passwortVisible)} />
                                             }
                                     </span>
-                                    <FormMessage></FormMessage>
+                                    <FormMessage/>
                                 </FormItem>
                             )}
                         />

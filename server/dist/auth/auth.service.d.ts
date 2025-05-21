@@ -31,17 +31,17 @@ export declare class AuthService {
     }>;
     me(req: Request): Promise<{
         user: {
-            description: string | null;
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            name: string;
             email: string;
             password: string;
             adress: string | null;
             phone: string | null;
+            name: string;
             surname: string;
             login: string;
+            description: string | null;
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
         };
     }>;
 }

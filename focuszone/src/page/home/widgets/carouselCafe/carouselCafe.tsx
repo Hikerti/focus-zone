@@ -13,7 +13,7 @@ import { Card } from "@/page/cafelist/interface/interface.ts";
 export default function CarouselCafe() {
 
     const {data, isPending} = useReadFetcher<Card[]>({
-        url: 'http://localhost:4000/cafe/card_filter/none/1/6',
+        url: 'http://localhost:4000/places/places_filter/none/1/6',
         method: 'get',
         queryKey: 'cafe_card',
     })

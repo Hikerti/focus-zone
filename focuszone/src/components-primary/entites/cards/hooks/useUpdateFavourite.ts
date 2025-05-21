@@ -5,7 +5,7 @@ import {useUpdateFavouriteFunction} from "@/components-primary/entites/cards/int
 export const useUpdateFavourite = () => {
     return useMutation({
       mutationFn: async ({ id, favourites }: useUpdateFavouriteFunction) => {
-        const response = await axios.put(`http://localhost:4000/cafe/update/${id}`, { favourites });
+        const response = await axios.put(`http://localhost:4000/places/update/${id}`, { favourites });
         return response.data;
       },
     });
