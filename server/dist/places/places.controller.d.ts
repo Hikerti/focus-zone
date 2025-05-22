@@ -1,6 +1,6 @@
 import { PlacesService } from './places.service';
-import { CreatePlacesDto } from "src/places/dto/CreatePlaces.dto";
-import { UpdatePlacesDto } from "src/places/dto/UpdatePlaces.dto";
+import { CreatePlacesDto } from "./dto/CreatePlaces.dto";
+import { UpdatePlacesDto } from "./dto/UpdatePlaces.dto";
 export declare class PlacesController {
     private readonly placesService;
     constructor(placesService: PlacesService);
@@ -70,7 +70,7 @@ export declare class PlacesController {
         locationLat: string;
         locationLng: string;
     }>;
-    update(dto: UpdatePlacesDto, id: string): Promise<{
+    updateField(dto: UpdatePlacesDto, id: string): Promise<{
         description: string | null;
         id: number;
         createdAt: Date;
@@ -83,7 +83,7 @@ export declare class PlacesController {
         locationLat: string;
         locationLng: string;
     }>;
-    delete(id: string): Promise<{
+    deletePlaces(id: string): Promise<{
         description: string | null;
         id: number;
         createdAt: Date;

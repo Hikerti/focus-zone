@@ -1,5 +1,5 @@
 import { DiscountsService } from './discounts.service';
-import { CreateDescountDto } from "./dto/CreateDescount.dto";
+import { CreateDiscountDto } from "./dto/CreateDescount.dto";
 import { UpdateDescountDto } from "./dto/UpdateDescount.dto";
 export declare class DiscountsController {
     private readonly discountsService;
@@ -31,7 +31,7 @@ export declare class DiscountsController {
         logo: string;
         title: string;
     }[]>;
-    createDiscount(discountDto: CreateDescountDto): Promise<{
+    createDiscounts(discountDto: CreateDiscountDto): Promise<{
         description: string;
         id: number;
         userId: string;
@@ -40,7 +40,7 @@ export declare class DiscountsController {
         logo: string;
         title: string;
     }>;
-    updateDiscount(updateDto: UpdateDescountDto, discount_id: string): Promise<{
+    updateDiscounts(updateDto: UpdateDescountDto, discount_id: string): Promise<{
         description: string;
         id: number;
         userId: string;

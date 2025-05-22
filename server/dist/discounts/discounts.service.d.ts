@@ -1,5 +1,5 @@
 import { PrismaService } from "../prisma/prisma.service";
-import { CreateDescountDto } from "./dto/CreateDescount.dto";
+import { CreateDiscountDto } from "./dto/CreateDescount.dto";
 import { UpdateDescountDto } from "./dto/UpdateDescount.dto";
 export declare class DiscountsService {
     private readonly prisma;
@@ -31,7 +31,7 @@ export declare class DiscountsService {
         logo: string;
         title: string;
     }[]>;
-    createDiscounts(dto: CreateDescountDto): Promise<{
+    createDiscounts(dto: CreateDiscountDto): Promise<{
         description: string;
         id: number;
         userId: string;

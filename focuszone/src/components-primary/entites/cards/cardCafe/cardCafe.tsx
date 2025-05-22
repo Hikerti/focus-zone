@@ -4,7 +4,6 @@ import {
 } from "@/components/ui/alert-dialog.tsx"
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import {Button} from "@/components/ui/button.tsx";
-import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel.tsx";
 
 import {Link, useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
@@ -42,7 +41,6 @@ const CardCafe: React.FC<CardCafeProps> = (
         rating,
         locationLat,
         locationLng,
-        showArrow
     }) => {
 
     const navigate = useNavigate();
@@ -176,58 +174,19 @@ const CardCafe: React.FC<CardCafeProps> = (
                             items-center justify-center
                         '
                     >
-                        <Carousel
-                            className='
-                                w-full h-full
-                                flex
-                                flex-col'
+                        <Link
+                            to={`/cafelist/${id}`}
+                            target='_blank'
                         >
-                            <CarouselContent
-                                className="w-full h-[600px]"
-                            >
-                                <CarouselItem>
-                                    <Link
-                                        to={`/cafelist/${id}`}
-                                        target='_blank'
-                                    >
-                                        <img
-                                            className="
-                                                w-full h-full
-                                                object-cover rounded-lg
-                                            "
-                                            src={imageUrl}
-                                            alt="img"
-                                        />
-                                    </Link>
-                                </CarouselItem>
-                                <CarouselItem>
-                                    <img
-                                        className="
-                                            w-full h-full
-                                            object-cover rounded-lg
-                                        "
-                                        src={imageUrl}
-                                        alt="img"
-                                    />
-                                </CarouselItem>
-                                <CarouselItem>
-                                    <img
-                                        className="
-                                            w-full h-full
-                                            object-cover rounded-lg
-                                        "
-                                        src={imageUrl}
-                                        alt="img" />
-                                </CarouselItem>
-                            </CarouselContent>
-                            {
-                                showArrow &&
-                                <>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </>
-                            }
-                        </Carousel>
+                            <img
+                                className="
+                                             w-full h-full
+                                             object-cover rounded-lg
+                                          "
+                                src={imageUrl}
+                                alt="img"
+                            />
+                        </Link>
                     </div>
                     <div
                         className='

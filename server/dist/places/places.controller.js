@@ -40,10 +40,10 @@ let PlacesController = class PlacesController {
     createPlaces(dto) {
         return this.placesService.createPlaces(dto);
     }
-    update(dto, id) {
+    updateField(dto, id) {
         return this.placesService.updateField(Number(id), dto);
     }
-    delete(id) {
+    deletePlaces(id) {
         return this.placesService.deletePlaces(Number(id));
     }
 };
@@ -99,14 +99,14 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [UpdatePlaces_dto_1.UpdatePlacesDto, String]),
     __metadata("design:returntype", void 0)
-], PlacesController.prototype, "update", null);
+], PlacesController.prototype, "updateField", null);
 __decorate([
     (0, common_1.Delete)('delete/:id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], PlacesController.prototype, "delete", null);
+], PlacesController.prototype, "deletePlaces", null);
 exports.PlacesController = PlacesController = __decorate([
     (0, common_1.Controller)('places'),
     __metadata("design:paramtypes", [places_service_1.PlacesService])

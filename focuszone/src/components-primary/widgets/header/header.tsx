@@ -3,9 +3,13 @@ import ToolBar from "@/components-primary/entites/toolbar/toolbar";
 export default function Header() {
     return (
       <>
-        <header className='absolute inset-0'>
-            <NavBar></NavBar>
-            <ToolBar></ToolBar>
+        <header
+            className='
+                absolute inset-0
+            '
+        >
+            <NavBar/>
+            <ToolBar/>
         </header>
       </>
     );

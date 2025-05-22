@@ -50,7 +50,10 @@ const CafeListContent = () => {
                         </PaginationItem>
                         {
                             Array.from({length: totalPage}, (_, i) => (
-                                <PaginationItem key={i + 1} onClick={() => setPage(i + 1)}>
+                                <PaginationItem
+                                    key={i + 1}
+                                    onClick={() => setPage(i + 1)}
+                                >
                                     <PaginationLink href="#">
                                         {i + 1}
                                     </PaginationLink>

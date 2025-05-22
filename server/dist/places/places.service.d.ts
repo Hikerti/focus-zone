@@ -1,4 +1,4 @@
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { CreatePlacesDto } from './dto/CreatePlaces.dto';
 import { UpdatePlacesDto } from './dto/UpdatePlaces.dto';
 export declare class PlacesService {

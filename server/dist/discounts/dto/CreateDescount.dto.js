@@ -9,9 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateDescountDto = void 0;
+exports.CreateDiscountDto = void 0;
 const class_validator_1 = require("class-validator");
-class CreateDescountDto {
+class CreateDiscountDto {
     userId;
     cafeId;
     url;
@@ -19,35 +19,35 @@ class CreateDescountDto {
     title;
     description;
 }
-exports.CreateDescountDto = CreateDescountDto;
+exports.CreateDiscountDto = CreateDiscountDto;
 __decorate([
     (0, class_validator_1.IsString)({ message: 'Поле userId должно быть строкой' }),
     (0, class_validator_1.IsNotEmpty)({ message: 'Поле является обязательным' }),
     __metadata("design:type", String)
-], CreateDescountDto.prototype, "userId", void 0);
+], CreateDiscountDto.prototype, "userId", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: 'Поле является обязательным' }),
     (0, class_validator_1.IsInt)({ message: 'Поле cafeId должно быть числом' }),
     __metadata("design:type", Number)
-], CreateDescountDto.prototype, "cafeId", void 0);
+], CreateDiscountDto.prototype, "cafeId", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: 'Поле является обязательным' }),
     (0, class_validator_1.IsString)({ message: 'Поле url должно быть строкой' }),
     __metadata("design:type", String)
-], CreateDescountDto.prototype, "url", void 0);
+], CreateDiscountDto.prototype, "url", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: 'Поле является обязательным' }),
     (0, class_validator_1.IsString)({ message: 'Поле logo должно быть строкой' }),
     __metadata("design:type", String)
-], CreateDescountDto.prototype, "logo", void 0);
+], CreateDiscountDto.prototype, "logo", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: 'Поле является обязательным' }),
     (0, class_validator_1.IsString)({ message: 'Поле title должно быть строкой' }),
     __metadata("design:type", String)
-], CreateDescountDto.prototype, "title", void 0);
+], CreateDiscountDto.prototype, "title", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: 'Поле является обязательным' }),
     (0, class_validator_1.IsString)({ message: 'Поле description должно быть строкой' }),
     __metadata("design:type", String)
-], CreateDescountDto.prototype, "description", void 0);
+], CreateDiscountDto.prototype, "description", void 0);
 //# sourceMappingURL=CreateDescount.dto.js.map

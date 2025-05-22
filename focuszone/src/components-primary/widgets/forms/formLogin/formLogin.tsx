@@ -147,6 +147,7 @@ const FormLogin = () => {
                         <Button
                             variant="secondary"
                             type='submit'
+                            className='hover:bg-blue-400 hover:text-white'
                         >
                             Отправить информацию
                         </Button>

@@ -6,11 +6,17 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select.tsx"
+
 import { useEffect, useState } from "react"
+
 import {Card} from "../../interface/interface.ts"
+
 import { useReadFetcher } from "@/helpers/hooks/useReadFetcher.ts"
+
 import { FindLoading } from "@/components-primary/entites/loading/findLoading.tsx"
+
 import { useCafeGet } from "../../store/storeCafe.ts"
+
 type FilterProps = {
     filterProps: 'none' | "favorites" | "date" | "estimation"
 }
@@ -45,17 +51,42 @@ export const FilterCards = ({filterProps} : {filterProps: FilterProps | string})
     }, [data, isPending, isError, setCards, filter])
 
     return (
-        <div className="flex w-full">
-            <Select onValueChange={(value) => setFilter(value)}>
-                <SelectTrigger className="w-[300px]">
+        <div
+            className="
+            flex
+            w-full
+            "
+        >
+            <Select
+                onValueChange={(value) => setFilter(value)}
+            >
+                <SelectTrigger
+                    className="w-[300px]"
+                >
                     <SelectValue placeholder="Выберете фильтр" />
                 </SelectTrigger>
                 <SelectContent>
                     <SelectGroup>
-                        <SelectItem value="none">Без фильтра</SelectItem>
-                        <SelectItem value="favorites">Избранные</SelectItem>
-                        <SelectItem value="date">По дате</SelectItem>
-                        <SelectItem value="estimation">По оценке</SelectItem>
+                        <SelectItem
+                            value="none"
+                        >
+                            Без фильтра
+                        </SelectItem>
+                        <SelectItem
+                            value="favorites"
+                        >
+                            Избранные
+                        </SelectItem>
+                        <SelectItem
+                            value="date"
+                        >
+                            По дате
+                        </SelectItem>
+                        <SelectItem
+                            value="estimation"
+                        >
+                            По оценке
+                        </SelectItem>
                     </SelectGroup>
                 </SelectContent>
             </Select>

@@ -6,13 +6,21 @@ const CafeList = () => {
     const filter = useCafeGet((state) => state.filter)
 
     return (
-        <section className="relative z-50 flex w-9/10 flex-col py-10">
+        <section
+            className="
+                relative z-50
+                flex
+                w-9/10
+                flex-col
+                py-10
+            "
+        >
             <FilterCards
                 filterProps={filter}
             >
 
             </FilterCards>
-            <CafeListContent></CafeListContent>
+            <CafeListContent/>
         </section>
     );
 };

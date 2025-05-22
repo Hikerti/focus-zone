@@ -6,29 +6,62 @@ const FullForm = () => {
     const [changeForm, setChangeForm] = useState<boolean>(false)
 
     return (
-        <div className='w-1/2 flex flex-col items-center justify-center'>
-            <div className="flex gap-4 mt-8">
+        <div
+            className='
+                w-1/2
+                flex
+                flex-col
+                items-center justify-center
+            '
+        >
+            <div
+                className="
+                    flex
+                    gap-4
+                    mt-8
+                "
+            >
                 <h2
-                    className='cursor-pointer border-b-2 border-white transition hover:border-zinc-900'
+                    className='
+                        cursor-pointer
+                        border-b-2 border-white
+                        transition
+                        hover:border-zinc-900
+                        '
                     onClick={() => setChangeForm(!changeForm)}
                 >
                     Регистрация
                 </h2>
-                <span className='w-[2px] bg-zinc-800'></span>
+                <span
+                    className='
+                        w-[2px]
+                        bg-zinc-800
+                    '
+                />
                 <h2
-                    className='cursor-pointer border-b-2 border-white transition hover:border-zinc-900'
+                    className='
+                        cursor-pointer
+                        border-b-2 border-white
+                        transition
+                        hover:border-zinc-900
+                    '
                     onClick={() => setChangeForm(!changeForm)}
                 >
                     Вход
                 </h2>
             </div>
-            <div className="w-full my-8">
+            <div
+                className="
+                    w-full
+                    my-8
+                "
+            >
                 {
                     changeForm
                         ?
-                        <FormRegistration></FormRegistration>
+                        <FormRegistration/>
                         :
-                        <FormLogin></FormLogin>
+                        <FormLogin/>
                 }
             </div>
         </div>

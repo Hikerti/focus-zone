@@ -1,4 +1,4 @@
-export declare class CreateDescountDto {
+export declare class CreateDiscountDto {
     userId: string;
     cafeId: number;
     url: string;

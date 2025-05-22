@@ -1,6 +1,9 @@
-import SearchCards from "@/components-primary/entites/cards/searchCard/searchCards.tsx";
-import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
 import {useEffect, useState} from "react";
+
+import SearchCards from "@/components-primary/entites/cards/searchCard/searchCards.tsx";
+
+import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
+
 import {Card} from "@/page/cafelist/interface/interface.ts";
 
 interface SearchCardProps {
@@ -20,7 +23,15 @@ const SearchList = ({searchValue}: SearchCardProps) => {
     }, [searchValue])
     return (
         <div
-            className='absolute bg-white w-full flex flex-col gap-4 items-center justify-center h-100 mt-4 pt-4 overflow-y-scroll rounded-xl'
+            className='
+                absolute
+                w-full h-100
+                flex
+                flex-col gap-4 items-center justify-center
+                bg-white
+                mt-4 pt-4
+                overflow-y-scroll rounded-xl
+            '
         >
             {filterCards.length !== 0
                 ?
@@ -34,7 +45,11 @@ const SearchList = ({searchValue}: SearchCardProps) => {
                 />
             ))
             :
-                <h3 className='text-zinc-900'>Заведение с таким названием не найдено</h3>
+                <h3
+                    className='text-zinc-900'
+                >
+                    Заведение с таким названием не найдено
+                </h3>
             }
         </div>
     );

@@ -31,10 +31,10 @@ let DiscountsController = class DiscountsController {
     getDiscountCafeId(cafe_id) {
         return this.discountsService.getDiscountCafeId(Number(cafe_id));
     }
-    createDiscount(discountDto) {
+    createDiscounts(discountDto) {
         return this.discountsService.createDiscounts(discountDto);
     }
-    updateDiscount(updateDto, discount_id) {
+    updateDiscounts(updateDto, discount_id) {
         return this.discountsService.updateDiscounts(Number(discount_id), updateDto);
     }
     deleteDiscount(discount_id) {
@@ -66,9 +66,9 @@ __decorate([
     (0, common_1.Post)('create_discount'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [CreateDescount_dto_1.CreateDescountDto]),
+    __metadata("design:paramtypes", [CreateDescount_dto_1.CreateDiscountDto]),
     __metadata("design:returntype", void 0)
-], DiscountsController.prototype, "createDiscount", null);
+], DiscountsController.prototype, "createDiscounts", null);
 __decorate([
     (0, common_1.Put)('update_discount/:discount_id'),
     __param(0, (0, common_1.Body)()),
@@ -76,7 +76,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [UpdateDescount_dto_1.UpdateDescountDto, String]),
     __metadata("design:returntype", void 0)
-], DiscountsController.prototype, "updateDiscount", null);
+], DiscountsController.prototype, "updateDiscounts", null);
 __decorate([
     (0, common_1.Delete)('delete_discount/:discount_id'),
     __param(0, (0, common_1.Param)('discount_id')),
