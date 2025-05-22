@@ -1,13 +1,18 @@
 import LinkToEmail from "@/components-primary/shared/ui/linkToEmail.tsx";
-import { ProfileDescriptionProps } from "../../interface/inetrface.ts";
 import LinkToMap from "@/components-primary/shared/ui/linkToMap.tsx";
 import LinkToTel from "@/components-primary/shared/ui/linkToTel.tsx";
+
+import { ProfileDescriptionProps } from "../../interface/inetrface.ts";
 
 export default function ProfileDescription({email, adress, description, phone}: ProfileDescriptionProps) {
     return (
       <>
         <div
-            className="h-full w-full flex flex-col justify-between"
+            className="
+                h-full w-full
+                flex
+                flex-col justify-between
+            "
         >
             <h4>
                 Контактная информация
@@ -29,7 +34,11 @@ export default function ProfileDescription({email, adress, description, phone}: 
             />
         </div>
         <div
-            className="w-full flex flex-col gap-4"
+            className="
+                w-full
+                flex
+                flex-col gap-4
+            "
         >
             <h3>
                 Информация обо мне

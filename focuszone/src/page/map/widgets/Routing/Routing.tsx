@@ -4,6 +4,7 @@ import RoutingWalk from "@/page/map/entites/RoutingWalk.tsx";
 import RoutingCar from "@/page/map/entites/RoutingCar.tsx";
 
 export const Routing = ({ waypoints }: RoutingProps) => {
+
     const carWaypoints = useMapData(state => state.carWaypoints)
     const walkWaypoints = useMapData(state => state.walkWaypoints)
     const startPath = useMapData(state => state.startPath);

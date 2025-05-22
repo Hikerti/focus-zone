@@ -53,8 +53,8 @@ export const FilterCards = ({filterProps} : {filterProps: FilterProps | string})
     return (
         <div
             className="
-            flex
-            w-full
+                flex
+                w-full
             "
         >
             <Select
@@ -67,24 +67,16 @@ export const FilterCards = ({filterProps} : {filterProps: FilterProps | string})
                 </SelectTrigger>
                 <SelectContent>
                     <SelectGroup>
-                        <SelectItem
-                            value="none"
-                        >
+                        <SelectItem value="none">
                             Без фильтра
                         </SelectItem>
-                        <SelectItem
-                            value="favorites"
-                        >
+                        <SelectItem value="favorites">
                             Избранные
                         </SelectItem>
-                        <SelectItem
-                            value="date"
-                        >
+                        <SelectItem value="date">
                             По дате
                         </SelectItem>
-                        <SelectItem
-                            value="estimation"
-                        >
+                        <SelectItem value="estimation">
                             По оценке
                         </SelectItem>
                     </SelectGroup>

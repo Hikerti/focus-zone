@@ -10,7 +10,9 @@ export const FitBounds: React.FC<{ positions: LatLng[] }> = ({ positions }) => {
 
     useEffect(() => {
         if (positions.length > 0) {
-            const bounds = L.latLngBounds(positions.map(p => [p.lat, p.lng] as LatLngExpression));
+            const bounds = L.latLngBounds(positions.map(p =>
+                [p.lat, p.lng] as LatLngExpression)
+            );
             map.fitBounds(bounds, { padding: [50, 50] });
             setFitBounds(false)
         }

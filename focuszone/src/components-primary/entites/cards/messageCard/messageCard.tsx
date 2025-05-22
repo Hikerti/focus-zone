@@ -16,7 +16,7 @@ import {UserFullData} from "@/helpers/interface/interface.ts";
 const MessageCard: React.FC<MessageCardProps> = ({message}) => {
 
     const user = useReadFetcher<UserFullData>({
-        url: `http://localhost:4000/user/get_user/${message.userId}`,
+        url: `http://localhost:4000/user/get_user_by_id/${message.userId}`,
         method: 'get',
         queryKey: `user_message_${message.userId}`,
     })
@@ -47,7 +47,9 @@ const MessageCard: React.FC<MessageCardProps> = ({message}) => {
                         {message.content}
                     </div>
                 </CardContent>
-                <CardFooter/>
+                <CardFooter
+                    className='hidden'
+                />
             </Card>
         </>
     );

@@ -3,7 +3,6 @@ import {useEffect, useState} from "react";
 import SearchCards from "@/components-primary/entites/cards/searchCard/searchCards.tsx";
 
 import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
-
 import {Card} from "@/page/cafelist/interface/interface.ts";
 
 interface SearchCardProps {
@@ -16,7 +15,13 @@ const SearchList = ({searchValue}: SearchCardProps) => {
 
     useEffect(() => {
         if (searchValue) {
-            setFilterCards(prev => prev.filter(card => card.title.toLowerCase().includes(searchValue.toLowerCase())))
+            setFilterCards(prev =>
+                prev.filter(card =>
+                    card.title.toLowerCase()
+                        .includes(searchValue.toLowerCase()
+                        )
+                )
+            )
         } else {
             setFilterCards(cards)
         }
@@ -25,9 +30,9 @@ const SearchList = ({searchValue}: SearchCardProps) => {
         <div
             className='
                 absolute
-                w-full h-100
                 flex
                 flex-col gap-4 items-center justify-center
+                w-full h-100
                 bg-white
                 mt-4 pt-4
                 overflow-y-scroll rounded-xl

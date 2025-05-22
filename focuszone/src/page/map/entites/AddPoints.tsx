@@ -1,4 +1,5 @@
 import {X} from "lucide-react";
+
 import {useMapData} from "@/page/map/store/store.ts";
 
 const AddPoints = () => {
@@ -10,23 +11,42 @@ const AddPoints = () => {
 
     return (
             <div
-                className='h-[440px] flex flex-col gap-4 overflow-hidden'
+                className='
+                    flex
+                    flex-col gap-4
+                    h-[440px]
+                    overflow-hidden
+                '
             >
                 <h4>
                     Список меток
                 </h4>
                 <div
-                    className="flex-1 overflow-y-auto rounded-md border-2 border-zinc-200"
+                    className="
+                        flex-1
+                        overflow-y-auto
+                        rounded-md border-2 border-zinc-200
+                    "
                 >
                     {points.map((point, i) => (
                         <div
                             key={i}
-                            className='flex flex-col p-4'
+                            className='
+                                flex
+                                flex-col
+                                p-4
+                            '
                         >
                             <div
-                                className='w-full flex gap-4 items-center justify-between'
+                                className='
+                                    w-full
+                                    flex
+                                    items-center justify-between gap-4
+                                '
                             >
-                                <span>{i + 1}</span>
+                                <span>
+                                    {i + 1}
+                                </span>
                                 <div>
                                     <h6>
                                         Координаты:
@@ -63,7 +83,11 @@ const AddPoints = () => {
                                     </h4>
                             }
                             <span
-                                className='h-[1px] w-full bg-zinc-900 mt-2'
+                                className='
+                                h-[1px] w-full
+                                bg-zinc-900
+                                mt-2
+                                '
                             />
                         </div>
                     ))}

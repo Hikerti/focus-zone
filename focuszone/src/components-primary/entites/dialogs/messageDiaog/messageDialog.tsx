@@ -38,7 +38,7 @@ const MessageDialog: React.FC<MessageDialogProps> = ({cafeId, ratingNow}) => {
                 '
             >
                 <AlertDialogHeader
-                    className='w-[460px]'
+                    className='w-full'
                 >
                     <div
                         className="
@@ -76,7 +76,7 @@ const MessageDialog: React.FC<MessageDialogProps> = ({cafeId, ratingNow}) => {
                             </div>
                         </div>
                         <Textarea
-                            className='max-w-full'
+                            className='w-full'
                             maxLength={300}
                             onChange={e => setMessage(e.target.value)}
                         />

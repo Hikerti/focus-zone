@@ -1,6 +1,8 @@
-import {Marker, Popup} from "react-leaflet";
-import {useMapData} from "@/page/map/store/store.ts";
 import L from 'leaflet';
+import {Marker, Popup} from "react-leaflet";
+
+import {useMapData} from "@/page/map/store/store.ts";
+
 import userNavigate from '../../../../assets/icon/userNavigate.png'
 
 const MarkersMap = () => {

@@ -91,7 +91,7 @@ const FormRegistration = () => {
                         flex
                         w-full
                         flex-col gap-4
-                         bg-zinc-900
+                        bg-zinc-900
                         px-4 py-4
                         rounded-xl
                      '

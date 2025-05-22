@@ -1,5 +1,6 @@
 import { useMapData } from "@/page/map/store/store";
 import {minuteParseHour} from "@/page/map/functions/minuteParseHour.ts";
+
 import {useEffect, useState} from "react";
 
 const BottomBarMapLayout = () => {
@@ -20,10 +21,21 @@ const BottomBarMapLayout = () => {
     return (
         <>
             <div
-                className='w-full flex bg-white justify-between p-4 border-t-2 border-zinc-900'
+                className='
+                    flex
+                    justify-between
+                    w-full
+                    p-4
+                    bg-white
+                    border-t-2 border-zinc-900
+                '
             >
                 <div
-                    className='bg-zinc-200 p-4 rounded-lg'
+                    className='
+                        bg-zinc-200
+                         p-4
+                         rounded-lg
+                     '
                 >
                     <h5>
                         Общая длина маршрута:
@@ -33,10 +45,17 @@ const BottomBarMapLayout = () => {
                     </h2>
                 </div>
                 <div
-                    className='flex gap-4'
+                    className='
+                        flex
+                        gap-4
+                    '
                 >
                     <div
-                        className='bg-zinc-200 p-4 rounded-lg'
+                        className='
+                            bg-zinc-200
+                            p-4
+                            rounded-lg
+                        '
                     >
                         <h5>
                             Время прохождения:
@@ -46,7 +65,13 @@ const BottomBarMapLayout = () => {
                         </h2>
                     </div>
                     <div
-                        className='bg-zinc-200 flex p-4 rounded-lg gap-2 items-center'
+                        className='
+                            flex
+                            gap-2 items-center
+                            bg-zinc-200
+                            p-4
+                            rounded-lg
+                        '
                     >
                         <h4>
                             Скорость:

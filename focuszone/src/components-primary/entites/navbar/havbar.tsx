@@ -17,14 +17,14 @@ export default function NavBar() {
         <aside
             className="
               hidden absolute top-0 left-0 z-100
-              h-screen w-[8vw]
+              h-screen w-[52px]
               flex-col items-center pt-4 gap-2
               bg-zinc-900 text-white
               rounded-br-3xl shadow-lg shadow-zinc-700/50
 
               sm:flex
-              lg:gap-4 lg:w-[6vw]
-              xl:w-[4vw]
+              lg:gap-4 lg:w-[64px]
+              xl:w-[72px]
             "
         >
           {navigateIcon.map((item, index) => (

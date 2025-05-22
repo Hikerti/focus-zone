@@ -1,11 +1,16 @@
 import {Button} from "@/components/ui/button.tsx";
+
 import React, {ReactNode, useEffect} from "react";
+
 import {useMapData} from "@/page/map/store/store.ts";
 import AddPoints from "@/page/map/entites/AddPoints.tsx";
 import {takeMapScreenshot} from "@/page/map/functions/takeScreenshot.ts";
 import {isWithinRadius} from "@/page/map/functions/isWithinRadius.ts";
+
 import {useMutation} from "@tanstack/react-query";
+
 import axios from "axios";
+
 import {useGetUser} from "@/helpers/store/storeUser.ts";
 
 const SideBarMapLayout: React.FC<{children: ReactNode}> = ({children}) => {

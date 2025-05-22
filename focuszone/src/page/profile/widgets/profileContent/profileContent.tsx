@@ -1,9 +1,14 @@
 import { useGetUser } from "@/helpers/store/storeUser.ts";
+
+import {UserFullData} from "@/helpers/interface/interface.ts";
+
+import {useEffect, useState} from "react";
+
 import ProfileDescription from "../../entites/profileDescription/profileDescription.tsx";
 import ProfileHeader from "../../entites/profileHeader/profileHeader.tsx";
+
 import { FindLoading } from "@/components-primary/entites/loading/findLoading.tsx";
-import {UserFullData} from "@/helpers/interface/interface.ts";
-import {useEffect, useState} from "react";
+
 import ProfileAchievement from "@/page/profile/widgets/profileAchievement/profileAchievement.tsx";
 import ProfileDiscounts from "@/page/profile/widgets/profileDiscounts/profileDiscounts.tsx";
 
@@ -27,11 +32,22 @@ export default function ProfileContent() {
     return (
       <>
           {user && user !== null &&
-              <section
-                  className="w-9/10 flex flex-col items-center justify-center my-10 bg-zinc-200 rounded-xl p-4"
+              <div
+                  className="
+                      flex
+                      flex-col items-center justify-center
+                      w-9/10
+                      bg-zinc-200 rounded-xl
+                       p-4
+                   "
               >
                   <div
-                      className='w-9/10 flex flex-col items-center justify-center gap-8 my-[4%]'
+                      className='
+                          w-9/10
+                          flex
+                          flex-col items-center justify-center gap-8
+                          my-[4%]
+                      '
                   >
                        <ProfileHeader
                           name={user.name}
@@ -48,7 +64,7 @@ export default function ProfileContent() {
                       <ProfileAchievement/>
                       <ProfileDiscounts/>
                   </div>
-              </section>
+              </div>
           }
       </>
     );

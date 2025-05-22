@@ -1,9 +1,13 @@
 import {useMutation} from "@tanstack/react-query";
+
+import { useEffect } from "react";
+
 import axios from "axios";
+
 import {useGetUser} from "@/helpers/store/storeUser.ts";
+
 import {useDiscounts} from "@/page/profile/widgets/profileDiscounts/store/store.ts";
 import {DiscountsData} from "@/page/profile/widgets/profileDiscounts/interface/interface.ts";
-import { useEffect } from "react";
 import ProfileDiscountsContent from "@/page/profile/entites/profileDiscountsContent/profileDiscountsContent.tsx";
 
 const ProfileDiscounts = () => {
@@ -32,7 +36,11 @@ const ProfileDiscounts = () => {
     return (
         <>
             <div
-                className='w-full flex flex-col gap-4'
+                className='
+                    w-full
+                    flex
+                    flex-col gap-4
+                '
             >
                 <h3>
                     Скидки на покупку

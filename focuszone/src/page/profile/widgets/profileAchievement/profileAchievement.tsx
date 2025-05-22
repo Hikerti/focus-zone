@@ -1,13 +1,18 @@
 import {Carousel, CarouselContent, CarouselNext, CarouselPrevious} from "@/components/ui/carousel.tsx";
+
 import {useReadFetcher} from "@/helpers/hooks/useReadFetcher.ts";
 import {useGetUser} from "@/helpers/store/storeUser.ts";
-import {FindLoading} from "@/components-primary/entites/loading/findLoading.tsx";
-import {useAchievements} from "@/page/profile/widgets/profileAchievement/store/store.ts";
+
 import {useEffect} from "react";
+
+import {FindLoading} from "@/components-primary/entites/loading/findLoading.tsx";
+
+import {useAchievements} from "@/page/profile/widgets/profileAchievement/store/store.ts";
 import {Achievements} from "@/page/profile/widgets/profileAchievement/interface/interface.ts";
 import ProfileAchievementContent from "@/page/profile/entites/profileAchievementContent/profileAchievementContent.tsx";
 
 const ProfileAchievement = () => {
+
     const users = useGetUser(state => state.users);
     const setAchievements = useAchievements(state => state.setAchievements);
     const achievements = useAchievements(state => state.achievements);
@@ -31,16 +36,27 @@ const ProfileAchievement = () => {
     return (
        <>
            <div
-               className='w-full flex flex-col gap-4'
+               className='
+                   w-full
+                   flex
+                   flex-col gap-4
+               '
            >
                <h3>
                    Достижения и медали
                </h3>
                <Carousel
-                   className="w-full h-full flex flex-col"
+                   className="
+                       w-full h-full
+                       flex
+                       flex-col
+                   "
                >
                    <CarouselContent
-                       className='flex w-[400px] h-[500px]'
+                       className='
+                           flex
+                           w-[400px] h-[500px]
+                       '
                    >
                        {
                            achievements.map((achievement, index) => (

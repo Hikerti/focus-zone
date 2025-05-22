@@ -1,5 +1,6 @@
 import CafeListContent from "@/page/cafelist/widgets/cafeListContent/cafeListContent.tsx";
 import { FilterCards } from "@/page/cafelist/widgets/filterCards/filterCards.tsx";
+
 import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
 
 const CafeList = () => {
@@ -12,13 +13,12 @@ const CafeList = () => {
                 flex
                 w-9/10
                 flex-col
-                py-10
+                my-4
             "
         >
             <FilterCards
                 filterProps={filter}
             >
-
             </FilterCards>
             <CafeListContent/>
         </section>

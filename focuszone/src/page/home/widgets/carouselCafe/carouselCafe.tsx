@@ -6,8 +6,11 @@ import {
     CarouselNext,
     CarouselPrevious,
   } from "@/components/ui/carousel.tsx"
+
 import { FindLoading } from "@/components-primary/entites/loading/findLoading.tsx";
+
 import { useReadFetcher } from "@/helpers/hooks/useReadFetcher.ts";
+
 import { Card } from "@/page/cafelist/interface/interface.ts";
 
 export default function CarouselCafe() {
@@ -23,10 +26,19 @@ export default function CarouselCafe() {
     return (
       <>
         <section
-            className="flex w-full flex-col items-center justify-center my-10 px-20 gap-4"
+            className="
+                flex
+                w-full
+                flex-col items-center justify-center gap-4
+                my-10 px-20
+            "
         >
             <div
-                className="flex w-full items-start"
+                className="
+                    flex
+                    w-full
+                    items-start
+                "
             >
                 <h2
                     className="text-zinc-900"

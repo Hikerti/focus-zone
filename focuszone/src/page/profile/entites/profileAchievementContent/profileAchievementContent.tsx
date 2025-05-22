@@ -1,5 +1,6 @@
 import {Card, CardContent, CardFooter, CardHeader} from "@/components/ui/card.tsx";
 import {CarouselItem} from "@/components/ui/carousel.tsx";
+
 import {ProfileAchievementContentProps} from '../../interface/inetrface.ts'
 
 const ProfileAchievementContent = ({url, title, description}: ProfileAchievementContentProps) => {
@@ -7,20 +8,33 @@ const ProfileAchievementContent = ({url, title, description}: ProfileAchievement
        <>
            <CarouselItem>
                <Card
-                   className='flex w-full h-full'
+                   className='
+                       flex
+                       w-full h-full
+                   '
                >
                    <CardHeader
-                       className='w-full text-center text-[18px] font-bold'
+                       className='
+                           w-full
+                           text-center text-[18px]
+                           font-bold
+                       '
                    >
                        {title}
                    </CardHeader>
                    <CardContent
-                       className='w-full h-full'
+                       className='
+                           w-full h-full
+                       '
                    >
                        <img
                            src={url}
                            alt="#"
-                           className='object-cover object-center'
+                           className='
+                                h-full
+                                object-cover object-center
+                                rounded-xl
+                           '
                        />
                    </CardContent>
                    <CardFooter

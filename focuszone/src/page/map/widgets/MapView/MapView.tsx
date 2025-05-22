@@ -1,9 +1,12 @@
 import {MapContainer, TileLayer, useMapEvents} from "react-leaflet";
+
 import {useMapData} from "@/page/map/store/store.ts";
+
 import MarkersMap from "@/page/map/widgets/MarkersMap/MarkersMap.tsx";
 import {Routing} from "@/page/map/widgets/Routing/Routing.tsx";
 import MapLayout from "@/page/map/widgets/MapLayout/MapLayout.tsx";
 import FlyToUser from "@/page/map/entites/FlyToUser.tsx";
+
 import { FitBounds } from "../../entites/FitBounds";
 
 const MapView = () => {
@@ -30,7 +33,11 @@ const MapView = () => {
             {userLocations &&
                 <MapLayout>
                     <div
-                        className='w-full flex justify-center'
+                        className='
+                            w-full
+                            flex
+                            justify-center
+                        '
                         id='map_container'
                     >
                         <MapContainer
@@ -54,12 +61,20 @@ const MapView = () => {
                                 positions={[userLocations, ...points]}
                             />
                             <span
-                                className='absolute bottom-0 right-0 w-[80px] h-[20px] z-[1100] bg-white'
+                                className='
+                                    absolute bottom-0 right-0 z-[1100]
+                                    w-[80px] h-[20px]
+                                    bg-white
+                                '
                             >
                                 {userLocations.lng}
                             </span>
                             <span
-                                className='absolute bottom-5 right-0 w-[80px] h-[20px] z-[1100] bg-white'
+                                className='
+                                    absolute bottom-5 right-0 z-[1100]
+                                    w-[80px] h-[20px]
+                                    bg-white
+                                '
                             >
                                 {userLocations.lat}
                             </span>

@@ -35,42 +35,44 @@ export default function ToolBar() {
     <>
       <div
           className="
-          absolute top-0 right-0 z-100
+          absolute top-0 right-0 z-90
           flex
-          w-[100vw]
-          p-4
+          w-[100vw] h-16
           justify-between items-center
-          bg-zinc-900
-
-          lg:w-[94vw]
-          xl:w-[96vw]
-          sm:w-[92vw]"
+          px-4
+          bg-zinc-900"
       >
           <div
               className="
-              relative
-              w-4/10
+                relative
+                w-3/10
+                ml-20
               "
           >
               <Search
                   className="
-                  absolute left-2 top-1/2
-                  -translate-y-1/2
-                  text-white
+                    absolute left-2 top-1/2
+                    -translate-y-1/2
+                    text-white
                   "
                   size={20}
               />
               <Input
                   type="text"
                   placeholder="Поиск"
-                  className="pl-10 text-white"
+                  className="
+                    text-white
+                    pl-10
+                   "
                   onChange={(e) => setSearchValue(e.target.value)}
                   onFocus={() => setSearch(true)}
                   onBlur={() => setSearch(false)}
               />
-              {search && <SearchList
-                  searchValue={searchValue}
-              />}
+              {search &&
+                  <SearchList
+                    searchValue={searchValue}
+                  />
+              }
           </div>
           <SheetHeaderComponents />
       </div>
