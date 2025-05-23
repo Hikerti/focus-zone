@@ -15,15 +15,14 @@ const ProfileDiscountsContent = () => {
         <>
             <Carousel
                 className="
-                w-full h-full
-                flex
-                flex-col
+                    w-full h-full
+                    flex
+                    flex-col
                 "
             >
                 <CarouselContent
                     className='
                         flex
-                        w-[800px]
                         h-[300px]
                      '
                 >
@@ -35,11 +34,12 @@ const ProfileDiscountsContent = () => {
                                 className="
                                     flex
                                     w-full h-full
+                                    bg-zinc-900
                                 "
                             >
                                 <CardHeader
                                     className='
-                                        text-[18px] font-bold
+                                        text-[18px] font-bold text-white
                                     '
                                 >
                                     {discount.title}
@@ -49,27 +49,43 @@ const ProfileDiscountsContent = () => {
                                         className="
                                             flex
                                             w-full
-                                            justify-between
+                                            justify-between gap-4
                                         "
                                     >
-                                        <QRCode
-                                            style={{ height: "auto", maxWidth: "25%", width: "25%" }}
-                                            value={discount.url}
-                                            viewBox={`0 0 256 256`}
-                                        />
                                         <div
-                                            className='w-1/2 flex items-center gap-2'
+                                            className='
+                                                 flex
+                                                 items-center justify-center
+                                                 h-[200px] w-[200px]
+                                                 bg-white
+                                                 p-2
+                                            '
                                         >
-                                            <p
-                                                className='text-[18px] text-zinc-900'
-                                            >
-                                                {discount.description}
-                                            </p>
+                                            <QRCode
+                                                value={discount.url}
+                                                className='w-full h-full'
+                                            />
+                                        </div>
+                                        <div
+                                            className='
+                                                w-1/2
+                                                flex
+                                                flex-col items-center gap-4
+
+                                                sm:flex-row
+                                            '
+                                        >
+
                                             <AvatarComponent
                                                 size={"w-[100px] h-[100px]"}
                                                 url={discount.url}
                                             >
                                             </AvatarComponent>
+                                            <p
+                                                className='text-[18px] text-white'
+                                            >
+                                                {discount.description}
+                                            </p>
                                         </div>
                                     </div>
                                 </CardContent>
@@ -77,8 +93,20 @@ const ProfileDiscountsContent = () => {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselNext/>
-                <CarouselPrevious/>
+                <CarouselNext
+                    className='
+                        hidden
+
+                        sm:flex
+                    '
+                />
+                <CarouselPrevious
+                    className='
+                        hidden
+
+                        sm:flex
+                    '
+                />
             </Carousel>
         </>
     );

@@ -14,13 +14,10 @@ const AddPoints = () => {
                 className='
                     flex
                     flex-col gap-4
-                    h-[440px]
+                    h-screen
                     overflow-hidden
                 '
             >
-                <h4>
-                    Список меток
-                </h4>
                 <div
                     className="
                         flex-1
@@ -84,9 +81,9 @@ const AddPoints = () => {
                             }
                             <span
                                 className='
-                                h-[1px] w-full
-                                bg-zinc-900
-                                mt-2
+                                    h-[1px] w-full
+                                    bg-zinc-900
+                                    mt-2
                                 '
                             />
                         </div>

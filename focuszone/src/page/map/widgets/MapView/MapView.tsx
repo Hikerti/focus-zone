@@ -34,6 +34,7 @@ const MapView = () => {
                 <MapLayout>
                     <div
                         className='
+                            h-screen
                             w-full
                             flex
                             justify-center
@@ -51,7 +52,7 @@ const MapView = () => {
                             />
 
                             <ClickHandler />
-                            <MarkersMap/>
+                            <MarkersMap />
                             <Routing
                                 waypoints={[userLocations,...points]}
                             >

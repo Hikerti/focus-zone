@@ -7,16 +7,22 @@ const Footer = () => {
         <footer
             className='
                 flex
-                w-full h-[60px]
+                w-full
                 items-center justify-center
+                py-2
                 bg-zinc-900
+
+                sm:h-[60px]
             '
         >
             <div
                 className='
                     flex
-                    w-9/10
-                    items-center justify-between
+                    flex-col
+                    w-8/10
+                    justify-between gap-2
+
+                    sm:flex-row sm:items-center sm:gap-0
                 '
             >
                 <p
@@ -26,8 +32,10 @@ const Footer = () => {
                 </p>
                 <div
                     className='
-                    flex
-                    gap-4
+                        flex
+                        flex-col gap-2
+
+                        sm:flex-row sm:gap-4
                     '
                 >
                     <LinkToEmail

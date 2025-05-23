@@ -34,3 +34,13 @@ export interface UseMap {
 export type RoutingProps = {
     waypoints: LatLngExpression[];
 };
+
+export interface ArrowRotateProps {
+    setShowInfo: (showInfo: boolean) => void;
+    showInfo: boolean;
+}
+export interface PathSensorProps {
+    hour: number
+    minutes: number
+    showInfo: boolean
+}

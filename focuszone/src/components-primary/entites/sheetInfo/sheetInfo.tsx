@@ -12,6 +12,7 @@ import { useGetUser } from "@/helpers/store/storeUser";
 
 const SheetInfo = () => {
 
+
     const {users, isPending} = useGetUser()
     const logoutUser = useLogout()
 
@@ -20,7 +21,12 @@ const SheetInfo = () => {
     if (!users || users.length === 0) {
         return (
             <div
-                className="flex gap-4"
+                className="
+                    hidden
+                    gap-4
+
+                    sm:flex
+                "
             >
                 <DialogRegistration />
                 <DialogLogin />
@@ -38,22 +44,28 @@ const SheetInfo = () => {
                     <SheetTrigger asChild>
                         <div
                             className="
-                                flex
-                                h-full
-                                justify-center items-center gap-4
-                                cursor-pointer
-                            "
+                                   h-full flex
+                                   justify-end items-center gap-4
+                                   cursor-pointer
+                               "
                         >
                             <AvatarComponent
                                 size={'w-[32px] h-[32px]'}
                                 url={user.name}
                             >
                             </AvatarComponent>
-                            <div className='flex flex-col '>
+                            <div
+                                className='
+                                        hidden
+                                        flex-col
+
+                                        sm:flex
+                                   '
+                            >
                                 <p
                                     className='text-white !text-[12px]'
                                 >
-                                    {user.name + " " + user.surname}
+                                    {user.name}
                                 </p>
                                 <p
                                     className='text-white !text-[12px]'
@@ -74,8 +86,8 @@ const SheetInfo = () => {
                             >
                                 <div
                                     className="
-                                    flex
-                                    gap-4
+                                        flex
+                                        gap-4
                                     "
                                 >
                                     <AvatarComponent
@@ -97,8 +109,8 @@ const SheetInfo = () => {
                                 </div>
                                 <div
                                     className="
-                                    flex
-                                    flex-col
+                                        flex
+                                        flex-col
                                     "
                                 >
                                     <ContactInfo

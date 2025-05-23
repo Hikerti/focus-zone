@@ -55,7 +55,8 @@ const ProfileAchievement = () => {
                    <CarouselContent
                        className='
                            flex
-                           w-[400px] h-[500px]
+
+                           sm:w-[400px] sm:h-[500px]
                        '
                    >
                        {
@@ -69,8 +70,20 @@ const ProfileAchievement = () => {
                            ))
                        }
                    </CarouselContent>
-                   <CarouselNext/>
-                   <CarouselPrevious/>
+                   <CarouselNext
+                       className='
+                        hidden
+
+                        sm:flex
+                    '
+                   />
+                   <CarouselPrevious
+                       className='
+                        hidden
+
+                        sm:flex
+                    '
+                   />
                </Carousel>
            </div>
        </>

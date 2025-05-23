@@ -17,7 +17,8 @@ const Map = () => {
                         flex
                         flex-col items-center justify-center
                         w-full h-full
-                        my-10
+
+                        sm:w-8/10 sm:my-10
                     '
                 >
                     <MapView/>

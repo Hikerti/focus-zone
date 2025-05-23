@@ -8,10 +8,13 @@ const FullForm = () => {
     return (
         <div
             className='
-                w-1/2
+                w-full
                 flex
                 flex-col
                 items-center justify-center
+                px-[10px]
+
+                sm:w-8/10
             '
         >
             <div

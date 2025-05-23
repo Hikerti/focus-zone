@@ -169,14 +169,17 @@ const CardCafe: React.FC<CardCafeProps> = (
                 >
                     <div
                         className='
-                            w-[94%] h-[600px]
+                            w-full h-[300px]
                             flex
                             items-center justify-center
+
+                            lg:h-[600px]
                         '
                     >
                         <Link
                             to={`/cafelist/${id}`}
                             target='_blank'
+                            className='w-full h-full'
                         >
                             <img
                                 className="

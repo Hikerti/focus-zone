@@ -27,10 +27,13 @@ export default function CarouselCafe() {
       <>
         <section
             className="
+                relative z-20
                 flex
                 w-full
+                px-[10px] my-10
                 flex-col items-center justify-center gap-4
-                my-10 px-20
+
+                md:w-8/10 sm:px-0
             "
         >
             <div
@@ -50,7 +53,10 @@ export default function CarouselCafe() {
                 className="w-full"
             >
             <CarouselContent
-                className="w-1/2"
+                className="
+                    w-full
+                    sm:w-[600px]
+                "
             >
             {
                 data?.map(elem => (
@@ -76,8 +82,18 @@ export default function CarouselCafe() {
                 ))
             }
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious
+                className='
+                    hidden
+                    sm:flex
+                '
+            />
+            <CarouselNext
+                className='
+                    hidden
+                    sm:flex
+                '
+            />
             </Carousel>
         </section>
       </>

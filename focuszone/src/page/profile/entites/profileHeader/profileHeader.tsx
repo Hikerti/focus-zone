@@ -8,12 +8,12 @@ export default function ProfileHeader({name, surname, login}: ProfileHeaderProps
         <div
             className="
                 flex
-                items-center gap-2
-                w-full h-[100px]
+                flex-col gap-2
+                w-full
             "
         >
             <AvatarComponent
-                size="w-[100px] h-[100px]"
+                size="w-[160px] h-[160px]"
                 url='user'
             />
             <div

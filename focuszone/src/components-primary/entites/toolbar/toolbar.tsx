@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input.tsx"
 
-import { Search } from "lucide-react";
+import {Goal, Search} from "lucide-react";
 
 import {useEffect, useState} from "react";
 
@@ -12,6 +12,7 @@ import {useReadFetcher} from "@/helpers/hooks/useReadFetcher.ts";
 import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
 
 import {Card} from "@/page/cafelist/interface/interface.ts";
+import {Link} from "react-router-dom";
 
 export default function ToolBar() {
     const [search, setSearch] = useState<boolean>(false);
@@ -40,39 +41,61 @@ export default function ToolBar() {
           w-[100vw] h-16
           justify-between items-center
           px-4
-          bg-zinc-900"
+          bg-zinc-900
+          "
       >
-          <div
-              className="
-                relative
-                w-3/10
-                ml-20
-              "
+          <div className='
+              flex
+              items-center gap-4
+              w-7/10
+
+              sm:w-full
+          '
           >
-              <Search
-                  className="
-                    absolute left-2 top-1/2
-                    -translate-y-1/2
-                    text-white
-                  "
-                  size={20}
-              />
-              <Input
-                  type="text"
-                  placeholder="Поиск"
-                  className="
-                    text-white
-                    pl-10
-                   "
-                  onChange={(e) => setSearchValue(e.target.value)}
-                  onFocus={() => setSearch(true)}
-                  onBlur={() => setSearch(false)}
-              />
-              {search &&
-                  <SearchList
-                    searchValue={searchValue}
+              <Link to={'/'}>
+                  <Goal
+                      className='
+                        text-white
+                        flex
+
+                        sm:hidden
+                    '
                   />
-              }
+              </Link>
+              <div
+                  className="
+                    relative
+                    w-full
+                    flex
+
+                    sm:ml-[56px] sm:w-7/10
+                  "
+              >
+                  <Search
+                      className="
+                        absolute left-2 top-1/2
+                        -translate-y-1/2
+                        text-white
+                      "
+                      size={20}
+                  />
+                  <Input
+                      type="text"
+                      placeholder="Поиск"
+                      className="
+                        text-white
+                        pl-10
+                       "
+                      onChange={(e) => setSearchValue(e.target.value)}
+                      onFocus={() => setSearch(true)}
+                      onBlur={() => setSearch(false)}
+                  />
+                  {search &&
+                      <SearchList
+                        searchValue={searchValue}
+                      />
+                  }
+              </div>
           </div>
           <SheetHeaderComponents />
       </div>

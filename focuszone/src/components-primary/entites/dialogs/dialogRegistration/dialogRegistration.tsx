@@ -14,7 +14,7 @@ import FormLogin from "@/components-primary/widgets/forms/formLogin/formLogin.ts
 
 const DialogRegistration = () => {
     return (
-        <div>
+        <>
             <AlertDialog>
                 <AlertDialogTrigger asChild>
                     <Button
@@ -38,7 +38,7 @@ const DialogRegistration = () => {
                     <FormLogin/>
                 </AlertDialogContent>
             </AlertDialog>
-        </div>
+        </>
     );
 };
 

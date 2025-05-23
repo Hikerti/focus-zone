@@ -35,34 +35,60 @@ export default function ProfileContent() {
               <div
                   className="
                       flex
-                      flex-col items-center justify-center
-                      w-9/10
-                      bg-zinc-200 rounded-xl
-                       p-4
+                      flex-col justify-center
+                      w-full
+                      p-4
+                      mt-[110px]
+
+                      sm:w-8/10
                    "
               >
                   <div
                       className='
-                          w-9/10
+                          w-full
                           flex
-                          flex-col items-center justify-center gap-8
+                          flex-col
+                          justify-center gap-8
                           my-[4%]
                       '
                   >
-                       <ProfileHeader
-                          name={user.name}
-                          surname={user.surname}
-                          login={user.login}>
-                      </ProfileHeader>
-                      <ProfileDescription
-                          email={user.email}
-                          adress={user.adress}
-                          phone={user.phone}
-                          description={user.description}
+                      <div className='
+                        flex
+                        flex-col
+
+                        lg:flex-row lg:gap-20
+                      '
                       >
-                      </ProfileDescription>
-                      <ProfileAchievement/>
-                      <ProfileDiscounts/>
+                          <div
+                              className='
+                                flex
+                                flex-col justify-start gap-2
+                          '
+                          >
+                               <ProfileHeader
+                                  name={user.name}
+                                  surname={user.surname}
+                                  login={user.login}
+                               />
+                              <ProfileDescription
+                                  email={user.email}
+                                  adress={user.adress}
+                                  phone={user.phone}
+                                  description={user.description}
+                              />
+                          </div>
+                          <div
+                              className='
+                                flex
+                                flex-col gap-4
+                                w-full
+                                mt-[100px]
+                              '
+                          >
+                              <ProfileAchievement/>
+                              <ProfileDiscounts/>
+                          </div>
+                      </div>
                   </div>
               </div>
           }

@@ -2,15 +2,17 @@ import { useMapData } from "@/page/map/store/store";
 import {minuteParseHour} from "@/page/map/functions/minuteParseHour.ts";
 
 import {useEffect, useState} from "react";
+import ArrowRotate from "@/page/map/shared/arrowRotate";
+import StartAndFinishButton from "@/page/map/shared/startAndFinishButton";
+import PathSensor from "@/page/map/entites/pathSensor";
 
 const BottomBarMapLayout = () => {
 
-    const time = useMapData(state => state.time);
-    const length = useMapData(state => state.length);
-    const speed  = useMapData(state => state.speed);
-
+    const [showInfo, setShowInfo] = useState<boolean>(false);
     const [hour, setHour] = useState<number>(0)
     const [minutes, setMinutes] = useState<number>(0)
+
+    const time = useMapData(state => state.time);
 
     useEffect(() => {
         const {hour, minutes} = minuteParseHour(time)
@@ -20,66 +22,44 @@ const BottomBarMapLayout = () => {
 
     return (
         <>
-            <div
-                className='
-                    flex
-                    justify-between
-                    w-full
-                    p-4
-                    bg-white
-                    border-t-2 border-zinc-900
-                '
+            <div className='
+                absolute bottom-0 z-1100
+                flex
+                flex-col
+                w-full
+                bg-zinc-900
+                p-4
+                rounded-t-2xl
+            '
             >
-                <div
-                    className='
-                        bg-zinc-200
-                         p-4
-                         rounded-lg
-                     '
-                >
-                    <h5>
-                        Общая длина маршрута:
-                    </h5>
-                    <h2>
-                        {length} км
-                    </h2>
-                </div>
+                <ArrowRotate
+                    setShowInfo={setShowInfo}
+                    showInfo={showInfo}
+                />
                 <div
                     className='
                         flex
-                        gap-4
+                        flex-col gap-2
                     '
                 >
                     <div
                         className='
-                            bg-zinc-200
-                            p-4
-                            rounded-lg
-                        '
-                    >
-                        <h5>
-                            Время прохождения:
-                        </h5>
-                        <h2>
-                            {hour} ч {minutes} минут
-                        </h2>
-                    </div>
-                    <div
-                        className='
                             flex
-                            gap-2 items-center
-                            bg-zinc-200
-                            p-4
-                            rounded-lg
+                            flex-col gap-2
                         '
                     >
-                        <h4>
-                            Скорость:
-                        </h4>
-                        <h4>
-                            {speed} км/ч
-                        </h4>
+                        <h6
+                            className='text-white'
+                        >
+                            Запуск маршрута
+                        </h6>
+                        <StartAndFinishButton/>
                     </div>
+                    <PathSensor
+                        hour={hour}
+                        minutes={minutes}
+                        showInfo={showInfo}
+                    />
                 </div>
             </div>
         </>

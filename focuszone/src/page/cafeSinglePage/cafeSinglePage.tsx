@@ -33,7 +33,7 @@ const CafeSinglePage = () => {
     FindLoading(isPending)
 
     return (
-        <section className="relative z-50 w-9/10 flex flex-col mt-10">
+        <section className="relative z-50 w-8/10 flex flex-col mt-10">
             <div className='flex gap-8'>
                 <img className='h-[400px] w-[300px] object-cover rounded-xl' src={data?.imageUrl} alt="#"/>
                 <div className='flex flex-col gap-8'>

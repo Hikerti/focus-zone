@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {Button} from "@/components/ui/button.tsx";
 
 import BgForMainPage from '@/assets/images/bgformainpage.png'
+import Phone from '@/assets/images/Phone.svg'
 
 export default function SectionHello() {
     return (
@@ -33,6 +34,17 @@ export default function SectionHello() {
                             absolute z-[-1]
                             w-full h-full
                             object-cover
+                        '
+                    />
+                    <img
+                        src={Phone}
+                        alt="phone"
+                        className='
+                            absolute z-10 bottom-[-15%] right-[10px]
+
+                            hidden
+                            lg:bottom-[-20%]
+                            sm:flex
                         '
                     />
                     <div

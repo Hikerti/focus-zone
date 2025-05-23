@@ -11,7 +11,7 @@ const CafeList = () => {
             className="
                 relative z-50
                 flex
-                w-9/10
+                w-8/10
                 flex-col
                 my-4
             "

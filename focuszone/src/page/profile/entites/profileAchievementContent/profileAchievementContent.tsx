@@ -11,12 +11,13 @@ const ProfileAchievementContent = ({url, title, description}: ProfileAchievement
                    className='
                        flex
                        w-full h-full
+                       bg-zinc-900
                    '
                >
                    <CardHeader
                        className='
                            w-full
-                           text-center text-[18px]
+                           text-center text-[18px] text-white
                            font-bold
                        '
                    >
@@ -38,7 +39,7 @@ const ProfileAchievementContent = ({url, title, description}: ProfileAchievement
                        />
                    </CardContent>
                    <CardFooter
-                       className='text-center'
+                       className='text-center text-white'
                    >
                        {description}
                    </CardFooter>

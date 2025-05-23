@@ -4,14 +4,14 @@ import LinkToTel from "@/components-primary/shared/ui/linkToTel.tsx";
 
 import { ProfileDescriptionProps } from "../../interface/inetrface.ts";
 
-export default function ProfileDescription({email, adress, description, phone}: ProfileDescriptionProps) {
+export default function ProfileDescription({email, adress, phone}: ProfileDescriptionProps) {
     return (
       <>
         <div
             className="
                 h-full w-full
                 flex
-                flex-col justify-between
+                flex-col gap-2
             "
         >
             <h4>
@@ -32,18 +32,6 @@ export default function ProfileDescription({email, adress, description, phone}: 
                 theme={'dark'}
                 content={phone}
             />
-        </div>
-        <div
-            className="
-                w-full
-                flex
-                flex-col gap-4
-            "
-        >
-            <h3>
-                Информация обо мне
-            </h3>
-            {description}
         </div>
       </>
     );

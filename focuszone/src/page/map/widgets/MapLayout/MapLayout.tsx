@@ -8,11 +8,9 @@ const MapLayout: React.FC<{children: ReactNode}> = ({children}) => {
             <div
                 className='
                     relative
-                    w-9/10 h-[810px]
+                    w-full h-screen
                     flex
                     flex-col
-                    border-zinc-900
-                    border-2
                 '
             >
                 <SideBarMapLayout>

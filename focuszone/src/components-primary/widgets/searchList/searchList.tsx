@@ -29,13 +29,14 @@ const SearchList = ({searchValue}: SearchCardProps) => {
     return (
         <div
             className='
-                absolute
+                absolute top-[44px]
                 flex
                 flex-col gap-4 items-center justify-center
                 w-full h-100
                 bg-white
-                mt-4 pt-4
-                overflow-y-scroll rounded-xl
+                py-4
+                border-2 border-zinc-200
+                overflow-y-scroll rounded-l-xl
             '
         >
             {filterCards.length !== 0
