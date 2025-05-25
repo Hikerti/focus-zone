@@ -30,7 +30,7 @@ services:
   server:
     build: 
       context: server
-      dockerfile: server/Dockerfile
+      dockerfile: Dockerfile
     ports: 
       - "4000:4000"
     volumes: 
@@ -39,7 +39,7 @@ services:
       - postgres
       - redis
     environment:
-      DATABASE_HOST: localhost
+      DATABASE_HOST: postgres
       DATABASE_PORT: 5432
       DATABASE_USER: postgres
       DATABASE_PASSWORD: Roman13_D14AR
@@ -53,7 +53,12 @@ services:
 
   frontend:
     build:
-      context: ./frontend
+      context: ./focuszone
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./focuszone:/usr/src/app
     networks:
       - dev
 
