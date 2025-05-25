@@ -1,18 +1,20 @@
-FROM node:20
+FROM node:20 AS build
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
-
-RUN npm install && \
-    npm install @rollup/rollup-linux-x64-gnu --save-optional
-
-RUN apt-get update && apt-get install -y \
-    autoconf automake libtool make gcc g++ python3 bash \
- && rm -rf /var/lib/apt/lists/*
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+RUN npm install
 
 COPY . .
-
 RUN npm run build
 
-CMD ["npm", "run", "preview"]
+FROM nginx:alpine
+
+RUN rm -rf /usr/share/nginx/html/*
+
+COPY --from=build /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
