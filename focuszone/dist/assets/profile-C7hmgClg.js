@@ -1,4 +1,4 @@
-import{j as e,g as b,a6 as y,c as f,r as a,a7 as k,u as j}from"./vendor-react-CUfAIKzV.js";import{L as _,A as p,b as g,d as N,e as w,f as v,u as c,a as z,C as A}from"./cafelist-BHm0wkNr.js";import{C as x,a as o,b as d,c as h,d as m,B as $,F as L}from"./home-IQ_C7b8U.js";import{a as F}from"./vendor-axios-xsH4HHeE.js";const E=({theme:n,content:s,size:r})=>e.jsxs("a",{href:"mailto:"+s,className:"flex items-center gap-2",target:"_blank",children:[e.jsx(b,{size:r,className:`
+import{j as e,g as b,a6 as y,c as f,r as a,a7 as k,u as j}from"./vendor-react-C0XjSBZJ.js";import{L as _,A as p,b as g,d as N,e as w,f as v,u as c,a as z,C as A}from"./cafelist-DlAPaJ5v.js";import{C as x,a as o,b as d,c as h,d as m,B as $,F as L}from"./home-gjXzndUV.js";import{a as F}from"./vendor-axios-xsH4HHeE.js";const E=({theme:n,content:s,size:r})=>e.jsxs("a",{href:"mailto:"+s,className:"flex items-center gap-2",target:"_blank",children:[e.jsx(b,{size:r,className:`
                 ${n=="dark"?"text-zinc-900":"text-white "} 
                 mt-1
                 `}),e.jsx("span",{className:`

@@ -1,12 +1,13 @@
-FROM node:18
+FROM node:20
 
-WORKDIR /usr/src/app  
+WORKDIR /usr/src/app
 
-COPY .env .env
 COPY package*.json ./
-COPY prisma ./prisma
+COPY prisma ./prisma/
 
-RUN npm i
+RUN ls -l prisma
+RUN npm install
+RUN npx prisma generate
 
 COPY . .
 

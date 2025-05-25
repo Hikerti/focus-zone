@@ -29,12 +29,13 @@ services:
 
   server:
     build: 
-      context: server
+      context: ./server
       dockerfile: Dockerfile
     ports: 
       - "4000:4000"
     volumes: 
-      - .:/usr/src/app
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
     depends_on: 
       - postgres
       - redis
@@ -47,7 +48,7 @@ services:
       DATABASE_URL: postgresql://Roman13_D14AR:postgres@db:5432/cafe_db
       REDIS_HOST: redis
       REDIS_PORT: 6379  
-    command: sh -c "npx prisma migrate dev --name init && npm run start:dev"
+    command: sh -c "npx prisma generate && npx prisma migrate dev --name init && npm run start:dev"
     networks:
       - dev
 
@@ -59,6 +60,7 @@ services:
       - "3000:3000"
     volumes:
       - ./focuszone:/usr/src/app
+    command: sh -c "npm install && npm run build"
     networks:
       - dev
 
@@ -72,7 +74,7 @@ services:
       - redis
       - postgres
     volumes:
-      - '.nginx.conf:/etc/nginx/nginx.conf'
+      - './.nginx.conf:/etc/nginx/nginx.conf'
     networks:
       - dev
   
