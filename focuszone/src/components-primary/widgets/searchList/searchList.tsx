@@ -4,12 +4,10 @@ import SearchCards from "@/components-primary/entites/cards/searchCard/searchCar
 
 import {useCafeGet} from "@/page/cafelist/store/storeCafe.ts";
 import {Card} from "@/page/cafelist/interface/interface.ts";
+import {SearchCardListProps} from "@/components-primary/widgets/searchList/interface/interface";
 
-interface SearchCardProps {
-    searchValue: string;
-}
+const SearchList = ({searchValue}: SearchCardListProps) => {
 
-const SearchList = ({searchValue}: SearchCardProps) => {
     const cards = useCafeGet(state => state.cards)
     const [filterCards, setFilterCards] = useState<Card[]>(cards)
 
@@ -26,17 +24,20 @@ const SearchList = ({searchValue}: SearchCardProps) => {
             setFilterCards(cards)
         }
     }, [searchValue])
+
     return (
         <div
             className='
-                absolute top-[44px]
+                absolute top-[52px]
                 flex
-                flex-col gap-4 items-center justify-center
-                w-full h-100
+                flex-col gap-4 items-center
+                w-[80vw] h-100
                 bg-white
                 py-4
                 border-2 border-zinc-200
                 overflow-y-scroll rounded-l-xl
+
+                sm:w-full
             '
         >
             {filterCards.length !== 0

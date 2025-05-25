@@ -5,6 +5,7 @@ import {useUpdateFavourite} from "@/components-primary/entites/cards/hooks/useUp
 import {useState, useEffect} from "react";
 import {GetCard} from "@/page/cafeSinglePage/interface/interface.ts";
 import LikeButton from "@/components-primary/shared/buttons/likeButton";
+import CommentsCarusel from "@/page/cafeSinglePage/widgets/CommentsCarusel";
 
 const CafeSinglePage = () => {
     const { id } = useParams();
@@ -33,9 +34,32 @@ const CafeSinglePage = () => {
     FindLoading(isPending)
 
     return (
-        <section className="relative z-50 w-8/10 flex flex-col mt-10">
-            <div className='flex gap-8'>
-                <img className='h-[400px] w-[300px] object-cover rounded-xl' src={data?.imageUrl} alt="#"/>
+        <section className="
+            relative z-50
+            w-full
+            flex
+            flex-col
+            mt-10
+            p-[10px]
+
+            sm:w-8/10 sm:p-0
+        ">
+            <div className='
+                flex
+                flex-col gap-8
+
+                sm:flex-row
+            '>
+                <img
+                    className='
+                        h-[400px] w-full
+                        object-cover rounded-xl
+
+                        sm:h-[400px] sm:w-[300px]
+                    '
+                    src={data?.imageUrl}
+                    alt="#"
+                />
                 <div className='flex flex-col gap-8'>
                     <div>
                         <div className='flex items-center gap-4'>
@@ -45,15 +69,28 @@ const CafeSinglePage = () => {
                                 setLikeProps={setLike}
                             />
                         </div>
-                        <h5>{data?.address}</h5>
-                        <h5>{data?.createdAt.slice(0, 10)}</h5>
+                        <h5>
+                            {data?.address}
+                        </h5>
+                        <h5>
+                            {data?.createdAt.slice(0, 10)}
+                        </h5>
                     </div>
                     <div>
-                        <h2>Описание</h2>
-                        <p className='text-zinc-900'>{data?.description}</p>
+                        <h2>
+                            Описание
+                        </h2>
+                        <p
+                            className='text-zinc-900'
+                        >
+                            {data?.description}
+                        </p>
                     </div>
                 </div>
             </div>
+            <CommentsCarusel
+                cafeId={Number(id)}
+            />
         </section>
     );
 };

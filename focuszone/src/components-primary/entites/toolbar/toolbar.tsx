@@ -36,12 +36,12 @@ export default function ToolBar() {
     <>
       <div
           className="
-          absolute top-0 right-0 z-90
-          flex
-          w-[100vw] h-16
-          justify-between items-center
-          px-4
-          bg-zinc-900
+              absolute top-0 right-0 z-90
+              flex
+              w-[100vw] h-16
+              justify-between items-center
+              px-4
+              bg-zinc-900
           "
       >
           <div className='
@@ -68,6 +68,7 @@ export default function ToolBar() {
                     w-full
                     flex
 
+                    lg:ml-[72px]
                     sm:ml-[56px] sm:w-7/10
                   "
               >
@@ -88,11 +89,16 @@ export default function ToolBar() {
                        "
                       onChange={(e) => setSearchValue(e.target.value)}
                       onFocus={() => setSearch(true)}
-                      onBlur={() => setSearch(false)}
+                      onBlur={() => {
+                          setTimeout(() => {
+                              setSearch(false)
+                          }, 100)
+                      }}
                   />
                   {search &&
                       <SearchList
                         searchValue={searchValue}
+                        setSearch={setSearch}
                       />
                   }
               </div>

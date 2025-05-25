@@ -17,23 +17,28 @@ export default function ProfilePage() {
             flex-col items-center
         "
     >
-        <img
-            src={BgMainPage}
-            alt="bg"
-            className='
-                absolute top-[-20px]
-                w-screen h-[260px]
-                object-cover
-            '
-        />
-        <span
-            className='
-                absolute top-[-20px]
-                w-screen h-[260px]
-                bg-black
-                opacity-60
-             '
-        />
+        {(users?.length !== 0)
+        &&
+            <>
+                <img
+                    src={BgMainPage}
+                    alt="bg"
+                    className='
+                        absolute top-[-20px]
+                        w-screen h-[260px]
+                        object-cover
+                    '
+                />
+                <span
+                    className='
+                        absolute top-[-20px]
+                        w-screen h-[260px]
+                        bg-black
+                        fv opacity-60
+                     '
+                />
+            </>
+        }
     {
       (users?.length !== 0)
         ?

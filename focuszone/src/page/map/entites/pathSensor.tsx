@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 const PathSensor = ({hour, minutes, showInfo}: PathSensorProps) => {
 
     const speed  = useMapData(state => state.speed);
+    const length = useMapData(state => state.length)
     const walkWaypoints = useMapData(state => state.walkWaypoints);
     const carWaypoints = useMapData(state => state.carWaypoints);
 

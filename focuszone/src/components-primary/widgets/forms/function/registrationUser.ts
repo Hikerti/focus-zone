@@ -1,9 +1,9 @@
 import axios from "axios";
-import {UserRegistration} from "@/components-primary/widgets/forms/interface/interface.ts";
+import {UserRegistrationUser} from "@/components-primary/widgets/forms/interface/interface.ts";
 import {useGetUser} from "@/helpers/store/storeUser.ts";
 
 
-export const RegistrationUser = async (body: UserRegistration) => {
+export const RegistrationUser = async (body: UserRegistrationUser) => {
     try {
         const response = await axios.post('http://localhost:4000/auth/register', body)
         const { user } = response.data;

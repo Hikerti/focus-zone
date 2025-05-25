@@ -69,6 +69,16 @@ export class PlacesService {
             })
         }
 
+        if (filter == "estimation") {
+            return await this.prisma.places.findMany({
+                skip: skip,
+                take: limit,
+                orderBy: {
+                    rating: 'desc',
+                }
+            })
+        }
+
         if (filter == "none") {
             return this.getPlacesLimit(limit, page)
         }

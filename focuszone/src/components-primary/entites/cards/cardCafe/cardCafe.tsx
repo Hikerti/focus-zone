@@ -41,6 +41,7 @@ const CardCafe: React.FC<CardCafeProps> = (
         rating,
         locationLat,
         locationLng,
+        theme
     }) => {
 
     const navigate = useNavigate();
@@ -90,7 +91,11 @@ const CardCafe: React.FC<CardCafeProps> = (
             `}
         >
             <Card
-                className="w-full"
+                className={`
+                    w-full
+                    ${theme === "dark" && "bg-zinc-900"}
+                    
+                `}
             >
                 <CardHeader>
                     <CardTitle
@@ -100,10 +105,11 @@ const CardCafe: React.FC<CardCafeProps> = (
                         '
                     >
                         <div
-                            className='
+                            className={`
                                 flex
                                 items-center gap-2
-                            '
+                            `}
+
                         >
                             <Link
                                 to={`/cafelist/${id}`}
@@ -126,29 +132,37 @@ const CardCafe: React.FC<CardCafeProps> = (
                                 <Link
                                     to={`/cafelist/${id}`}
                                     target='_blank'
-                                    className='text-zinc-900'
+                                    className={`
+                                        ${theme === "dark" ? "text-white" : "text-zinc-900"}
+                                    `}
                                 >
                                     {title}
                                 </Link>
                                 <LinkToMap
-                                    theme={'dark'}
+                                    theme={theme === 'dark' ? "light" : "dark"}
                                     content={adress}
                                 />
                                 <p
-                                    className="text-zinc-900"
+                                    className={`
+                                         ${theme === "dark" ? "text-white" : "text-zinc-900"}
+                                    `}
                                 >
                                     Дата: {createdAt?.slice(2, 10)}
                                 </p>
                             </div>
                         </div>
                         <div
-                            className='
+                            className={`
+                                ${theme === "dark" ? "text-white" : "text-zinc-900"}
                                 flex
                                 flex-col items-center
-                            '>
+                            `}
+                        >
                             <Star />
                             <p
-                                className="text-zinc-900"
+                                className={`
+                                    ${theme === "dark" ? "text-white" : "text-zinc-900"}
+                                `}
                             >
                                 {rating.length !== 0
                                     ?
@@ -162,9 +176,9 @@ const CardCafe: React.FC<CardCafeProps> = (
                 </CardHeader>
                 <CardContent
                     className="
-                    w-full h-full
-                    flex
-                    flex-col items-center gap-4
+                        w-full h-full
+                        flex
+                        flex-col items-center gap-4
                     "
                 >
                     <div
@@ -193,9 +207,9 @@ const CardCafe: React.FC<CardCafeProps> = (
                     </div>
                     <div
                         className='
-                        w-full
-                        flex
-                        gap-2 justify-between items-center
+                            w-full
+                            flex
+                            gap-2 justify-between items-center
                         '
                     >
                         <div
@@ -206,6 +220,7 @@ const CardCafe: React.FC<CardCafeProps> = (
                         >
                             <Button
                                 className='cursor-pointer'
+                                variant={theme === 'dark' ? 'secondary' : 'default'}
                                 onClick={() =>
                                     toast("Success", {
                                         description: 'Кликните, что-бы увидеть точку на карте',
@@ -229,9 +244,9 @@ const CardCafe: React.FC<CardCafeProps> = (
                             <Button
                                 size='icon'
                                 className={`
-                                    ${like ? "border-red-500" : "border-zinc-900"}
+                                    ${theme === "dark" ? "bg-white border-white hover:bg-zinc-800" : "border-zinc-900 hover:bg-white "}
+                                    ${like && "!border-red-500"}
                                     bg-transparent border-2 
-                                    hover:bg-white 
                                     cursor-pointer 
                                     group
                                 `}
@@ -239,18 +254,18 @@ const CardCafe: React.FC<CardCafeProps> = (
                             >
                                 <Heart
                                     className={`
-                                    ${like ? "text-red-500" : "text-zinc-900"} 
-                                    bg-white
-                                    transition 
+                                        ${theme === "dark" ? "border-white text-white !hover:bg-zinc-900" : "border-zinc-900 text-zinc-900"}
+                                        ${like && "!text-red-500"} 
+                                        transition 
                                     `}
                                 />
                             </Button>
                             <AlertDialog>
                                 <AlertDialogTrigger asChild>
                                     <MessageButton
+                                        theme={theme}
                                         onClick={() => setMessage(!message)}
                                     >
-
                                     </MessageButton>
                                 </AlertDialogTrigger>
                                 <MessageDialog

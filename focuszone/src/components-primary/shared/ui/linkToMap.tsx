@@ -14,13 +14,16 @@ const LinkToMap = ({theme, content, size}: Link) => {
         >
             <MapPin
                 size={size}
-                className='mt-1'
+                className={`
+                    ${theme === 'light' ? "text-white" : "text-zinc-900 "}
+                    mt-1
+                `}
             />
             <span
 
                 className={`
-                    ${theme == 'dark' ? "text-zinc-900" : "text-white "}
-                    text-zinc-900 text-[${size}px]
+                    ${theme === 'light' ? "text-white" : "text-zinc-900 "}
+                    text-[${size}px]
                 `}
             >
                 {content}

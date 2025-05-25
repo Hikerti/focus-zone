@@ -3,13 +3,14 @@ export interface Message {
     userId: string
     cafeId: number
     content: string
-    createdAt: Date
-    updatedAt: Date
+    createdAt: string
+    updatedAt: string
 }
 
 export interface MessageDialogProps {
     cafeId: number
     ratingNow: number[]
+    theme?: string
 }
 
 export interface UseCreateMessageProps {

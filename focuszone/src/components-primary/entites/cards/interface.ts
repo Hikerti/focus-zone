@@ -12,7 +12,8 @@ export interface CardCafeProps {
     createdAt?: string
     locationLat: string
     locationLng: string
-    showArrow: boolean
+    showArrow?: boolean
+    theme?: string
 }
 
 export interface useUpdateFavouriteFunction {

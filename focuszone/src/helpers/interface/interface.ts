@@ -36,3 +36,17 @@ export interface useGetStore {
     clearUser: () => void,
     setLogin: (loginUser: boolean) => void,
 }
+
+export interface FullDataPlace {
+    id: number
+    title: string
+    description: string
+    address: string
+    imageUrl: string
+    rating: number[]
+    favourites: boolean
+    locationLat: string
+    locationLng: string
+    createdAt: string
+    updatedAt: string
+}

@@ -18,58 +18,73 @@ const CafeListContent = () => {
 
     return (
         <>
-            <div className="flex flex-col justify-center pt-4 items-center w-full gap-4">
-                {cards?.map((elem) => {
-                    return (
-                        <CardCafe 
-                            id={elem.id}
-                            key={elem.id}
-                            style="w-full"
-                            title={elem.title}
-                            adress={elem.address}
-                            imageUrl={elem.imageUrl}
-                            description={elem.description}
-                            favourites={elem.favourites}
-                            createdAt={elem.createdAt}
-                            rating={elem.rating}
-                            locationLat={elem.locationLat}
-                            locationLng={elem.locationLng}
-                            showArrow={true}
-                        >
-                        </CardCafe>
-                    )
-                })}
-                {totalPage !== 1 &&
-                <Pagination>
-                    <PaginationContent>
-                        <PaginationItem
-                            onClick={() => page > 1 && setPage(page - 1)}
-                            className={page === 1 ? 'pointer-events-none opacity-50' : ''}
-                        >
-                            <PaginationPrevious href="#" />
-                        </PaginationItem>
-                        {
-                            Array.from({length: totalPage}, (_, i) => (
+            {cards && cards.length > 0
+                ?
+                <div className="flex flex-col justify-center pt-4 items-center w-full gap-4">
+                    {cards?.map((elem) => {
+                        return (
+                            <CardCafe
+                                id={elem.id}
+                                key={elem.id}
+                                style="w-full"
+                                title={elem.title}
+                                adress={elem.address}
+                                imageUrl={elem.imageUrl}
+                                description={elem.description}
+                                favourites={elem.favourites}
+                                createdAt={elem.createdAt}
+                                rating={elem.rating}
+                                locationLat={elem.locationLat}
+                                locationLng={elem.locationLng}
+                                showArrow={true}
+                                theme={'light'}
+                            >
+                            </CardCafe>
+                        )
+                    })}
+                    {totalPage !== 1 &&
+                        <Pagination>
+                            <PaginationContent>
                                 <PaginationItem
-                                    key={i + 1}
-                                    onClick={() => setPage(i + 1)}
+                                    onClick={() => page > 1 && setPage(page - 1)}
+                                    className={page === 1 ? 'pointer-events-none opacity-50' : ''}
                                 >
-                                    <PaginationLink href="#">
-                                        {i + 1}
-                                    </PaginationLink>
+                                    <PaginationPrevious href="#" />
                                 </PaginationItem>
-                            ))
-                        }
-                        <PaginationItem
-                            onClick={() => page < totalPage && setPage(page + 1)}
-                            className={page === totalPage ? 'pointer-events-none opacity-50' : ''}
-                        >
-                            <PaginationNext href="#" />
-                        </PaginationItem>
-                    </PaginationContent>
-                </Pagination>
-                }
-            </div>
+                                {
+                                    Array.from({length: totalPage}, (_, i) => (
+                                        <PaginationItem
+                                            key={i + 1}
+                                            onClick={() => setPage(i + 1)}
+                                        >
+                                            <PaginationLink href="#">
+                                                {i + 1}
+                                            </PaginationLink>
+                                        </PaginationItem>
+                                    ))
+                                }
+                                <PaginationItem
+                                    onClick={() => page < totalPage && setPage(page + 1)}
+                                    className={page === totalPage ? 'pointer-events-none opacity-50' : ''}
+                                >
+                                    <PaginationNext href="#" />
+                                </PaginationItem>
+                            </PaginationContent>
+                        </Pagination>
+                    }
+                </div>
+                :
+                <div
+                    className='
+                        flex
+                        items-center justify-center
+                        h-[80vh] w-full
+                    '
+                >
+                    <h3>Таких заведений нет</h3>
+                </div>
+            }
+
 
         </>
     );

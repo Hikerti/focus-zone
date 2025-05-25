@@ -314,7 +314,7 @@ declare class JsonNull extends NullTypesEnumValue {
  * in this case will help to have a runtime exception, telling you that you are probably doing something wrong.
  *
  * Note: if you need to check for existence of a value in the enum you can still use either
- * `in` operator or `hasOwnProperty` function.
+ * `in` operator or `hasOwnProperty` functions.
  *
  * @param definition
  * @returns

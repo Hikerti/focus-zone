@@ -9,7 +9,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["jest", "jest-dom", "node"]
+    "types": ["vite/client", "jest", "@testing-library/jest-dom"]
   },
-  "include": ["**/*.ts", "**/*.tsx", "jest.setup.ts"]
+  "include": ["jest.setup.ts", "types"]
 }

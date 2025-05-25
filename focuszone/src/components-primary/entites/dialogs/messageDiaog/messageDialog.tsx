@@ -33,8 +33,8 @@ const MessageDialog: React.FC<MessageDialogProps> = ({cafeId, ratingNow}) => {
         <>
             <AlertDialogContent
                 className='
-                flex
-                flex-col justify-center
+                    flex
+                    flex-col justify-center
                 '
             >
                 <AlertDialogHeader
@@ -42,15 +42,15 @@ const MessageDialog: React.FC<MessageDialogProps> = ({cafeId, ratingNow}) => {
                 >
                     <div
                         className="
-                        flex
-                        flex-col justify-center gap-4
+                            flex
+                            flex-col justify-center gap-4
                         "
                     >
                         <div
                             className='
-                            w-full
-                            flex
-                            justify-between items-center
+                                w-full
+                                flex
+                                justify-between items-center
                             '
                         >
                             <AlertDialogTitle>

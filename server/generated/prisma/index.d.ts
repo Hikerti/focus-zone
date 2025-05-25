@@ -372,7 +372,7 @@ export namespace Prisma {
   export type PromiseType<T extends PromiseLike<any>> = T extends PromiseLike<infer U> ? U : T;
 
   /**
-   * Get the return type of a function which returns a Promise.
+   * Get the return type of a functions which returns a Promise.
    */
   export type PromiseReturnType<T extends (...args: any) => $Utils.JsPromise<any>> = PromiseType<ReturnType<T>>
 

@@ -11,6 +11,7 @@ import { FindLoading } from "@/components-primary/entites/loading/findLoading.ts
 
 import ProfileAchievement from "@/page/profile/widgets/profileAchievement/profileAchievement.tsx";
 import ProfileDiscounts from "@/page/profile/widgets/profileDiscounts/profileDiscounts.tsx";
+import ProfileFavoritePlaces from "@/page/profile/widgets/profileFavoritePlaces/profileFavoritePlaces";
 
 export default function ProfileContent() {
 
@@ -87,6 +88,7 @@ export default function ProfileContent() {
                           >
                               <ProfileAchievement/>
                               <ProfileDiscounts/>
+                              <ProfileFavoritePlaces/>
                           </div>
                       </div>
                   </div>

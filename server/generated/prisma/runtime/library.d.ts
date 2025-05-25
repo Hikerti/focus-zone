@@ -310,7 +310,7 @@ export declare type Count<O> = {
 export declare function createParam(name: string): Param<unknown, string>;
 
 /**
- * Custom fetch function for `DataProxyEngine`.
+ * Custom fetch functions for `DataProxyEngine`.
  *
  * We can't use the actual type of `globalThis.fetch` because this will result
  * in API Extractor referencing Node.js type definitions in the `.d.ts` bundle
@@ -318,13 +318,13 @@ export declare function createParam(name: string): Param<unknown, string>;
  * don't end up exported anywhere.
 
  * It's also not possible to write a definition of `fetch` that would accept the
- * actual `fetch` function from different environments such as Node.js and
+ * actual `fetch` functions from different environments such as Node.js and
  * Cloudflare Workers (with their extensions to `RequestInit` and `Response`).
  * `fetch` is used in both covariant and contravariant positions in
  * `CustomDataProxyFetch`, making it invariant, so we need the exact same type.
  * Even if we removed the argument and left `fetch` in covariant position only,
- * then for an extension-supplied function to be assignable to `customDataProxyFetch`,
- * the platform-specific (or custom) `fetch` function needs to be assignable
+ * then for an extension-supplied functions to be assignable to `customDataProxyFetch`,
+ * the platform-specific (or custom) `fetch` functions needs to be assignable
  * to our `fetch` definition. This, in turn, requires the third-party `Response`
  * to be a subtype of our `Response` (which is not a problem, we could declare
  * a minimal `Response` type that only includes what we use) *and* requires the
@@ -1070,7 +1070,7 @@ declare interface EngineConfig {
     compilerWasm?: CompilerWasmLoadingConfig;
     /**
      * Allows Accelerate to use runtime utilities from the client. These are
-     * necessary for the AccelerateEngine to function correctly.
+     * necessary for the AccelerateEngine to functions correctly.
      */
     accelerateUtils?: {
         resolveDatasourceUrl: typeof resolveDatasourceUrl;
@@ -1570,7 +1570,7 @@ export declare function getPrismaClient(config: GetPrismaClientConfig): {
          */
         $executeRawInternal(transaction: PrismaPromiseTransaction | undefined, clientMethod: string, args: RawQueryArgs, middlewareArgsMapper?: MiddlewareArgsMapper<unknown, unknown>): Promise<number>;
         /**
-         * Executes a raw query provided through a safe tag function
+         * Executes a raw query provided through a safe tag functions
          * @see https://github.com/prisma/prisma/issues/7142
          *
          * @param query
@@ -1599,7 +1599,7 @@ export declare function getPrismaClient(config: GetPrismaClientConfig): {
          */
         $queryRawInternal(transaction: PrismaPromiseTransaction | undefined, clientMethod: string, args: RawQueryArgs, middlewareArgsMapper?: MiddlewareArgsMapper<unknown, unknown>): Promise<any>;
         /**
-         * Executes a raw query provided through a safe tag function
+         * Executes a raw query provided through a safe tag functions
          * @see https://github.com/prisma/prisma/issues/7142
          *
          * @param query
@@ -2142,7 +2142,7 @@ declare type LogLevel = 'info' | 'query' | 'warn' | 'error';
  * in this case will help to have a runtime exception, telling you that you are probably doing something wrong.
  *
  * Note: if you need to check for existence of a value in the enum you can still use either
- * `in` operator or `hasOwnProperty` function.
+ * `in` operator or `hasOwnProperty` functions.
  *
  * @param definition
  * @returns
@@ -2594,20 +2594,20 @@ export declare interface PrismaPromise<T> extends Promise<T> {
 declare interface PrismaPromise_2<TResult, TSpec extends PrismaOperationSpec<unknown> = any> extends Promise<TResult> {
     get spec(): TSpec;
     /**
-     * Extension of the original `.then` function
+     * Extension of the original `.then` functions
      * @param onfulfilled same as regular promises
      * @param onrejected same as regular promises
      * @param transaction transaction options
      */
     then<R1 = TResult, R2 = never>(onfulfilled?: (value: TResult) => R1 | PromiseLike<R1>, onrejected?: (error: unknown) => R2 | PromiseLike<R2>, transaction?: PrismaPromiseTransaction): Promise<R1 | R2>;
     /**
-     * Extension of the original `.catch` function
+     * Extension of the original `.catch` functions
      * @param onrejected same as regular promises
      * @param transaction transaction options
      */
     catch<R = never>(onrejected?: ((reason: any) => R | PromiseLike<R>) | undefined | null, transaction?: PrismaPromiseTransaction): Promise<TResult | R>;
     /**
-     * Extension of the original `.finally` function
+     * Extension of the original `.finally` functions
      * @param onfinally same as regular promises
      * @param transaction transaction options
      */
@@ -3099,7 +3099,7 @@ declare type SortOrder = 'asc' | 'desc';
 /**
  * An interface that represents a span. A span represents a single operation
  * within a trace. Examples of span might include remote procedure calls or a
- * in-process function calls to sub-components. A Trace has a single, top-level
+ * in-process functions calls to sub-components. A Trace has a single, top-level
  * "root" Span that in turn may have zero or more child Spans, which in turn
  * may have children.
  *

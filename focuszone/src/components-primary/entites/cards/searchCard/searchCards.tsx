@@ -13,7 +13,10 @@ const SearchCards: React.FC<SearchCardProps> = ({id, rating, title, imageUrl}) =
         <Link
             to={`/cafelist/${id}`}
             target='_blank'
-            className='w-9/10'
+            className='
+                relative top-0
+                w-9/10
+            '
         >
             <Card
                 className="w-full"
@@ -85,8 +88,10 @@ const SearchCards: React.FC<SearchCardProps> = ({id, rating, title, imageUrl}) =
                 >
                     <img
                         className="
-                            w-full h-[300px]
+                            w-full h-[160px]
                             object-cover rounded-lg
+
+                            sm: h-[300px]
                         "
                         src={imageUrl}
                         alt="img"
