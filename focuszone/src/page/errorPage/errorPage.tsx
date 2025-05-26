@@ -37,7 +37,7 @@ export const ErrorPage: React.FC<ErrorPageProps> = ({ error, resetErrorBoundary 
                     mb-2
                     "
                 >
-                    Что-то пошло не так:
+                    У вас ошибка:
                 </p>
                 <pre
                     className="
