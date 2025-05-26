@@ -41,17 +41,16 @@
 3. **Создайте `.env` файл и заполните переменные окружения (пример ниже).**
 
 4. **Запустите проект:**
+    # Запуск docker
+    docker compose up --build
    ```bash
    # Запуск фронтенда
    cd focuszone
    npm run dev
 
    # Запуск бэкенда
-   # Запуск docker
-   docker compose up --build
-   
-   # Запустить Redis 
-   # Запустить PostrgeSQL
+   # Запустить приложение Redis 
+   # Запустить PostrgeSQL и заполнить базу данных
    
    cd ../server
    npm run start:dev
