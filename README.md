@@ -110,6 +110,59 @@ DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST
 /.env                                           # Файл конфигурации окружения
 ```
 
+## Шаблон данных для запросов создания элементов
+
+```
+Создание карточки места
+{
+    "title": "Название",
+    "description": "Описание",
+    "address": "Адрес",
+    "imageUrl": "url",
+    "locationLat": "54.34535",
+    "locationLng": "34.3243432",
+    "rating": [3, 1, 5, 5, 5]
+}
+
+Регистрация пользователя
+{
+    "email": "email",
+    "password": "12345678",
+    "name": "name",
+    "surname": "surname",
+    "login": "login",
+    "phone": "+79999999999",
+    "adress": "адрес",
+    "description": "Я разрабочик этого приложения"
+}
+
+Создание сообщения
+{
+    "userId": "1147afd6-f185-4cde-b400-275480502a1d",
+    "cafeId": 1,
+    "content": "Описание"
+}
+
+Создание карточки со скидкой
+{
+    "userId": "1147afd6-f185-4cde-b400-275480502a1d",
+    "cafeId": 1,
+    "url": "url",
+    "logo": "url_logo",
+    "title": "Скидка на 10%",
+    "description": "Лучшая курица в Rostics"
+}
+
+Создание достижения
+{
+    "userId": "1147afd6-f185-4cde-b400-275480502a1d",
+    "cafeId": 1,
+    "url": "url",
+    "title": "Пройден маршрут длинной 5 км",
+    "description": "Вы прошли путь длинной 5 км. Продолжайте в том же духе"
+}
+```
+
 ---
 
 ## 📡 API Роуты
@@ -156,8 +209,7 @@ DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST
 
 ## 👨‍💻 Автор и лицензия
 
-**Автор:** Аникаев Роман  
-Лицензия: MIT
+**Автор:** Аникаев Роман
 
 ---
 
