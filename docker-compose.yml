@@ -32,7 +32,6 @@ services:
   server:
     build: 
       context: ./server
-      dockerfile: Dockerfile
     ports: 
       - "4000:4000"
     volumes: 
@@ -48,30 +47,26 @@ services:
       DATABASE_PASSWORD: Roman13_D14AR
       DATABASE_NAME: focuszone
       DATABASE_URL: postgresql://postgres:Roman13_D14AR@db:5432/focuszone
+
       REDIS_HOST: redis
       REDIS_PORT: 6379
-    command: ["npm", "run", "start"]
+    command: ["npm", "run", "start:dev"]
     networks:
       - prod_net
 
   frontend:
     build:
       context: ./focuszone
-      dockerfile: Dockerfile
     container_name: frontend
-    ports:
-      - "80:80"
-    restart: unless-stopped
     volumes:
       - ./focuszone:/usr/src/app
-    command: sh -c "npm install && npm run dev"
     networks:
       - prod_net
 
   nginx:
     image: nginx:stable-alpine
     ports:
-      - "8080:80"
+      - "80:80"
     depends_on:
       - server
       - frontend
